@@ -1,1 +1,185 @@
+%\documentclass[]{aastex}
+\documentclass{emulateapj}
+%\documentclass[]{emulateapj}
+
+\bibliographystyle{apj}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{longtable}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{bm}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+%\usepackage{pdflscape}
+
+% FIGSET-MACROS-BEGIN
+\newcommand{\noprint}[1]{}
+\newcommand{\figsetstart}{{\bf Fig. Set} }
+\newcommand{\figsetend}{}
+\newcommand{\figsetgrpstart}{}
+\newcommand{\figsetgrpend}{}
+\newcommand{\figsetnum}[1]{{\bf #1.}}
+\newcommand{\figsettitle}[1]{ {\bf #1} }
+\newcommand{\figsetgrpnum}[1]{\noprint{#1}}
+\newcommand{\figsetgrptitle}[1]{\noprint{#1}}
+\newcommand{\figsetplot}[1]{\noprint{#1}}
+\newcommand{\figsetgrpnote}[1]{\noprint{#1}}
+% FIGSET-MACROS-END
+\usepackage{color}
+
+\newcommand{\ron}{\color{red}} 
+\newcommand{\bon}{\color{blue}} 
+\newcommand{\gon}{\color{green}} 
+\newcommand{\coff}{\color{black}\,}
+
+\newcommand{\rprs}{{$R_p/R_{\star}$}}
+
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\project}[1]{\textsl{#1}} 
+\newcommand{\kep}{\project{Kepler}}
+\newcommand{\KT}{\project{K2}}
+\newcommand{\vsini}{{$V \sin i$}}
+\newcommand{\teff}{$T_{\rm eff}$}
+\newcommand{\kms}{{km\,s$^{-1}$}}
+\newcommand{\gcc}{{g\,cm$^{-3}$}}
+\newcommand{\rstar}{{$R_\star$}}
+\newcommand{\rhostar}{{$\rho_\star$}}
+\newcommand{\mearth}{{M$_\oplus$}}
+\newcommand{\rearth}{{R$_\oplus$}}
+\newcommand{\rsun}{{R$_\odot$}}
+\newcommand{\msun}{{M$_\odot$}}
+\newcommand{\mjup}{{M$_\textrm{Jup}$}}
+\newcommand{\rjup}{{R$_\textrm{Jup}$}}
+\newcommand{\LA}{{LHS\,6343\,A}}
+\newcommand{\LB}{{LHS\,6343\,B}}
+\newcommand{\LC}{{LHS\,6343\,C}}
+\newcommand{\LHS}{{LHS\,6343}}
+
+\newcommand{\mstar}{{$M_\star$}}
+\newcommand{\logg}{{log(g)}}
+\newcommand{\mh}{{[M/H]}~}
+\newcommand{\feh}{{[Fe/H]}~}
+
+\newcommand{\is}{importance sampling}
+\newcommand{\Is}{Importance sampling}
+%\newcommand{\h2ok2}{{$\rm H_2O-K2$}}
+
+\newcommand{\todo}[3]{{\color{#2} \emph{#1} TO DO: #3}}
+\newcommand{\btmtodo}[1]{\todo{BEN}{red}{#1}}
+
+
+
+\begin{document}
+\title{(Working Title) Properties of the \KT\ Campaign 1 Planets, 
+False Positive Probabilities, and Confirmation of $N$ Systems. You 
+Were Warned it's a Working Title.}
+
+\author{
+% The Heavy Lifters
+Benjamin T. Montet\altaffilmark{1,2}, 
+Daniel Foreman-Mackey\altaffilmark{3},
+Timothy D. Morton,
+% The Benefactors
+John Asher Johnson,
+David W. Hogg,
+% The Observers, as individuals
+Brendan P. Bowler,
+Andrew W. Mann,
+David W. Latham,
+% The observers, as a group
+And Whoever DaveL Tells Us to Add as TRES Team Members
+}
+
+\email{btm@astro.caltech.edu}
+
+\altaffiltext{1}{Cahill Center for Astronomy and Astrophysics, California Institute of Technology, 1200 E. California Blvd., MC 249-17, Pasadena, CA 91106, USA}
+\altaffiltext{2}{Harvard-Smithsonian Center for Astrophysics, 60 Garden
+Street, Cambridge, MA 02138, USA}
+\altaffiltext{3}{Department of Astronomy, University of Michigan, Ann Arbor, MI 48109, USA}
+
+
+\date{\today, \currenttime}
+
+\begin{abstract}
+\btmtodo{This is where the abstract will go}
+\end{abstract}
+
+\keywords{\btmtodo{Keywords}}
+
+\maketitle
+
+\section{Introduction}
+
+
+\section{Stellar Properties}
+\subsection{Photometry}
+
+
+\subsection{SpeX Spectroscopy}
+
+
+\section{False Positive Analysis}
+\subsection{Adaptive Optics Imaging}
+
+\subsection{Archival Imaging}
+
+\subsection{Known Background Stars}
+
+\subsection{False Positive Rates (and confirmations?)}
+This is Tim.
+
+\section{Potentially Interesting Systems}
+\subsection{The One Around the M dwarf}
+
+\subsection{Some Multi (possible multi of these}
+
+\subsection{Others? Really bright ones amenable to followup?}
+
+\section{Results and Discussion}
+
+Something about Multis and TTVs. 
+
+
+
+
+\acknowledgements
+We thank [People] for [things] which improved the quality of this manuscript.
+
+
+We are grateful to the entire Kepler team, past and present. 
+Their tireless efforts were all essential to the tremendous success of the mission and the successes of K2, present and future.
+
+
+Some of the data presented in this paper were obtained from the Mikulski
+Archive for Space Telescopes (MAST). 
+STScI is operated by the Association of Universities for Research 
+in Astronomy, Inc., under NASA contract NAS5--26555. 
+for MAST for non--HST data is provided by the NASA Office of Space 
+Science via grant NNX13AC07G and by other grants and contracts. 
+This paper includes data collected by the \kep\ mission. 
+Funding for the \kep\ mission is provided by the NASA Science 
+Mission directorate.
+
+B.T.M. is supported by the National Science Foundation Graduate Research
+Fellowship under Grant No. DGE‐1144469. 
+J.A.J. is supported by generous grants from the David and Lucile Packard
+Foundation and the Alfred P. Sloan Foundation.
+
+
+
+{\it Facilities:} \facility{Kepler}
+
+
+
+\bibliography{planetspapers}
+
+
+
+\end{document}
+
  
