@@ -63,15 +63,13 @@
 \newcommand{\msun}{{M$_\odot$}}
 \newcommand{\mjup}{{M$_\textrm{Jup}$}}
 \newcommand{\rjup}{{R$_\textrm{Jup}$}}
-\newcommand{\LA}{{LHS\,6343\,A}}
-\newcommand{\LB}{{LHS\,6343\,B}}
-\newcommand{\LC}{{LHS\,6343\,C}}
-\newcommand{\LHS}{{LHS\,6343}}
+
 
 \newcommand{\mstar}{{$M_\star$}}
 \newcommand{\logg}{{log(g)}}
 \newcommand{\mh}{{[M/H]}~}
 \newcommand{\feh}{{[Fe/H]}~}
+\newcommand{\afe}{{[$\alpha$/Fe]}~}
 
 \newcommand{\is}{importance sampling}
 \newcommand{\Is}{Importance sampling}
@@ -131,7 +129,47 @@ With the exception of one star in our sample (EPIC 201912552), we do not have
 spectroscopic data with which to characterize the stellar properties. 
 Instead, we rely on photometry.
 For each system, we query the VizieR database of astronomical catalogues
-\citep{Ochsenbein00}, 
+\citep{Ochseinbein00}. 
+We record the $B$, $V$, $g'$, $r'$, and $i'$ magnitudes and their
+uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6 
+\btmtodo{Cite: Who?}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
+We also record the $J$, $H$, and $K$ magnitudes and their uncertainties 
+as found in the 2MASS All-Sky Catalog of Point Sources \citep{Cutri03}
+and the four WISE magnitudes and uncertainties from the ALLWise Data
+Release \citep{Cutri13}.
+For all except two of our targets, the $W4$ band is only an upper limit.
+These data are reported in Table \ref{Tab:Photometry}.
+
+\btmtodo{Make this table!}
+
+\subsection{Stellar Models}
+To convert the observed photometric data into physical properties for each
+star, we employ the use of two stellar models. 
+We first download the isochrone grids from the 2012 updated photometric
+systems for the relevant bandpasses from the Dartmouth Stellar Evolution
+Database \citep{Dotter08}. 
+We then interpolate the isochrones onto a grid uniformly spaced in
+stellar mass (from 0.20 to 2.0 \msun), metallicity (from \feh$=-1.5$ to 
+\feh$=+0.5$), age (from 1.0 to 14.0 Gyr), and log distance (from 10 pc to 
+1000 pc). 
+In our interpolation, we assume \afe$=0.0$ and $Y=0.2741$, the solar value.
+We then compare the expected apparent magnitudes to our observed photometry
+to measure the likelihood of each grid point.
+For each parameter, we then marginalize our likelihood over all other 
+parameters in order to estimate the value of the physical properties
+for each star.
+
+Such a scheme enables us to infer the statistical uncertainties on the
+mass, radius, and effective temperature.
+However, we remain ignorant of any systematic uncertainties that may be
+induced by our reliance on the Dartmouth models.
+To this end, we repeat this procedure with the Padova database of stellar
+evolutionary tracks and isochrones \btmtodo{Cite: Who? Claims to be in
+file headers}. 
+Comparing two models will not help us understand any systematic errors
+of the two are biased in the same way, but in general it will allow us
+to calculate a more accurate assessment of our true uncertainties than 
+relying on one model alone.
 
 
 \subsection{SpeX Spectroscopy}
@@ -186,11 +224,11 @@ Foundation and the Alfred P. Sloan Foundation.
 
 
 
-{\it Facilities:} \facility{Kepler}
+{\it Facilities:} \facility{Kepler}%, \btmtodo{More...}
 
 
 
-\bibliography{papers}
+\bibliography{exopapers}
 
 
 
