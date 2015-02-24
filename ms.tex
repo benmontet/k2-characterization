@@ -52,7 +52,7 @@
 \newcommand{\kep}{\project{Kepler}}
 \newcommand{\KT}{\project{K2}}
 \newcommand{\vsini}{{$V \sin i$}}
-\newcommand{\teff}{$T_{\rm eff}$}
+\newcommand\teff{\ensuremath{T_\text{eff}}}
 \newcommand{\kms}{{km\,s$^{-1}$}}
 \newcommand{\gcc}{{g\,cm$^{-3}$}}
 \newcommand{\rstar}{{$R_\star$}}
@@ -144,7 +144,7 @@ These data are reported in Table \ref{Tab:Photometry}.
 
 \subsection{Stellar Models}
 To convert the observed photometric data into physical properties for each
-star, we employ the use of two stellar models. 
+star, we employ the use of stellar models. 
 We first download the isochrone grids from the 2012 updated photometric
 systems for the relevant bandpasses from the Dartmouth Stellar Evolution
 Database \citep{Dotter08}. 
@@ -161,32 +161,79 @@ for each star.
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
-However, we remain ignorant of any systematic uncertainties that may be
-induced by our reliance on the Dartmouth models.
-To this end, we repeat this procedure with the Padova database of stellar
-evolutionary tracks and isochrones \btmtodo{Cite: Who? Claims to be in
-file headers}. 
-Comparing two models will not help us understand any systematic errors
-of the two are biased in the same way, but in general it will allow us
-to calculate a more accurate assessment of our true uncertainties than 
-relying on one model alone.
-
-\btmtodo{Padova parameters, information}
-
-\btmtodo{Show plot}
-
-The Padova models consistently produce radii which are \btmtodo{VALUE\%} 
-larger than those predicted by the Dartmouth models. 
+However, we are subject to biases induced by systematics in the models themselves.
 There is some evidence that the Dartmouth models may underpredict 
 radii by $\sim 15\%$ when compared to other methods \citep{Newton15,
 Montet15}. 
-Given that these stars form the majority of our sample, this discrepancy
-is perhaps not surprising.
+Such an effect may be the result of the Dartmouth model reliance on BT-Settl
+atmospheres, which have been shown to predict near-IR colors that are too blue
+\citep{Thompson14}.
+We find that by measuring stellar parameters without any WISE data (that is, using
+only $BVgriJHK$), we largely reproduce the same effective temperatures as when
+the WISE data is included. 
+However, at the low-mass end including the WISE data systematically increases the 
+measured radius and increases \logg, as shown in \btmtodo{Figure}.
+Suggestively, spectroscopic stellar parameters of EPIC 201912552 
+(\textsection\ref{Spexobs}) suggest the derived photometric properties better 
+represent the true physical parameters when the WISE data is included. 
 
-\btmtodo{Then we combine them into one set of stellar properties?}
+
+\btmtodo{Show plot}
+
+
 
 \subsection{SpeX Spectroscopy}
+\label{Spexobs}
 
+\btmtodo{Some of Mann's references aren't in his .bib file. Fix.}
+
+A near-infrared spectrum of EPIC 201912552 was obtained using the updated SpeX 
+(uSpeX) spectrograph \citep{Rayner03} on the NASA Infrared Telescope Facility 
+(IRTF) on January 29 2015 (UT). 
+SpeX observations were taking using the short cross-dispersed mode and the
+0.3$\times15\arcsec$ slit, which provides simultaneous coverage from 0.7 
+to 2.5$\mu$m at $R\simeq2000$. 
+The target was observed at two positions along the slit to subsequently subtract 
+the sky background. Eight spectra were taking following this pattern, which provided 
+a final S/N of $>150$ per resolving element. 
+The spectrum was flat fielded, extracted, wavelength calibrated, and stacked 
+using the \textit{SpeXTool} package \citep{Cushing:2004}. 
+An A0V-type star was observed immediately after 
+the target, which was used to create a telluric correction using the 
+\textit{xtellcor} package \citep{Vacca:2003}.
+
+An optical spectrum was obtained using the SuperNova Integral Field Spectrograph
+\citep[SNIFS,][]{2002SPIE.4836...61A,Lantz:2004} on the University of Hawai'i 
+2.2m telescope on the night of January 30 2015. 
+SNIFS provides simultaneous coverage from 3200\AA--9700\,AA\ at a resolution 
+of $\simeq1000$. Final S/N of the spectrum was $>100$ pre resolving element 
+in the red ($\sim6000$\AA). 
+Details of the SNIFS reduction, including dark, bias, and flat-field corrections,
+cleaning the data of bad pixels and cosmic rays, and extraction of the 
+one-dimensional spectrum are  described in \citet{Bacon:2001} and 
+\citet{Aldering:2006}. 
+Flux calibration was performed using a separate pipeline described in \citet{Mann2015}. 
+
+\teff\ was calculated by comparing our optical spectra with the CFIST
+suite\footnote{http://phoenix.ens-lyon.fr/Grids/BT-Settl/CIFIST2011/} of the BT-SETTL
+version of the PHOENIX atmosphere models \citep{Allard:2013}, which gave a temperature
+of 3503 $\pm$ 60\,K. 
+More details of this procedure are given in \citet{2013ApJ...779..188M} and
+\citet{2014MNRAS.443.2561G}. 
+This method was used because it is known to accurately reproduce empirical 
+\teff\ values from long-baseline optical interferometry \citet{Boyajian2012}. 
+
+Metallcity was determined using the procedures from \citet{Mann2013a}. 
+\citet{Mann2013a} provide empirical relations between atomic features and M dwarf
+metallicity, calibrated using wide binaries. 
+We adopted the weighted mean of the $H-$ and $K-$band calibrations, 
+which yielded a metallicity of 0.09$\pm$0.09.
+
+We combined the derived \teff\ and [Fe/H] values with the empirical 
+\teff-[Fe/H]-$R_*$ relation from \citet{Mann2015} to compute a radius. 
+Accounting for measurement and calibration errors in [Fe/H] and \teff\ we calculated 
+a radius 0.394$\pm0.038R_\odot$. 
+We use these parameters instead of the derived photometric properties for this target.
 
 \section{False Positive Analysis}
 \subsection{Adaptive Optics Imaging}
@@ -195,11 +242,15 @@ is perhaps not surprising.
 
 \subsection{Known Background Stars}
 
+\subsection{TRES Radial Velocities}
+
 \subsection{False Positive Rates (and confirmations?)}
 This is Tim.
 
 \section{Potentially Interesting Systems}
 \subsection{The One Around the M dwarf}
+
+
 
 \subsection{Some Multi (possible multi of these}
 
@@ -241,7 +292,7 @@ Foundation and the Alfred P. Sloan Foundation.
 
 
 
-\bibliography{exopapers}
+\bibliography{exopapers; mannbib}
 
 
 
