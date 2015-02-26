@@ -80,7 +80,7 @@
 
 \newcommand{\todo}[3]{{\color{#2} \emph{#1} TO DO: #3}}
 \newcommand{\btmtodo}[1]{\todo{BEN}{red}{#1}}
-
+\newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
 
 
 \begin{document}
@@ -284,7 +284,34 @@ We include a list of these potential contaminants as Table
 In Table \ref{Table:BGstars}, the ``maximum depth'' column represents
 the maximum observed ``transit'' depth if the transit were actually caused
 by a total eclipse of the hypothetical background binary system, inducing
-a 50\% flux decrement in the background star's apparent brightness...
+a 50\% flux decrement in the background star's apparent brightness.
+
+For EPIC 201465501 and 201779067, the observed transit depth is 
+larger than each of these values, so we reject the possibility that
+these events could be the eclipses of the background binaries detected
+here. 
+
+For EPIC 201546283, the observed transit depth is nearly identical to 
+the maximum false positive depth. 
+The photometry for this potential contaminant is consistent with that
+of an M3V star; for this object to cause the observed eclipse it must
+be a total eclipse of two M3V stars. 
+However, in that case, the observed event would be exactly V-shaped,
+with second and third contact occurring simultaneously. 
+Since the transit is not V-shaped, it must be the result of
+a relatively small body passing in front of a relatively large body. 
+Therefore, it cannot be caused by this observed background dwarf star.
+
+For EPIC 201295312, the transit depth is significantly shallower than
+the maximum false positive depth, so we cannot immediately
+reject the hypothesis that the transit is actually a false positive 
+induced by a background eclipsing binary. \anytodo{Can we place limits
+on this possibility from the lack of a centroid shift?}
+
+SDSS is 95\% complete at $r=22.2$ and the telescope has a point
+spread function of $1\farcs4$. In all cases except the four above, we 
+treat the SDSS data as providing a contrast curve at wide separations
+down to a limiting magnitude of $r=22.2$.
 
 \subsection{Archival Imaging}
 
@@ -292,6 +319,25 @@ This is Ben.
 
 
 \subsection{TRES Radial Velocities}
+
+We observed EPIC 201912552 on (all UT) February 04 2015, February 24 2015,
+and February \btmtodo{XX} 2015 with the Tillinghast Reflector Echelle
+Spectrograph (TRES) on the 1.5 m Tillinghast Reflector at the Fred L.
+Whipple Observatory. 
+The spectra were taken with a resolving power of $R=44,000$ and 
+integration times ranging from 2800 to 3600 seconds, resulting in 
+signal-to-noise ratios between 17 and 29 per resolution element.
+
+\anytodo{This will be text from DaveL and/or Allyson Bieryla.}
+
+The observed radial velocities are included in Table \ref{Tab:RVs}.
+
+\btmtodo{RVs table}
+
+%57057.83314
+%57077.75616
+
+
 
 \subsection{False Positive Rates (and confirmations?)}
 This is Tim.
@@ -307,9 +353,13 @@ This is Tim.
 
 \section{Results and Discussion}
 
-Something about Multis and TTVs. 
+Something about Multis and TTVs will go in here.
 
-
+\anytodo{We should have a figure of many subplots, of phase-folded
+transits for all the confirmed planets. 
+To ease Dan's mind, we will say that they are the product of 
+some fidicual transit model and are only presented here for illustrative
+purposes.}
 
 
 \acknowledgements
