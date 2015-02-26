@@ -96,10 +96,11 @@ Timothy D. Morton,
 % The Benefactors
 John Asher Johnson,
 David W. Hogg,
-% The Observers, as individuals
+% The Observers, as PIs 
+% (ranked by integration time x collecting area)
 Brendan P. Bowler,
-Andrew W. Mann,
 David W. Latham,
+Andrew W. Mann,
 % The observers, as a group
 And Whoever DaveL Tells Us to Add as TRES Team Members
 }
@@ -262,10 +263,28 @@ surveys.
 
 To investigate the possibility that such wide companions exist,
 we query the ninth data release of the Sloan Digital Sky Survey 
-\citep[SDSS DR9,][]{Ahn12}. For each target, we return
+\citep[SDSS DR9,][]{Ahn12}. 
+For each target, we return
 all stars within 12\arcsec with $\Delta r < 8$ relative to each object
 of interest.
+Of the 31 stars in our sample, four have such a companion.
+Unlike the original \kep\ field, the field for \KT\ Campaign 1 is 
+well out of the galactic plane, so the rate of giant, distanct background
+stars is significantly lower.
+We include a list of these potential contaminants as Table 
+\ref{Table:BGstars}.
 
+%Table:BGstars
+% Primary    RA Dec Separation DeltaR         MaxDepth
+% 201295312  &  &   &          & 7.10 \pm 0.10 & 0.75
+% 201465501  &  &   &          & 7.90 \pm 0.25 & 0.36
+% 201546283  &  &   &          & 5.87 \pm 0.06 & 2.31
+% 201779067  &  &   &          & 4.21 \pm 0.03 & 10.56
+
+In Table \ref{Table:BGstars}, the ``maximum depth'' column represents
+the maximum observed ``transit'' depth if the transit were actually caused
+by a total eclipse of the hypothetical background binary system, inducing
+a 50\% flux decrement in the background star's apparent brightness...
 
 \subsection{Archival Imaging}
 
