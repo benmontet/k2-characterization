@@ -1,9 +1,10 @@
 \clearpage
 %\LongTables
+\begin{turnpage}
 \begin{deluxetable*}{cccccccccccc}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
-\tablecaption{\label{Tab:Photometry} Photometry for all Objects of Interest}
+\tablecaption{Photometry for all Objects of Interest \label{Tab:Photometry}}
 \tablehead{
 \colhead{EPIC} &
 \colhead{$B_\textrm{APASS}$} &
@@ -53,4 +54,7 @@
 \enddata
 %\tablecomments{}
 %\tablenotetext{$\dagger$}{previously undetected TTV signal.}
+%\label{Tab:Photometry}
 \end{deluxetable*}
+\end{turnpage}
+\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}
