@@ -250,6 +250,8 @@ We use these parameters instead of the derived photometric properties for this t
 
 The full list of stellar parameters adopted in this paper is included in
 Table 2.
+% For some reason I can't get it to identify the table \ref here. 
+% If anyone can figure it out, be my guest!
 
 \section{Planet Properties}
 
@@ -367,11 +369,26 @@ We observed EPIC 201912552 on (all UT) February 04 2015, February 24 2015,
 and February \btmtodo{XX} 2015 with the Tillinghast Reflector Echelle
 Spectrograph (TRES) on the 1.5 m Tillinghast Reflector at the Fred L.
 Whipple Observatory. 
+These dates were chosen to be near the times of largest RV variations, 
+corresponding to phases of \btmtodo{PHASES} relative to the time
+of transit.
 The spectra were taken with a resolving power of $R=44,000$ and 
 integration times ranging from 2800 to 3600 seconds, resulting in 
 signal-to-noise ratios between 17 and 29 per resolution element.
 
-\anytodo{This will be text from DaveL and/or Allyson Bieryla.}
+The spectra were extracted as described in \citet{Buchhave10}. 
+The relative RVs were derived by cross-correlating the spectra against the
+strongest observed spectrum (in this case, the first) over the wavelength
+range 4700 - 6800 Angstroms. 
+We selected 19 echelle orders in the analysis, being careful to reject
+orders with telluric absorption lines, fringing in the far red and those
+with very low SNR in the blue.
+
+The two observed spectra have RVs that differ by $47.1 \pm xx.x$ m s$^{-1}$.
+A deviation at this magnitude can only be explained by the presence of 
+a planetary system and instrumental noise, eliminating the possibility the
+transiting planet is actually a false positive.
+
 
 The observed radial velocities are included in Table \ref{Tab:RVs}.
 
