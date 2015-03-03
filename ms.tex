@@ -53,6 +53,7 @@
 \newcommand{\project}[1]{\textsl{#1}} 
 \newcommand{\kep}{\project{Kepler}}
 \newcommand{\KT}{\project{K2}}
+\newcommand{\Ci}{Campaign~1}
 \newcommand{\vsini}{{$V \sin i$}}
 \newcommand\teff{\ensuremath{T_\text{eff}}}
 \newcommand{\kms}{{km\,s$^{-1}$}}
@@ -89,7 +90,7 @@
 
 
 
-\title{(Working Title) Stellar and Planetary Properties of \KT\ Campaign 1
+\title{(Working Title) Stellar and Planetary Properties of \KT\ \Ci\
 Candidates and Confirmation of $N$ Systems, (Including a Planet Receiving 
 Earth-like Insolation?)}
 
@@ -122,7 +123,7 @@ Street, Cambridge, MA 02138, USA}
 
 \begin{abstract}
 Recently, \paperit{} presented a list of 36 planet candidates orbiting
-31 stars in \KT\ Campaign 1. 
+31 stars in \KT\ \Ci. 
 In this paper, we present stellar and planetary properties for all systems.
 We combine archival imaging, ground-based seeing limited survey data, and
 adaptive optics imaging with a detailed transit analysis scheme to confirm 
@@ -142,6 +143,8 @@ orbital period of 33 days.
 The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and planetary 
 astrophysics, with 7305 ``objects of interest'' and 4173 ``planet candidates''
 discovered to date \citep{Borucki11a, Borucki11b, Batalha13, Burke14, Rowe15, Mullaly15}.
+The fidelity of this sample is high, so most of these planet candidates are truly planets
+\citep{Morton11b, Fressin13}.
 The demise of two reaction wheels on the spacecraft led to a repurposing 
 of the spacecraft into the \KT\ mission, in which the telescope points at
 fields near the ecliptic plane for $\sim 75$ days at a time \citep{Howell14}.
@@ -189,8 +192,44 @@ A better strategy is to simultaneously fit both the signal and the noise, as is 
 done in cosmology and, increasingly, in radial velocity searches for planetary systems
 \citep[e.g.][]{Ferreira00, Boisse11, Haywood14, Grunblatt15}. 
 
+\paperit{} simultaneously fit both the systematics and potential planetary transit signals
+in a search for transiting planets. 
+The authors of that paper assume that the dominant trends in the observed stellar light
+curves are caused by spacecraft motion and are shared among many stars. \anytodo{Among,
+right? Not between?}
+They then run PCA on all stars to measure the dominant modes, modeling each star as a 
+linear combination of 150 of these ``eigen light curves'' and a transit signal.
+This method enables fitting without over-fitting, and also permits marginalization over
+uncertainties induced by the noise model.
+Therefore, any uncertainties in the systematics can be propogated into uncertainties in
+detected planet parameters, instead of assuming the systematics are understood perfectly.
+Using this technique, \paperit{} detect 36 planet candidates orbiting 31 stars in \KT\
+\Ci\ data.
 
-\paperit{} apply an altern
+In \paperit, only transit properties are provided, not absolute parameters about the
+planet or the star. 
+Additionally, the authors follow the convention of the \kep\ team to include any
+transit event as a candidate system rather than a false positive if a secondary eclipse
+is not detected: there is no enforced upper limit on the allowed planet radius.
+The authors intentionally make no effort to separate astrophysical false positives from
+true transiting planets.
+
+In this paper, we present stellar and planetary parameters for each system.
+Given these parameters and the transit data, as well as archival imaging, ground-based
+seeing limited survey data, and adaptive optics imaging, we are able to confirm 
+\anytodo{Number} of these systems as transiting planets at the \anytodo{Sigma} confidence
+level. We also are able to confirm \anytodo{Number} of these systems as false positives.
+
+This paper is organized as follows. 
+In \textsection2, we develop stellar properties through
+photometric and spectroscopic data.
+In \textsection3, we combine the derived stellar properties with \KT\ data to infer planet
+candidate properties.
+In \textsection4, we combine adaptive optics and radial velocity observations with both
+archival and modern ground-based, seeing limited survey data and an analysis of the
+transit parameters to calculate false positive probabilities.
+In \textsection5, we discuss potentially interesting systems.
+In \textsection6, we summarize and discuss our results.
 
 
 \section{Stellar Properties}
@@ -344,7 +383,7 @@ For each target, we return
 all stars within 12\arcsec with $\Delta r < 8$ relative to each object
 of interest.
 Of the 31 stars in our sample, four have such a companion.
-Unlike the original \kep\ field, the field for \KT\ Campaign 1 is 
+Unlike the original \kep\ field, the field for \KT\ \Ci\ is 
 well out of the galactic plane, so the rate of giant, distanct background
 stars is significantly lower.
 We include a list of these potential contaminants as Table 
