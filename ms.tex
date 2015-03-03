@@ -89,9 +89,9 @@
 
 
 
-\title{(Working Title) Properties of the \KT\ Campaign 1 Planets, 
-False Positive Probabilities, and Confirmation of $N$ Systems. You 
-Were Warned: it's a Working Title.}
+\title{(Working Title) Stellar and Planetary Properties of \KT\ Campaign 1
+Candidates and Confirmation of $N$ Systems, (Including a Planet Receiving 
+Earth-like Insolation?)}
 
 \author{
 % The Heavy Lifters
@@ -101,13 +101,13 @@ Timothy D. Morton,
 % The Benefactors
 John Asher Johnson,
 David W. Hogg,
-% The Observers, as PIs 
+% The Observers
 % (ranked by integration time x collecting area)
 Brendan P. Bowler,
 David W. Latham,
+Allyson Bieryla,
 Andrew W. Mann,
-% The observers, as a group
-And Whoever DaveL Tells Us to Add as TRES Team Members
+And Any TRES Team Members We Should Add
 }
 
 \email{btm@astro.caltech.edu}
@@ -121,12 +121,17 @@ Street, Cambridge, MA 02138, USA}
 \date{\today, \currenttime}
 
 \begin{abstract}
-\btmtodo{This is where the abstract will go}
-Of the 36 planet candidates presented in \paperit{} we confirm 
+Recently, \paperit{} presented a list of 36 planet candidates orbiting
+31 stars in \KT\ Campaign 1. 
+In this paper, we present stellar and planetary properties for all systems.
+We combine archival imaging, ground-based seeing limited survey data, and
+adaptive optics imaging with a detailed transit analysis scheme to confirm 
 \btmtodo{Nconfirm} as planets and \btmtodo{NFP} as false positives
-at the \btmtodo{confidence} level. Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
+at the \btmtodo{confidence} level.
+Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a \btmtodo{Radius} planet with $T_{eq} = $\btmtodo{Temp} and an 
 orbital period of 33 days.
+\anytodo{Anything we should add?}
 \end{abstract}
 
 \keywords{\btmtodo{Keywords}}
@@ -134,6 +139,58 @@ orbital period of 33 days.
 \maketitle
 
 \section{Introduction}
+The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and planetary 
+astrophysics, with 7305 ``objects of interest'' and 4173 ``planet candidates''
+discovered to date \citep{Borucki11a, Borucki11b, Batalha13, Burke14, Rowe15, Mullaly15}.
+The demise of two reaction wheels on the spacecraft led to a repurposing 
+of the spacecraft into the \KT\ mission, in which the telescope points at
+fields near the ecliptic plane for $\sim 75$ days at a time \citep{Howell14}.
+In this observing strategy, two axes of motion of the spacecraft are 
+controlled by the two remaining reaction wheels, while the roll of the 
+spacecraft is balanced with solar radiation pressure and quasiperiodic 
+thruster firing.
+The result of this observing strategy is that the targets appear to drift
+at the rate of $\sim 1\arcsec$ s$^{-1}$, with rapid corrections that occur
+approximately once every six hours.
+Over the full duration of each campaign, the targets appear to remain at 
+approximately the same location on the detector.
+Both the slow drift and the corrections are observable by eye, and by viewing the
+motions of each star \citep{Barentsen15} it is apparent that \KT\ is working as 
+advertised.
+Therefore, apertures can be defined around each star and aperture photometry can be
+defined in the usual way.
+
+\KT\ light curves produced with aperture photometry contain substantial pointing-induced
+photometric variations caused by the star's apparent motion over a poorly-defined flat 
+field. 
+Worse yet, these variations occur on timescales similar to transit signals, potentially
+masking the observational signature of a planet passing between \kep\ and the host star.
+
+There has been considerable effort to recover these signals.
+\citet{Vanderburg14} extract aperture photometry and decorrelate with image centroid
+position, ``correcting'' the data to ``remove'' the effects of the spacecraft motion.
+These data were used to confirm the first planet discovered in \KT\ \citep{Vanderburg15}.
+A similar technique was employed by \citet{Armstrong15a} to identify potential eclipsing
+binary systems and to identify a transiting system very near a 3:2 period commensurability
+\citep{Armstrong15b}.
+\citet{Aigrain15} and \citet{Crossfield15} use a Gaussian Process model for the measured
+flux, with pointing measurements as the inputs, and then “detrend” the data with that model.
+The latter of these detected the first multi-planet system in \KT\ data.
+
+What is common to all of these methods are that removal of systematics is considered a 
+step to be undertaken before the search for planets. 
+Under this strategy, it is implicitly assumed that the systematics are removed perfectly,
+while retaining all of the astrophysical signal. 
+Of course, it is impossible to perfectly separate the astrophysical and instrumental 
+signal, and such a technique is prone to either over-fitting, in which some of the 
+astrophysical signal is also removed, or under-fitting, in which some instrumental noise
+remains.
+A better strategy is to simultaneously fit both the signal and the noise, as is commonly
+done in cosmology and, increasingly, in radial velocity searches for planetary systems
+\citep[e.g.][]{Ferreira00, Boisse11, Haywood14, Grunblatt15}. 
+
+
+\paperit{} apply an altern
 
 
 \section{Stellar Properties}
