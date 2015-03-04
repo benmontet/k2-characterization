@@ -42,12 +42,18 @@ class K2_TransitSignal(TransitSignal_FromSamples):
     def __init__(self, epic_id, i=None):
         samples = get_samples(epic_id)
         
-        if(samples.shape[1]>5):
+        if(type(samples)==list):
             #integer nunmber must be passed
-            samples = samples[i]
-            period = PAPER1_TABLE.ix[epic_id, 'period'][i]
+            samples = samples[i-1]
+            period = PAPER1_TABLE.ix[epic_id, 'period'].iloc[i-1]
         else:
             period = PAPER1_TABLE.ix[epic_id, 'period']
+
+        name = '{}'.format(epic_id)
+        if i is None:
+            name += '.1'
+        else:
+            name += '{:.0f}'.format(i)
 
         super(type(self),self).__init__(period, 
                                         samples['T'],
