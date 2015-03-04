@@ -130,7 +130,7 @@ adaptive optics imaging with a detailed transit analysis scheme to confirm
 \btmtodo{Nconfirm} as planets and \btmtodo{NFP} as false positives
 at the \btmtodo{confidence} level.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
-hosting a \btmtodo{Radius} planet with $T_{eq} = $\btmtodo{Temp} and an 
+hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an 
 orbital period of 33 days.
 \anytodo{Anything we should add?}
 \end{abstract}
@@ -245,12 +245,13 @@ uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6
 \btmtodo{Cite: Who?}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
 We also record the $J$, $H$, and $K$ magnitudes and their uncertainties 
 as found in the 2MASS All-Sky Catalog of Point Sources \citep{Cutri03}
-and the four WISE magnitudes and uncertainties from the ALLWise Data
+and the $W1-W3$ WISE magnitudes and uncertainties from the ALLWise Data
 Release \citep{Cutri13}.
-For all except two of our targets, the $W4$ band is only an upper limit.
+For all except two of our targets, the $W4$ band is only an upper limit,
+and in the remaining two cases, the photometric uncertainity in $W4$ is at least an 
+order of magnitude larger than those in $W1-W3$, so we neglect $W4$.
 These data are reported in Table 1.
 
-\btmtodo{Make this table!}
 
 \subsection{Stellar Models}
 To convert the observed photometric data into physical properties for each
@@ -461,12 +462,12 @@ nature of these signals into question.
 
 \subsection{TRES Radial Velocities}
 
-We observed EPIC 201912552 on (all UT) February 04 2015, February 24 2015,
-and February \btmtodo{XX} 2015 with the Tillinghast Reflector Echelle
+We observed EPIC 201912552 on (all UT) February 04 2015 and February 24 2015 
+with the Tillinghast Reflector Echelle
 Spectrograph (TRES) on the 1.5 m Tillinghast Reflector at the Fred L.
 Whipple Observatory. 
 These dates were chosen to be near the times of largest RV variations, 
-corresponding to phases of \btmtodo{PHASES} relative to the time
+corresponding to phases of 0.72 and 0.32 relative to the time
 of transit.
 The spectra were taken with a resolving power of $R=44,000$ and 
 integration times ranging from 2800 to 3600 seconds, resulting in 
@@ -480,18 +481,10 @@ We selected 19 echelle orders in the analysis, being careful to reject
 orders with telluric absorption lines, fringing in the far red and those
 with very low SNR in the blue.
 
-The two observed spectra have RVs that differ by $47.1 \pm xx.x$ m s$^{-1}$.
+The two observed spectra have RVs that differ by $47.1 \pm 41.9$ m s$^{-1}$.
 A deviation at this magnitude can only be explained by the presence of 
 a planetary system and instrumental noise, eliminating the possibility the
 transiting planet is actually a false positive.
-
-
-The observed radial velocities are included in Table \ref{Tab:RVs}.
-
-\btmtodo{RVs table}
-
-%57057.83314
-%57077.75616
 
 
 
@@ -510,7 +503,7 @@ The apparent transits must be caused by an object co-moving with EPIC 201912552;
 radial velocities eliminate the possibility the companion is nonplanetary.
 Therefore, we confirm the planetary nature of this system.
 
-This star is an M2.8 dwarf at a distance of \btmtodo{Distance: around 30 pc}.
+This star is an M2.8 dwarf at a distance of $34\pm4$ pc.
 Of our planet candidate hosts, only EPIC 201367065 \citep[originally
 discovered by][]{Crossfield15} is brighter in $K$-band.
 This star is only 0.1 magnitudes fainter in $K$ than GJ\,1214 
@@ -522,7 +515,7 @@ and is ideal as a target for future space-based missions such as JWST.
 Unlike GJ\,1214b, EPIC 201912552b is not highly irradiated. 
 Instead, it is at an reduced semimajor axis \ars$ = 82.1 \pm 8.6$.
 Its equilibrium temperature is then, assuming zero albedo, $T_{eq} = 275 \pm 15$
-K, meaning its bulk insolation is similar to that of the Earth's.
+K, meaning its bulk insolation is $135 \pm 30$ percent that of the Earth's.
 Although the planet is likely too large to be rocky \citep{Rogers14}, 
 its atmosphere is likely to be the focus of many future observations, providing
 a cool analogue to the highly irradiated planets of a similar size found by 
@@ -531,7 +524,7 @@ a cool analogue to the highly irradiated planets of a similar size found by
 
 
 \subsection{EPIC 201465501?}
-Is this a subsection? It's a star with a mass of ~0.2 Msun and a cnadidate with
+Is this a subsection? It's a star with a mass of ~0.2 Msun and a candidate with
 a period of 18 days. I suppose it depends on the FPP.
 
 \subsection{An Instrumental False Positive}
@@ -547,7 +540,20 @@ of an instrumental artifact.
 Cite \citet{Coughlin14} and \citet{Batalha13} in here.
 
 \subsection{Multiple Planet Systems}
+Five of the systems identified by \paperit\ are candidates to be multiply-transiting
+systems. 
+One of these is EPIC 201367065, a three-planet system originally announced by
+\citet{Crossfield15}. 
+Another of these is EPIC 201505350 \citep{Armstrong15b}, a two-planet system with the
+orbital periods of the two planets near a 3:2 period commensurability.
+The remaining three are all representative of the multiple-planet systems observed by
+\kep \citep{Lissauer11b, Fabrycky14}.
+Two of the systems are near a period commensurability and all three consist of 
+mini-Neptune sized planets.
+Like in the \kep\ field, the false positive rate we measure for the multiple planet sample
+here ($0/10$) is lower than for the single systems \citep{Lissauer12, Rowe14}.
 
+We do not detect any significant transit timing variations 
 
 \subsection{Systems Orbiting Bright Stars}
 
@@ -563,11 +569,13 @@ purposes.}
 
 
 \acknowledgements
-We thank [Eric Agol (UW) and Other People] for [things] which improved the quality of this manuscript.
+We thank Eric Agol (UW), Dan Huber (Sydney) [and Other People] for conversations and
+suggestions which improved the quality of this manuscript.
 
 
 We are grateful to the entire Kepler team, past and present. 
-Their tireless efforts were all essential to the tremendous success of the mission and the successes of K2, present and future.
+Their tireless efforts were all essential to the tremendous success of the mission and the
+successes of K2, present and future.
 
 
 Some of the data presented in this paper were obtained from the Mikulski
