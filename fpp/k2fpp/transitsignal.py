@@ -59,3 +59,5 @@ class K2_TransitSignal(TransitSignal_FromSamples):
                                         samples['T'],
                                         samples['delta'],
                                         samples['T_tau'])
+        self.name = name
+
