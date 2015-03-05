@@ -1,5 +1,5 @@
 % The rules:
-% I guess same as DFM because he'll complain if we don't use the 
+% I guess same as DFM because he'll complain if we don't use the
 % character limit.
 % New sentences on each line.
 % Citation format is \citet{AuthornameYY}.
@@ -40,9 +40,9 @@
 % FIGSET-MACROS-END
 \usepackage{color}
 
-\newcommand{\ron}{\color{red}} 
-\newcommand{\bon}{\color{blue}} 
-\newcommand{\gon}{\color{green}} 
+\newcommand{\ron}{\color{red}}
+\newcommand{\bon}{\color{blue}}
+\newcommand{\gon}{\color{green}}
 \newcommand{\coff}{\color{black}\,}
 
 \newcommand{\rprs}{{$R_p/R_{\star}$}}
@@ -50,7 +50,7 @@
 
 \newcommand{\eg}{{\it e.g.}}
 \newcommand{\ie}{{\it i.e.}}
-\newcommand{\project}[1]{\textsl{#1}} 
+\newcommand{\project}[1]{\textsl{#1}}
 \newcommand{\kep}{\project{Kepler}}
 \newcommand{\KT}{\project{K2}}
 \newcommand{\Ci}{Campaign~1}
@@ -91,12 +91,12 @@
 
 
 \title{(Working Title) Stellar and Planetary Properties of \KT\ \Ci\
-Candidates and Confirmation of $N$ Systems, (Including a Planet Receiving 
+Candidates and Confirmation of $N$ Systems, (Including a Planet Receiving
 Earth-like Insolation?)}
 
 \author{
 % The Heavy Lifters
-Benjamin T. Montet\altaffilmark{1,2}, 
+Benjamin T. Montet\altaffilmark{1,2},
 Daniel Foreman-Mackey\altaffilmark{3},
 Timothy D. Morton,
 % The Benefactors
@@ -123,14 +123,14 @@ Street, Cambridge, MA 02138, USA}
 
 \begin{abstract}
 Recently, \paperit{} presented a list of 36 planet candidates orbiting
-31 stars in \KT\ \Ci. 
+31 stars in \KT\ \Ci.
 In this paper, we present stellar and planetary properties for all systems.
 We combine archival imaging, ground-based seeing limited survey data, and
-adaptive optics imaging with a detailed transit analysis scheme to confirm 
+adaptive optics imaging with a detailed transit analysis scheme to confirm
 \btmtodo{Nconfirm} as planets and \btmtodo{NFP} as false positives
 at the \btmtodo{confidence} level.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
-hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an 
+hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an
 orbital period of 33 days.
 \anytodo{Anything we should add?}
 \end{abstract}
@@ -140,32 +140,32 @@ orbital period of 33 days.
 \maketitle
 
 \section{Introduction}
-The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and planetary 
+The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and planetary
 astrophysics, with 7305 ``objects of interest'' and 4173 ``planet candidates''
 discovered to date \citep{Borucki11a, Borucki11b, Batalha13, Burke14, Rowe15, Mullaly15}.
 The fidelity of this sample is high, so most of these planet candidates are truly planets
 \citep{Morton11b, Fressin13}.
-The demise of two reaction wheels on the spacecraft led to a repurposing 
+The demise of two reaction wheels on the spacecraft led to a repurposing
 of the spacecraft into the \KT\ mission, in which the telescope points at
 fields near the ecliptic plane for $\sim 75$ days at a time \citep{Howell14}.
-In this observing strategy, two axes of motion of the spacecraft are 
-controlled by the two remaining reaction wheels, while the roll of the 
-spacecraft is balanced with solar radiation pressure and quasiperiodic 
+In this observing strategy, two axes of motion of the spacecraft are
+controlled by the two remaining reaction wheels, while the roll of the
+spacecraft is balanced with solar radiation pressure and quasiperiodic
 thruster firing.
 The result of this observing strategy is that the targets appear to drift
 at the rate of $\sim 1\arcsec$ s$^{-1}$, with rapid corrections that occur
 approximately once every six hours.
-Over the full duration of each campaign, the targets appear to remain at 
+Over the full duration of each campaign, the targets appear to remain at
 approximately the same location on the detector.
 Both the slow drift and the corrections are observable by eye, and by viewing the
-motions of each star \citep{Barentsen15} it is apparent that \KT\ is working as 
+motions of each star \citep{Barentsen15} it is apparent that \KT\ is working as
 advertised.
 Therefore, apertures can be defined around each star and aperture photometry can be
 defined in the usual way.
 
 \KT\ light curves produced with aperture photometry contain substantial pointing-induced
-photometric variations caused by the star's apparent motion over a poorly-defined flat 
-field. 
+photometric variations caused by the star's apparent motion over a poorly-defined flat
+field.
 Worse yet, these variations occur on timescales similar to transit signals, potentially
 masking the observational signature of a planet passing between \kep\ and the host star.
 
@@ -180,24 +180,24 @@ binary systems and to identify a transiting system very near a 3:2 period commen
 flux, with pointing measurements as the inputs, and then “detrend” the data with that model.
 The latter of these detected the first multi-planet system in \KT\ data.
 
-What is common to all of these methods are that removal of systematics is considered a 
-step to be undertaken before the search for planets. 
+What is common to all of these methods are that removal of systematics is considered a
+step to be undertaken before the search for planets.
 Under this strategy, it is implicitly assumed that the systematics are removed perfectly,
-while retaining all of the astrophysical signal. 
-Of course, it is impossible to perfectly separate the astrophysical and instrumental 
-signal, and such a technique is prone to either over-fitting, in which some of the 
+while retaining all of the astrophysical signal.
+Of course, it is impossible to perfectly separate the astrophysical and instrumental
+signal, and such a technique is prone to either over-fitting, in which some of the
 astrophysical signal is also removed, or under-fitting, in which some instrumental noise
 remains.
 A better strategy is to simultaneously fit both the signal and the noise, as is commonly
 done in cosmology and, increasingly, in radial velocity searches for planetary systems
-\citep[e.g.][]{Ferreira00, Boisse11, Haywood14, Grunblatt15}. 
+\citep[e.g.][]{Ferreira00, Boisse11, Haywood14, Grunblatt15}.
 
 \paperit{} simultaneously fit both the systematics and potential planetary transit signals
-in a search for transiting planets. 
+in a search for transiting planets.
 The authors of that paper assume that the dominant trends in the observed stellar light
 curves are caused by spacecraft motion and are shared among many stars. \anytodo{Among,
 right? Not between?}
-They then run PCA on all stars to measure the dominant modes, modeling each star as a 
+They then run PCA on all stars to measure the dominant modes, modeling each star as a
 linear combination of 150 of these ``eigen light curves'' and a transit signal.
 This method enables fitting without over-fitting, and also permits marginalization over
 uncertainties induced by the noise model.
@@ -207,7 +207,7 @@ Using this technique, \paperit{} detect 36 planet candidates orbiting 31 stars i
 \Ci\ data.
 
 In \paperit, only transit properties are provided, not absolute parameters about the
-planet or the star. 
+planet or the star.
 Additionally, the authors follow the convention of the \kep\ team to include any
 transit event as a candidate system rather than a false positive if a secondary eclipse
 is not detected: there is no enforced upper limit on the allowed planet radius.
@@ -216,11 +216,11 @@ true transiting planets.
 
 In this paper, we present stellar and planetary parameters for each system.
 Given these parameters and the transit data, as well as archival imaging, ground-based
-seeing limited survey data, and adaptive optics imaging, we are able to confirm 
+seeing limited survey data, and adaptive optics imaging, we are able to confirm
 \anytodo{Number} of these systems as transiting planets at the \anytodo{Sigma} confidence
 level. We also are able to confirm \anytodo{Number} of these systems as false positives.
 
-This paper is organized as follows. 
+This paper is organized as follows.
 In \textsection2, we develop stellar properties through
 photometric and spectroscopic data.
 In \textsection3, we combine the derived stellar properties with \KT\ data to infer planet
@@ -236,57 +236,57 @@ In \textsection6, we summarize and discuss our results.
 \subsection{Photometry}
 
 With the exception of one star in our sample (EPIC 201912552), we do not have
-spectroscopic data with which to characterize the stellar properties. 
+spectroscopic data with which to characterize the stellar properties.
 Instead, we rely on photometry.
 For each system, we query the VizieR database of astronomical catalogues
-\citep{Ochseinbein00}. 
+\citep{Ochseinbein00}.
 We record the $B$, $V$, $g'$, $r'$, and $i'$ magnitudes and their
-uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6 
+uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6
 \btmtodo{Cite: Who?}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
-We also record the $J$, $H$, and $K$ magnitudes and their uncertainties 
+We also record the $J$, $H$, and $K$ magnitudes and their uncertainties
 as found in the 2MASS All-Sky Catalog of Point Sources \citep{Cutri03}
 and the $W1-W3$ WISE magnitudes and uncertainties from the ALLWise Data
 Release \citep{Cutri13}.
 For all except two of our targets, the $W4$ band is only an upper limit,
-and in the remaining two cases, the photometric uncertainity in $W4$ is at least an 
+and in the remaining two cases, the photometric uncertainity in $W4$ is at least an
 order of magnitude larger than those in $W1-W3$, so we neglect $W4$.
 These data are reported in Table 1.
 
 
 \subsection{Stellar Models}
 To convert the observed photometric data into physical properties for each
-star, we employ the use of stellar models. 
+star, we employ the use of stellar models.
 We first download the isochrone grids from the 2012 updated photometric
 systems for the relevant bandpasses from the Dartmouth Stellar Evolution
-Database \citep{Dotter08}. 
+Database \citep{Dotter08}.
 We then interpolate the isochrones onto a grid uniformly spaced in
-stellar mass (from 0.20 to 2.0 \msun), metallicity (from \feh$=-1.5$ to 
-\feh$=+0.5$), age (from 1.0 to 14.0 Gyr), and log distance (from 10 pc to 
-1000 pc). 
+stellar mass (from 0.20 to 2.0 \msun), metallicity (from \feh$=-1.5$ to
+\feh$=+0.5$), age (from 1.0 to 14.0 Gyr), and log distance (from 10 pc to
+1000 pc).
 In our interpolation, we assume \afe$=0.0$ and $Y=0.2741$, the solar value.
 We then compare the expected apparent magnitudes to our observed photometry
 to measure the likelihood of each grid point.
-For each parameter, we then marginalize our likelihood over all other 
+For each parameter, we then marginalize our likelihood over all other
 parameters in order to estimate the value of the physical properties
 for each star.
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
 However, we are subject to biases induced by systematics in the models themselves.
-There is some evidence that the Dartmouth models may underpredict 
+There is some evidence that the Dartmouth models may underpredict
 radii by $\sim 15\%$ when compared to other methods \citep{Newton15,
-Montet15}. 
+Montet15}.
 Such an effect may be the result of the Dartmouth model reliance on BT-Settl
 atmospheres, which have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
 We find that by measuring stellar parameters without any WISE data (that is, using
 only $BVgriJHK$), we largely reproduce the same effective temperatures as when
-the WISE data is included. 
-However, at the low-mass end including the WISE data systematically increases the 
+the WISE data is included.
+However, at the low-mass end including the WISE data systematically increases the
 measured radius and increases \logg, as shown in \btmtodo{Figure}.
-Suggestively, spectroscopic stellar parameters of EPIC 201912552 
-(\textsection\ref{Spexobs}) suggest the derived photometric properties better 
-represent the true physical parameters when the WISE data is included. 
+Suggestively, spectroscopic stellar parameters of EPIC 201912552
+(\textsection\ref{Spexobs}) suggest the derived photometric properties better
+represent the true physical parameters when the WISE data is included.
 
 
 \btmtodo{Show plot}
@@ -297,64 +297,64 @@ represent the true physical parameters when the WISE data is included.
 \label{Spexobs}
 
 
-A near-infrared spectrum of EPIC 201912552 was obtained using the updated SpeX 
-(uSpeX) spectrograph \citep{Rayner03} on the NASA Infrared Telescope Facility 
-(IRTF) on January 29 2015 (UT). 
+A near-infrared spectrum of EPIC 201912552 was obtained using the updated SpeX
+(uSpeX) spectrograph \citep{Rayner03} on the NASA Infrared Telescope Facility
+(IRTF) on January 29 2015 (UT).
 SpeX observations were taking using the short cross-dispersed mode and the
-0.3$\times15\arcsec$ slit, which provides simultaneous coverage from 0.7 
-to 2.5$\mu$m at $R\simeq2000$. 
-The target was observed at two positions along the slit to subsequently subtract 
-the sky background. Eight spectra were taking following this pattern, which provided 
-a final S/N of $>150$ per resolving element. 
-The spectrum was flat fielded, extracted, wavelength calibrated, and stacked 
-using the \textit{SpeXTool} package \citep{Cushing04}. 
-An A0V-type star was observed immediately after 
-the target, which was used to create a telluric correction using the 
+0.3$\times15\arcsec$ slit, which provides simultaneous coverage from 0.7
+to 2.5$\mu$m at $R\simeq2000$.
+The target was observed at two positions along the slit to subsequently subtract
+the sky background. Eight spectra were taking following this pattern, which provided
+a final S/N of $>150$ per resolving element.
+The spectrum was flat fielded, extracted, wavelength calibrated, and stacked
+using the \textit{SpeXTool} package \citep{Cushing04}.
+An A0V-type star was observed immediately after
+the target, which was used to create a telluric correction using the
 \textit{xtellcor} package \citep{Vacca03}.
 
 An optical spectrum was obtained using the SuperNova Integral Field Spectrograph
-\citep[SNIFS,][]{Aldering02,Lantz04} on the University of Hawai'i 
-2.2m telescope on the night of January 30 2015. 
-SNIFS provides simultaneous coverage from 3200\AA--9700\,AA\ at a resolution 
-of $\simeq1000$. Final S/N of the spectrum was $>100$ pre resolving element 
-in the red ($\sim6000$\AA). 
+\citep[SNIFS,][]{Aldering02,Lantz04} on the University of Hawai'i
+2.2m telescope on the night of January 30 2015.
+SNIFS provides simultaneous coverage from 3200\AA--9700\,AA\ at a resolution
+of $\simeq1000$. Final S/N of the spectrum was $>100$ pre resolving element
+in the red ($\sim6000$\AA).
 Details of the SNIFS reduction, including dark, bias, and flat-field corrections,
-cleaning the data of bad pixels and cosmic rays, and extraction of the 
-one-dimensional spectrum are described in \citet{Bacon01} and 
-\citet{Aldering06}. 
-Flux calibration was performed using a separate pipeline described in \citet{Mann15}. 
+cleaning the data of bad pixels and cosmic rays, and extraction of the
+one-dimensional spectrum are described in \citet{Bacon01} and
+\citet{Aldering06}.
+Flux calibration was performed using a separate pipeline described in \citet{Mann15}.
 
 \teff\ was calculated by comparing our optical spectra with the CFIST
 suite\footnote{http://phoenix.ens-lyon.fr/Grids/BT-Settl/CIFIST2011/} of the BT-SETTL
 version of the PHOENIX atmosphere models \citep{Allard13}, which gave a temperature
-of 3503 $\pm$ 60\,K. 
+of 3503 $\pm$ 60\,K.
 More details of this procedure are given in \citet{Mann14} and
-\citet{Gaidos14}. 
-This method was used because it is known to accurately reproduce empirical 
-\teff\ values from long-baseline optical interferometry \citet{Boyajian12}. 
+\citet{Gaidos14}.
+This method was used because it is known to accurately reproduce empirical
+\teff\ values from long-baseline optical interferometry \citet{Boyajian12}.
 
 Metallcity was determined using the procedures from \citet{Mann13a}, in which the
 authors provide empirical relations between atomic features and M dwarf
-metallicity, calibrated using wide binaries. 
-We adopted the weighted mean of the $H-$ and $K-$band calibrations, 
+metallicity, calibrated using wide binaries.
+We adopted the weighted mean of the $H-$ and $K-$band calibrations,
 which yielded a metallicity of 0.09$\pm$0.09.
 
-We combined the derived \teff\ and [Fe/H] values with the empirical 
-\teff-[Fe/H]-$R_*$ relation from \citet{Mann15} to compute a radius. 
-Accounting for measurement and calibration errors in [Fe/H] and \teff\ we calculated 
-a radius 0.394$\pm0.038R_\odot$. 
+We combined the derived \teff\ and [Fe/H] values with the empirical
+\teff-[Fe/H]-$R_*$ relation from \citet{Mann15} to compute a radius.
+Accounting for measurement and calibration errors in [Fe/H] and \teff\ we calculated
+a radius 0.394$\pm0.038R_\odot$.
 We use these parameters instead of the derived photometric properties for this target.
 
 The full list of stellar parameters adopted in this paper is included in
 Table 2.
-% For some reason I can't get it to identify the table \ref here. 
+% For some reason I can't get it to identify the table \ref here.
 % If anyone can figure it out, be my guest!
 
 \section{Planet Properties}
 
 This is Dan.
 
-(Include comment here about how the planet parameters assume no dilution. 
+(Include comment here about how the planet parameters assume no dilution.
 Except for the two that we have AO detected binaries for, probably?
 Brendan should have us flux ratios by the end of the day.
 In those cases, I suppose we need to include planet properties in both cases
@@ -371,23 +371,23 @@ This is Brendan.
 \subsection{Known Background Stars}
 The P3K AO system has a field of view of $3.84 \times 3.84$ arcseconds.
 \btmtodo{Check with Brendan to make sure he used this mode}.
-Each \KT\ pixel is a square of $3.98 \times 3.98$ arcseconds. 
-A background eclipsing binary within a few \KT\ pixels of our target 
+Each \KT\ pixel is a square of $3.98 \times 3.98$ arcseconds.
+A background eclipsing binary within a few \KT\ pixels of our target
 stars could mimic a transit signal while evading detection by P3K.
 Such wide eclipsing binaries should appear in seeing-limited ground-based
 surveys.
 
 To investigate the possibility that such wide companions exist,
-we query the ninth data release of the Sloan Digital Sky Survey 
-\citep[SDSS DR9,][]{Ahn12}. 
+we query the ninth data release of the Sloan Digital Sky Survey
+\citep[SDSS DR9,][]{Ahn12}.
 For each target, we return
 all stars within 12\arcsec with $\Delta r < 8$ relative to each object
 of interest.
 Of the 31 stars in our sample, four have such a companion.
-Unlike the original \kep\ field, the field for \KT\ \Ci\ is 
+Unlike the original \kep\ field, the field for \KT\ \Ci\ is
 well out of the galactic plane, so the rate of giant, distanct background
 stars is significantly lower.
-We include a list of these potential contaminants as Table 
+We include a list of these potential contaminants as Table
 \ref{Table:BGstars}.
 
 %Table:BGstars
@@ -402,30 +402,30 @@ the maximum observed ``transit'' depth if the transit were actually caused
 by a total eclipse of the hypothetical background binary system, inducing
 a 50\% flux decrement in the background star's apparent brightness.
 
-For EPIC 201465501 and 201779067, the observed transit depth is 
+For EPIC 201465501 and 201779067, the observed transit depth is
 larger than each of these values, so we reject the possibility that
 these events could be the eclipses of the background binaries detected
-here. 
+here.
 
-For EPIC 201546283, the observed transit depth is nearly identical to 
-the maximum false positive depth. 
+For EPIC 201546283, the observed transit depth is nearly identical to
+the maximum false positive depth.
 The photometry for this potential contaminant is consistent with that
 of an M3V star; for this object to cause the observed eclipse it must
-be a total eclipse of two M3V stars. 
+be a total eclipse of two M3V stars.
 However, in that case, the observed event would be exactly V-shaped,
-with second and third contact occurring simultaneously. 
+with second and third contact occurring simultaneously.
 Since the transit is not V-shaped, it must be the result of
-a relatively small body passing in front of a relatively large body. 
+a relatively small body passing in front of a relatively large body.
 Therefore, it cannot be caused by this observed background dwarf star.
 
 For EPIC 201295312, the transit depth is significantly shallower than
 the maximum false positive depth, so we cannot immediately
-reject the hypothesis that the transit is actually a false positive 
+reject the hypothesis that the transit is actually a false positive
 induced by a background eclipsing binary. \anytodo{Can we place limits
 on this possibility from the lack of a centroid shift?}
 
 SDSS is 95\% complete at $r=22.2$ and the telescope has a point
-spread function of $1\farcs4$. In all cases except the four above, we 
+spread function of $1\farcs4$. In all cases except the four above, we
 treat the SDSS data as providing a contrast curve at wide separations
 down to a limiting magnitude of $r=22.2$.
 
@@ -436,22 +436,22 @@ possibility that a background binary could be positioned
 directly behind the target star, evading detection.
 The probability is small, given the $0\farcs1$ diffraction limit
 of P200 at $2\mu$m, but nonzero.
-We can rule out the possibility of such chance alignments with 
-archival imaging data. 
+We can rule out the possibility of such chance alignments with
+archival imaging data.
 
 \btmtodo{Method}
 
 \btmtodo{Plots showing POSS observations.}
 
-For these targets, we can extend our contrast curves to zero 
+For these targets, we can extend our contrast curves to zero
 present-day orbital separation and rule out the possibility that
 these transit events are caused by background eclipsing binaries.
-By combining present-day seeing-limited photometric survey data, 
-adaptive optics imaging, and archival photometry, the only stellar companions 
-we would not detect would be those that are gravitationally bound to the target 
+By combining present-day seeing-limited photometric survey data,
+adaptive optics imaging, and archival photometry, the only stellar companions
+we would not detect would be those that are gravitationally bound to the target
 star and positioned in their orbits so that their projected separation is
 smaller than the diffraction limit of the P200 telescope.
-Such an alignment would require the orbital inclination of the binary to be 
+Such an alignment would require the orbital inclination of the binary to be
 nearly $90^\circ$ and the phase $\varpi + \theta \approx \pi/2$ or $3\pi/2$.
 While we cannot fully rule out this possibility, such an alignment is unlikely
 to occur, and highly unlikely to cause enough dilution to call the planetary
@@ -462,27 +462,27 @@ nature of these signals into question.
 
 \subsection{TRES Radial Velocities}
 
-We observed EPIC 201912552 on (all UT) February 04 2015 and February 24 2015 
+We observed EPIC 201912552 on (all UT) February 04 2015 and February 24 2015
 with the Tillinghast Reflector Echelle
 Spectrograph (TRES) on the 1.5 m Tillinghast Reflector at the Fred L.
-Whipple Observatory. 
-These dates were chosen to be near the times of largest RV variations, 
+Whipple Observatory.
+These dates were chosen to be near the times of largest RV variations,
 corresponding to phases of 0.72 and 0.32 relative to the time
 of transit.
-The spectra were taken with a resolving power of $R=44,000$ and 
-integration times ranging from 2800 to 3600 seconds, resulting in 
+The spectra were taken with a resolving power of $R=44,000$ and
+integration times ranging from 2800 to 3600 seconds, resulting in
 signal-to-noise ratios between 17 and 29 per resolution element.
 
-The spectra were extracted as described in \citet{Buchhave10}. 
+The spectra were extracted as described in \citet{Buchhave10}.
 The relative RVs were derived by cross-correlating the spectra against the
 strongest observed spectrum (in this case, the first) over the wavelength
-range 4700 - 6800 Angstroms. 
+range 4700 - 6800 Angstroms.
 We selected 19 echelle orders in the analysis, being careful to reject
 orders with telluric absorption lines, fringing in the far red and those
 with very low SNR in the blue.
 
 The two observed spectra have RVs that differ by $47.1 \pm 41.9$ m s$^{-1}$.
-A deviation at this magnitude can only be explained by the presence of 
+A deviation at this magnitude can only be explained by the presence of
 a planetary system and instrumental noise, eliminating the possibility the
 transiting planet is actually a false positive.
 
@@ -494,10 +494,10 @@ This is Tim.
 \section{Potentially Interesting Systems}
 \subsection{A Mini-Neptune with Earthlike Insolation}
 
-Of particular interest is EPIC 201912552. 
+Of particular interest is EPIC 201912552.
 
-By combining archival and modern seeing-limited data with adaptive optics 
-imaging, we can exclude the possibility these transit events are caused by 
+By combining archival and modern seeing-limited data with adaptive optics
+imaging, we can exclude the possibility these transit events are caused by
 a background eclipsing binary.
 The apparent transits must be caused by an object co-moving with EPIC 201912552;
 radial velocities eliminate the possibility the companion is nonplanetary.
@@ -506,19 +506,19 @@ Therefore, we confirm the planetary nature of this system.
 This star is an M2.8 dwarf at a distance of $34\pm4$ pc.
 Of our planet candidate hosts, only EPIC 201367065 \citep[originally
 discovered by][]{Crossfield15} is brighter in $K$-band.
-This star is only 0.1 magnitudes fainter in $K$ than GJ\,1214 
+This star is only 0.1 magnitudes fainter in $K$ than GJ\,1214
 \citep{Charbonneau09}.
 Due to the relative brightness of the host star, this target is likely
 to become a prime target for atmospheric characterization studies
 and is ideal as a target for future space-based missions such as JWST.
 
-Unlike GJ\,1214b, EPIC 201912552b is not highly irradiated. 
+Unlike GJ\,1214b, EPIC 201912552b is not highly irradiated.
 Instead, it is at an reduced semimajor axis \ars$ = 82.1 \pm 8.6$.
 Its equilibrium temperature is then, assuming zero albedo, $T_{eq} = 275 \pm 15$
 K, meaning its bulk insolation is $135 \pm 30$ percent that of the Earth's.
-Although the planet is likely too large to be rocky \citep{Rogers14}, 
+Although the planet is likely too large to be rocky \citep{Rogers14},
 its atmosphere is likely to be the focus of many future observations, providing
-a cool analogue to the highly irradiated planets of a similar size found by 
+a cool analogue to the highly irradiated planets of a similar size found by
 \kep.
 
 
@@ -530,63 +530,63 @@ a period of 18 days. I suppose it depends on the FPP.
 \subsection{An Instrumental False Positive}
 
 EPIC 201555883 was originally listed in \paperit\ as a planet candidate.
-After submission of that work, this object of interest was identified as 
-having a transit ephemeris consistent with that of EPIC 201569483, 
+After submission of that work, this object of interest was identified as
+having a transit ephemeris consistent with that of EPIC 201569483,
 which we identify as a likely eclipsing binary due to the observed transit
-depth \anytodo{Right? Right?}. 
-We conclude the observed transit signal from EPIC 201555883 is likely the result 
+depth \anytodo{Right? Right?}.
+We conclude the observed transit signal from EPIC 201555883 is likely the result
 of an instrumental artifact.
 
-Such effects are not uncommon in \kep\ data. 
+Such effects are not uncommon in \kep\ data.
 \citet{Batalha13} found $\sim 25$ planet candidates to be false positives based on matching
-ephemerides between candidates. 
+ephemerides between candidates.
 In that paper, the authors limited their search to candidates within $20\arcsec$ of other
-objects of interest. 
-\citet{Coughlin14} expanded on this method, identifying 685 KOIs as false positives and 
+objects of interest.
+\citet{Coughlin14} expanded on this method, identifying 685 KOIs as false positives and
 outlining four physical reasons why these anomalies may occur.
 While EPIC 201555883 is likely a false positive, it does not appear that it can neatly be
-explained by any one of the effects described by \citet{Coughlin14} alone. 
-This artifact should be carefully studied in the future, as it may help illuminate other 
+explained by any one of the effects described by \citet{Coughlin14} alone.
+This artifact should be carefully studied in the future, as it may help illuminate other
 potential detector artifacts, both in \kep\ and \KT\ data.
 
 
 \subsection{Multiple Planet Systems}
 Five of the systems identified by \paperit\ are candidates to be multiply-transiting
-systems. 
+systems.
 One of these is EPIC 201367065, a three-planet system originally announced by
-\citet{Crossfield15}. 
+\citet{Crossfield15}.
 Another of these is EPIC 201505350 \citep{Armstrong15b}, a two-planet system with the
 orbital periods of the two planets near a 3:2 period commensurability.
 The remaining three are all representative of the multiple-planet systems observed by
 \kep \citep{Lissauer11b, Fabrycky14}.
-Two of the systems are near a period commensurability and all three consist of 
+Two of the systems are near a period commensurability and all three consist of
 mini-Neptune sized planets.
 Like in the \kep\ field, the false positive rate we measure for the multiple planet sample
 here ($0/10$) is lower than for the single systems \citep{Lissauer12, Rowe14}.
 
 
-We do not detect any significant transit timing variations (TTVs) in any of these systems from 
-the \KT\ data alone. 
-EPIC 201338508 would be expected to have a TTV period of 117 days, but 
-is likely too far from commensurability to have an observable TTV signal. 
+We do not detect any significant transit timing variations (TTVs) in any of these systems from
+the \KT\ data alone.
+EPIC 201338508 would be expected to have a TTV period of 117 days, but
+is likely too far from commensurability to have an observable TTV signal.
 EPIC 201445392 is expected to have a TTV period of 234 days, so this system may be a candidate
-for additional follow-up to constrain the system masses dynamically. 
-The transiting planets orbiting EPIC 201754305 are near a 5:2 period commensurability. 
-There is no evidence from \kep\ of an abundance of planets near this period ratio, and so this 
+for additional follow-up to constrain the system masses dynamically.
+The transiting planets orbiting EPIC 201754305 are near a 5:2 period commensurability.
+There is no evidence from \kep\ of an abundance of planets near this period ratio, and so this
 may be coincidence.
-Follow-up observations may be warranted to search for an additional planet in this system 
+Follow-up observations may be warranted to search for an additional planet in this system
 forming a resonant chain, similar to those observed around other stars \citep[e.g.][]{Swift13,
 Campante15}.
 
 \subsection{Systems Orbiting Bright Stars}
 
 One of the primary goals of \KT\ is the detection of transiting planets around bright stars that
-can be followed up from the ground or with future space-based observatories such as JWST 
-\citep{Howell14}. 
+can be followed up from the ground or with future space-based observatories such as JWST
+\citep{Howell14}.
 Of our sample, two systems orbit stars with $K < 9$: EPIC 201367065 \citep{Crossfield15} and
-EPIC 201912552. 
-An additional four targets orbit stars with $K <10$. 
-These targets are ideal for ground-based followup, and may be useful targets for Spitzer and 
+EPIC 201912552.
+An additional four targets orbit stars with $K <10$.
+These targets are ideal for ground-based followup, and may be useful targets for Spitzer and
 JWST to probe planetary atmospheres.
 
 \section{Results and Discussion}
@@ -594,8 +594,8 @@ JWST to probe planetary atmospheres.
 Something about Multis and TTVs will go in here.
 
 \anytodo{We should have a figure of many subplots, of phase-folded
-transits for all the confirmed planets. 
-To ease Dan's mind, we will say that they are the product of 
+transits for all the confirmed planets.
+To ease Dan's mind, we will say that they are the product of
 some fidicual transit model and are only presented here for illustrative
 purposes.}
 
@@ -605,20 +605,20 @@ We thank Eric Agol (UW), Dan Huber (Sydney) [and Other People] for conversations
 suggestions which improved the quality of this manuscript.
 
 
-We are grateful to the entire Kepler team, past and present. 
+We are grateful to the entire Kepler team, past and present.
 Their tireless efforts were all essential to the tremendous success of the mission and the
 successes of K2, present and future.
 
 
 Some of the data presented in this paper were obtained from the Mikulski
-Archive for Space Telescopes (MAST). 
-STScI is operated by the Association of Universities for Research 
-in Astronomy, Inc., under NASA contract NAS5--26555. 
-for MAST for non--HST data is provided by the NASA Office of Space 
-Science via grant NNX13AC07G and by other grants and contracts. 
+Archive for Space Telescopes (MAST).
+STScI is operated by the Association of Universities for Research
+in Astronomy, Inc., under NASA contract NAS5--26555.
+for MAST for non--HST data is provided by the NASA Office of Space
+Science via grant NNX13AC07G and by other grants and contracts.
 
-This paper includes data collected by the \kep\ mission. 
-Funding for the \kep\ mission is provided by the NASA Science 
+This paper includes data collected by the \kep\ mission.
+Funding for the \kep\ mission is provided by the NASA Science
 Mission directorate.
 
 This paper includes data collected by the Sloan Digital Sky Survey.
@@ -642,7 +642,7 @@ University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
 B.T.M. is supported by the National Science Foundation Graduate Research
-Fellowship under Grant No. DGE‐1144469. 
+Fellowship under Grant No. DGE‐1144469.
 J.A.J. is supported by generous grants from the David and Lucile Packard
 Foundation and the Alfred P. Sloan Foundation.
 
@@ -656,10 +656,11 @@ Foundation and the Alfred P. Sloan Foundation.
 
 \include{table_photometry}
 
-
 \include{table_stellarprops}
+
+\include{table_planets}
 
 
 \end{document}
 
- 
+
