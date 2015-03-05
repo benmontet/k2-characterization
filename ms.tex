@@ -85,6 +85,9 @@
 \newcommand{\btmtodo}[1]{\todo{BEN}{red}{#1}}
 \newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
 
+\newcommand{\Nfp}{$X$}
+\newcommand{\Nvalidated}{$Y$}
+\newcommand{\Nlimbo}{$Z$}
 
 \begin{document}
 
@@ -361,6 +364,49 @@ In those cases, I suppose we need to include planet properties in both cases
 in which the transit is around either the more or less massive star.)
 
 \section{False Positive Analysis}
+As has been well known from the early days of transit searches, it is 
+possible for an eclipsing binary star to masquerade as a transiting 
+planet if (a) it is a highly grazing eclipse, or (b) the binary system
+comprises only a small fraction of the total light in the photometric
+aperture, resulting in a diluted eclipse depth.
+When possible, such astrophsycial false positive scenarios are traditionally
+ruled out by detailed follow-up observations, such as high-resolution
+imaging or radial-velocity measurements.  
+However, the \kep\ mission, with its thousands of planet candidates
+around mostly faint stars, necessitated a paradigm shift---a move 
+toward probabilistic interpretation of transit signals, rather than 
+comprehensive follow-up of each individual candidate.
+
+\citet{Morton12} described an automated method to calculate the
+probability that a planet candidate might be caused by an
+astrophysical false positive.  This method uses population simulations
+of false positive scenarios and true transiting planets to quantify
+the typical shape of each, and combines prior information about the
+populations of field stars and multiple star systems in order to
+determine the probability that the observed signal may be a false
+positive.  Similar in spirit to other published methods of
+probabilistic validation, such as Blender \citep{} and PASTIS
+\citep{}, it has the advantage of being computationally less demanding
+and fully automated, and thus easily applied in batch to a large
+number of candidates.
+ 
+In this work, we use
+\texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
+a new implementation of the \citet{Morton12} procedure, to calculate
+the false positive probabilities of each of these K2 candidates,
+supplemented in a few cases by high-resolution imaging, where
+available.  Table \ref{table:FPP} summarizes the results of these
+calculations, presenting the relative probability for each candidate
+to be caused by any of three false positive scenarios: an undiluted
+eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
+and a chance-aligned background(/foreground) eclipsing binary (BEB).
+We find that \Nfp\ of the presented candidates have false positive
+probabilities (FPPs) $>$80\%; these we consider to be likely false
+positives.  On the other hand, we find that \Nvalidated\ candidates
+have FPP $<$ 1\%; these we consider to be validated planets.  The
+remaining \Nlimbo\ candidates have FPPs neither high enough to discard
+nor low enough to securely validate.
+
 \subsection{Adaptive Optics Imaging}
 
 This is Brendan.
