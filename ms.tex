@@ -85,23 +85,23 @@
 \newcommand{\btmtodo}[1]{\todo{BEN}{red}{#1}}
 \newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
 
-\newcommand{\Nfp}{$X$}
-\newcommand{\Nvalidated}{$Y$}
-\newcommand{\Nlimbo}{$Z$}
+\newcommand{\Nfp}{4}
+\newcommand{\Nvalidated}{21}
+\newcommand{\Nlimbo}{11}
 
 \begin{document}
 
 
 
 \title{(Working Title) Stellar and Planetary Properties of \KT\ \Ci\
-Candidates and Confirmation of $N$ Systems, (Including a Planet Receiving 
+Candidates and Validation of \Nvalidated\ Systems, (Including a Planet Receiving 
 Earth-like Insolation?)}
 
 \author{
 % The Heavy Lifters
 Benjamin T. Montet\altaffilmark{1,2}, 
 Daniel Foreman-Mackey\altaffilmark{3},
-Timothy D. Morton,
+Timothy D. Morton\altaffilmark{4},
 % The Benefactors
 John Asher Johnson,
 David W. Hogg,
@@ -120,6 +120,7 @@ And Any TRES Team Members We Should Add
 \altaffiltext{2}{Harvard-Smithsonian Center for Astrophysics, 60 Garden
 Street, Cambridge, MA 02138, USA}
 \altaffiltext{3}{Department of Astronomy, University of Michigan, Ann Arbor, MI 48109, USA}
+\altaffiltext{4}{Department of Astrophysics, 4 Ivy Lane, Princeton University, Princeton, NJ 08544, USA}
 
 
 \date{\today, \currenttime}
@@ -130,8 +131,7 @@ Recently, \paperit{} presented a list of 36 planet candidates orbiting
 In this paper, we present stellar and planetary properties for all systems.
 We combine archival imaging, ground-based seeing limited survey data, and
 adaptive optics imaging with a detailed transit analysis scheme to confirm 
-\btmtodo{Nconfirm} as planets and \btmtodo{NFP} as false positives
-at the \btmtodo{confidence} level.
+\Nvalidated\ as planets and identify \Nfp\ as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an 
 orbital period of 33 days.
@@ -377,35 +377,47 @@ around mostly faint stars, necessitated a paradigm shift---a move
 toward probabilistic interpretation of transit signals, rather than 
 comprehensive follow-up of each individual candidate.
 
-\citet{Morton12} described an automated method to calculate the
+\citet{Morton12} presented an automated method to calculate the
 probability that a planet candidate might be caused by an
-astrophysical false positive.  This method uses population simulations
+astrophysical false positive.  
+This method uses population simulations
 of false positive scenarios and true transiting planets to quantify
-the typical shape of each, and combines prior information about the
-populations of field stars and multiple star systems in order to
-determine the probability that the observed signal may be a false
-positive.  Similar in spirit to other published methods of
+the typical shape of each, comparing to the observed transit shape.
+It then combines this information with observationally motivated prior
+assumtions about the populations of field stars, the properties of 
+multiple star systems, and the occurrence rate of planets as determined
+from \kep\ \citet{Fressin13}, in order to determine the probability that 
+the observed signal may be a false positive.  
+Similar in spirit to other published methods of
 probabilistic validation, such as Blender \citep{} and PASTIS
 \citep{}, it has the advantage of being computationally less demanding
 and fully automated, and thus easily applied in batch to a large
-number of candidates.
+number of candidates.  
  
 In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
 a new implementation of the \citet{Morton12} procedure, to calculate
-the false positive probabilities of each of these K2 candidates,
-supplemented in a few cases by high-resolution imaging, where
-available.  Table \ref{table:FPP} summarizes the results of these
+the false positive probabilities of each of these K2 candidates.  
+While we do have follow-up observations of a number of these systems,
+we do the preliminary FPP calculations without taking these into account,
+relying solely on the probabilistic \texttt{vespa} analysis.
+
+Table \ref{table:FPP} summarizes the results of these
 calculations, presenting the relative probability for each candidate
 to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
 and a chance-aligned background(/foreground) eclipsing binary (BEB).
+
+
 We find that \Nfp\ of the presented candidates have false positive
-probabilities (FPPs) $>$80\%; these we consider to be likely false
-positives.  On the other hand, we find that \Nvalidated\ candidates
-have FPP $<$ 1\%; these we consider to be validated planets.  The
-remaining \Nlimbo\ candidates have FPPs neither high enough to discard
+probabilities (FPPs) $>$90\%; these we consider to be likely false
+positives.  
+On the other hand, we find that \Nvalidated\ candidates
+have FPP $<$ 1\%; these we consider to be validated planets.  
+The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
 nor low enough to securely validate.
+
+We emphasize that t
 
 \subsection{Adaptive Optics Imaging}
 
