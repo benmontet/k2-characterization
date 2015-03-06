@@ -397,10 +397,21 @@ number of candidates.
 In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
 a new implementation of the \citet{Morton12} procedure, to calculate
-the false positive probabilities of each of these K2 candidates.  
-While we do have follow-up observations of a number of these systems,
+false positive probabilities (FPPs) for each of these K2 candidates.  
+While we have obtained follow-up observations of a number of these systems,
 we do the preliminary FPP calculations without taking these into account,
-relying solely on the probabilistic \texttt{vespa} analysis.
+in order to demonstrate the power of \texttt{vespa} analysis
+even in the absence of follow-up observations.  
+The constraints we impose on false positive scenarios in these
+``follow-up free'' calculations are the following:
+\begin{itemize}
+\item A chance-aligned eclipsing binary system must reside within 
+a 4 arcsecond radius of the target star.
+\item The maximum allowed depth of a potential secondary eclipse event,
+determined as the most significantly detected signal at the same 
+period of the planet candidate, once the primary transit is masked out.
+\end{itemize}
+
 
 Table \ref{table:FPP} summarizes the results of these
 calculations, presenting the relative probability for each candidate
@@ -409,9 +420,8 @@ eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
 and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 
-We find that \Nfp\ of the presented candidates have false positive
-probabilities (FPPs) $>$90\%; these we consider to be likely false
-positives.  
+We find that \Nfp\ of the presented candidates FPP $>$90\%; 
+these we consider to be likely false positives.  
 On the other hand, we find that \Nvalidated\ candidates
 have FPP $<$ 1\%; these we consider to be validated planets.  
 The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
