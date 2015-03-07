@@ -174,13 +174,9 @@ thruster firing.
 The result of this observing strategy is that the targets appear to drift
 at the rate of $\sim 1\arcsec$ s$^{-1}$, with rapid corrections that occur
 approximately once every six hours.
-Over the full duration of each campaign, the targets appear to remain at
-approximately the same location on the detector.
-Both the slow drift and the corrections are observable by eye, and by viewing the
-motions of each star \citep{Barentsen15} it is apparent that \KT\ is working as
-advertised.
-Therefore, apertures can be defined around each star and aperture photometry can be
-defined in the usual way.
+Over the full duration of each campaign, the targets appear to remain near the
+same location on the detector but both the slow drift and the corrections are
+observable by eye \citep{Barentsen15}.
 
 \KT\ light curves produced with aperture photometry contain substantial pointing-induced
 photometric variations caused by the star's apparent motion over a poorly-defined flat
@@ -189,14 +185,14 @@ Worse yet, these variations occur on timescales similar to transit signals, pote
 masking the observational signature of a planet passing between \kep\ and the host star.
 
 There has been considerable effort to recover these signals.
-\citet{Vanderburg14} extract aperture photometry and decorrelate with image centroid
+\citet{Vanderburg14} extract aperture photometry and de-correlate with image centroid
 position, ``correcting'' the data to ``remove'' the effects of the spacecraft motion.
 These data were used to confirm the first planet discovered in \KT\ \citep{Vanderburg15}.
 A similar technique was employed by \citet{Armstrong15a} to identify potential eclipsing
 binary systems and to identify a transiting system very near a 3:2 period commensurability
 \citep{Armstrong15b}.
 \citet{Aigrain15} and \citet{Crossfield15} use a Gaussian Process model for the measured
-flux, with pointing measurements as the inputs, and then “detrend” the data with that model.
+flux, with pointing measurements as the inputs, and then ``de-trend'' the data with that model.
 The latter of these detected the first multi-planet system in \KT\ data.
 
 What is common to all of these methods are that removal of systematics is considered a
@@ -214,8 +210,7 @@ done in cosmology and, increasingly, in radial velocity searches for planetary s
 \paperit{} simultaneously fit both the systematics and potential planetary transit signals
 in a search for transiting planets.
 The authors of that paper assume that the dominant trends in the observed stellar light
-curves are caused by spacecraft motion and are shared among many stars. \anytodo{Among,
-right? Not between?}
+curves are caused by spacecraft motion and are shared by many stars.
 They then run PCA on all stars to measure the dominant modes, modeling each star as a
 linear combination of 150 of these ``eigen light curves'' and a transit signal.
 This method enables fitting without over-fitting, and also permits marginalization over
