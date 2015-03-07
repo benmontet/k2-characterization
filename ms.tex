@@ -74,6 +74,8 @@
 \newcommand{\feh}{{[Fe/H]}~}
 \newcommand{\afe}{{[$\alpha$/Fe]}~}
 
+\newcommand{\dd}{{\ensuremath{\,\mathrm{d}}}}
+
 \newcommand{\paperip}{\citep{Foreman-Mackey15}}
 \newcommand{\paperit}{\citet{Foreman-Mackey15}}
 
@@ -283,11 +285,13 @@ to measure the likelihood of each grid point.
 For each parameter, we then marginalize our likelihood over all other
 parameters in order to estimate the value of the physical properties
 for each star.
+\anytodo{This was done using MCMC right? Did you interpolate the
+\emph{likelihood function} or the \emph{model predictions}?}
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
 However, we are subject to biases induced by systematics in the models themselves.
-There is some evidence that the Dartmouth models may underpredict
+There is some evidence that the Dartmouth models may under-predict
 radii by $\sim 15\%$ when compared to other methods \citep{Newton15,
 Montet15}.
 Such an effect may be the result of the Dartmouth model reliance on BT-Settl
@@ -366,7 +370,29 @@ Table 2.
 
 \section{Planet Properties}
 
-This is Dan.
+To derive the physical planet parameters conditioned on the measured stellar
+parameters, we used the posterior probability distribution for quantities
+measured using the light curve---from \paperit---and re-weighted them using
+the results of the photometric and spectroscopic analysis.
+In \paperit, the authors generated MCMC samples from the posterior
+probability distribution over all the physical parameters (including stellar
+mass and radius, and the planet radius) using broad, un-informative priors on
+the values that are not constrained by the light curve.
+As described in SOME APPENDIX, these samples can be re-weighted and used to
+evaluate the posterior probability of the physical parameters of the planets
+conditioned on the stellar values.
+This also means that the effects of different measurements of the stellar
+parameters can be easily tested by applying the method described in THAT SAME
+APPENDIX.
+
+The key assumption of this method is that the likelihood function used in
+\paperit\ is correct.
+That model was an exposure-time integrated, limb darkened light curve
+\citep{Mandel02,Kipping10b} marginalized over the parameters of the
+data-driven model of the instrumental systematics described in \paperit.
+
+The results are given in SOME TABLE.
+
 
 (Include comment here about how the planet parameters assume no dilution.
 Except for the two that we have AO detected binaries for, probably?
@@ -744,6 +770,28 @@ NNX14AE11G).
 
 {\it Facilities:} \facility{Kepler}%, \btmtodo{More...}
 
+\appendix
+\section{Computing physical planet parameters}
+
+In \paperit, the authors generated $K$ samples from the posterior probability
+distribution of the physical parameters of the systems conditioned on the
+light curves using broad, un-informative priors on most of the parameters.
+
+\begin{eqnarray}
+p(w\,|\,x) &=& \frac{p(w)\,p(x\,|\,w)}{p(x)} \\
+&=& \frac{q(w)\,p(x\,|\,w)}{q(x)}\,\frac{p(w)}{q(w)}\,\frac{q(x)}{p(x)} \\
+&=& q(w\,|\,x)\,\frac{p(w)}{q(w)}\,\frac{q(x)}{p(x)}
+\end{eqnarray}
+
+We have $K$ samples
+\begin{eqnarray}
+w^{(k)} &\sim& p(w\,|\,x)
+\end{eqnarray}
+and the point of these samples is to do integrals of the form
+\begin{eqnarray}
+E[f(w)] &=& \int f(w)\,p(w\,|\,x) \dd w \quad.
+\end{eqnarray}
+Now, if we want to update this with a new measurement $p^\prime(w)$,
 
 
 \bibliography{exopapers}
