@@ -41,7 +41,7 @@ fout = open('../table_fpp.tex','w')
 fout.write(r"""
 \clearpage
 %\LongTables
-\begin{deluxetable*}{lcllllll}
+\begin{deluxetable*}{lcllllllc}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
@@ -54,7 +54,8 @@ fout.write(r"""
 \colhead{${\rm Pr}_{\rm BEB}$} &
 \colhead{${\rm Pr}_{\rm HEB}$} &
 \colhead{$f_{p}$} &
-\colhead{FPP}
+\colhead{FPP} &
+\colhead{Disposition}
 }
 \startdata
 """)
@@ -75,11 +76,20 @@ for f in folders:
         val = float(val)
         line += '{} & '.format(prob_entry(val))
     line += '${:.2f}$ & '.format(float(fp))
-    line += '{} '.format(prob_entry(FPP))
+    line += '{} & '.format(prob_entry(FPP))
+    FPP = float(FPP)
+    if FPP < 0.01:
+        disp = 'Validated'
+    elif FPP > 0.9:
+        disp = 'FP'
+    else:
+        disp = 'Candidate'
+    line += '{} '.format(disp)
     if f != folders[-1]:
         line += '\\\\'
     line += '\n'
-    fout.write(format_line(line,FPP))
+    fout.write(line)
+    #fout.write(format_line(line,FPP))
 
 
 fout.write(r"""
