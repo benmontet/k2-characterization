@@ -15,7 +15,7 @@ def prob_entry(val):
 def format_line(line, fpp):
     fpp = float(fpp)
     newline = line
-    if fpp < 0.01:
+    if fpp < 0.01 and False:
         newline = ''
         for v in line.split('&'):
             m = re.search('\$(.*)\$\s+\\\\',v)
@@ -23,7 +23,8 @@ def format_line(line, fpp):
                 newline += r' $\mathbf{' + m.group(1) + '}$ \\\\\n'
             else:
                 m = re.search('\$(.*)\$',v)
-                newline += r' $\mathbf{ ' + m.group(1) + '}$ &'
+                if m:
+                    newline += r' $\mathbf{ ' + m.group(1) + '}$ &'
     if fpp > 0.9:
         newline = ''
         for v in line.split('&'):
@@ -88,8 +89,8 @@ for f in folders:
     if f != folders[-1]:
         line += '\\\\'
     line += '\n'
-    fout.write(line)
-    #fout.write(format_line(line,FPP))
+    #fout.write(line)
+    fout.write(format_line(line,FPP))
 
 
 fout.write(r"""
