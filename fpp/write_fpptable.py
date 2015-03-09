@@ -80,7 +80,7 @@ for f in folders:
     line += '{} & '.format(prob_entry(FPP))
     FPP = float(FPP)
     if FPP < 0.01:
-        disp = 'Validated'
+        disp = 'Planet'
     elif FPP > 0.9:
         disp = 'FP'
     else:
