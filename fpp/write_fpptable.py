@@ -22,7 +22,8 @@ def format_line(line, fpp):
             if m:
                 newline += r' ${\mathbf ' + m.group(1) + '}$ \\\\\n'
             else:
-                newline += r' ${\mathbf ' + v + '}$ &'
+                m = re.search('\$(.*)\$',v)
+                newline += r' ${\mathbf ' + m.group(1) + '}$ &'
     if fpp > 0.9:
         newline = ''
         for v in line.split('&'):
