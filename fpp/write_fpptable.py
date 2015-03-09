@@ -59,6 +59,7 @@ fout.write(r"""
 """)
 
 folders = glob.glob('fppmodels/*')
+folders.sort()
 for f in folders:
     resultsfile = f + '/results.txt'
     for line in open(resultsfile,'r'):
