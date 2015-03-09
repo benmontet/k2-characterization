@@ -40,7 +40,7 @@ fout = open('../table_fpp.tex','w')
 fout.write(r"""
 \clearpage
 %\LongTables
-\begin{deluxetable*}{lccccccc}
+\begin{deluxetable*}{lcllllll}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
