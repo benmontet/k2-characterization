@@ -20,10 +20,10 @@ def format_line(line, fpp):
         for v in line.split('&'):
             m = re.search('\$(.*)\$\s+\\\\',v)
             if m:
-                newline += r' ${\mathbf ' + m.group(1) + '}$ \\\\\n'
+                newline += r' $\mathbf{' + m.group(1) + '}$ \\\\\n'
             else:
                 m = re.search('\$(.*)\$',v)
-                newline += r' ${\mathbf ' + m.group(1) + '}$ &'
+                newline += r' $\mathbf{ ' + m.group(1) + '}$ &'
     if fpp > 0.9:
         newline = ''
         for v in line.split('&'):
