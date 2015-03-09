@@ -28,9 +28,9 @@ def format_line(line, fpp):
         for v in line.split('&'):
             m = re.search('(.*)\s+\\\\',v)
             if m:
-                newline += r' \color{red} ' + m.group(1) + '\color{black} \\\\\n'
+                newline += r' \cellcolor{red} ' + m.group(1) + '\\\\\n'
             else:
-                newline += r' \color{red} ' + v + '\color{black} &'
+                newline += r' \cellcolor{red} ' + v + ' &'
         
     return newline
         
@@ -73,9 +73,12 @@ for f in folders:
         val = float(val)
         line += '{} & '.format(prob_entry(val))
     line += '${:.2f}$ & '.format(float(fp))
-    line += '{} \\\\\n'.format(prob_entry(FPP))
+    line += '{} '.format(prob_entry(FPP))
+    if f != folders[-1]:
+        line += '\\\\'
+    line += '\n'
     fout.write(format_line(line,FPP))
-               
+
 
 fout.write(r"""
 \enddata
