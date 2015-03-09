@@ -28,9 +28,9 @@ def format_line(line, fpp):
         for v in line.split('&'):
             m = re.search('(.*)\s+\\\\',v)
             if m:
-                newline += r' \cellcolor{red} ' + m.group(1) + '\\\\\n'
+                newline += r' \color{red} ' + m.group(1) + '\\\\\n'
             else:
-                newline += r' \cellcolor{red} ' + v + ' &'
+                newline += r' \color{red} ' + v + ' &'
         
     return newline
         
