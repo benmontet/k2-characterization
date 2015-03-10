@@ -52,7 +52,7 @@ fout.write(r"""
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
-\label{Tab:FPP}
+\label{Table:FPP}
 \tablehead{
 \colhead{EPIC} &
 \colhead{Cand. Num.} &
