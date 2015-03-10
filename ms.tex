@@ -272,22 +272,38 @@ These data are reported in Table 1.
 
 \subsection{Stellar Models}
 To convert the observed photometric data into physical properties for each
-star, we employ the use of stellar models.
-We first download the isochrone grids from the 2012 updated photometric
-systems for the relevant bandpasses from the Dartmouth Stellar Evolution
-Database \citep{Dotter08}.
-We then interpolate the isochrones onto a grid uniformly spaced in
-stellar mass (from 0.20 to 2.0 \msun), metallicity (from \feh$=-1.5$ to
-\feh$=+0.5$), age (from 1.0 to 14.0 Gyr), and log distance (from 10 pc to
-1000 pc).
-In our interpolation, we assume \afe$=0.0$ and $Y=0.2741$, the solar value.
-We then compare the expected apparent magnitudes to our observed photometry
-to measure the likelihood of each grid point.
-For each parameter, we then marginalize our likelihood over all other
-parameters in order to estimate the value of the physical properties
-for each star.
-\anytodo{This was done using MCMC right? Did you interpolate the
-\emph{likelihood function} or the \emph{model predictions}?}
+star, we used the publicly available \texttt{isochrones} Python module\footnote{
+\url{http://github.com/timothydmorton/isochrones}}, a general-purpose
+interpolation tool for stellar model grids.  
+This software does trilinear interpolation in mass-age-\feh\ space for any
+given set of model grids, thus being able to predict the value for any
+physical or photometric property provided by the models at any values of
+mass, age, and \feh\ within the boundaries of the grid.  
+
+This enables a set of observed properties ($\left\{ x_i, \sigma_i \right\}$), 
+either spectroscopic, photometric, 
+or both, to define a likelihood function that may be sampled in
+an MCMC chain:
+\begin{equation}
+\label{eq:ischochronelhood}
+\ln \mathcal L(\boldsymbol{\theta}) = -\frac{1}{2} \displaystyle \sum_i \frac{\left(x_i - 
+  I_i\left(\boldsymbol{\theta} \right)\right)^2}{\sigma_i^2},
+\end{equation}
+where $I_i(\boldsymbol{\theta})$ is the isochrone model prediction of property 
+$i$ at the given parameters $\boldsymbol{\theta}$.  
+If the observed properties include any apparent magnitudes, then 
+$\boldsymbol{\theta}$ includes distance and $A_V$ extinction in addition 
+to mass, age, and \feh.
+
+In this work, we use grids from the Dartmouth Stellar
+Evolution Database \citep{Dotter08} at solar values of \afe=$0.0$ and
+helium abundance $Y=0.2741$, which come packaged with the \texttt{isochrones}
+module.  
+We then run an MCMC chain using \texttt{emcee} \citep{Foreman-Mackey12}
+for each host star conditioned on the observed 
+photometric properties as presented in \ref{Table:photometry}, with 
+the exception of the W4 band, which we leave out this analysis due to 
+its unreliability.  
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
@@ -298,6 +314,8 @@ Montet15}.
 Such an effect may be the result of the Dartmouth model reliance on BT-Settl
 atmospheres, which have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
+
+\anytodo{Is this paragraph necessary anymore?}
 We find that by measuring stellar parameters without any WISE data (that is, using
 only $BVgriJHK$), we largely reproduce the same effective temperatures as when
 the WISE data is included.
