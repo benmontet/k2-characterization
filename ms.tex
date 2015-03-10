@@ -418,11 +418,11 @@ comprehensive follow-up of each individual candidate.
 \citet{Morton12} presented an automated method to calculate the
 probability that a planet candidate might be caused by an
 astrophysical false positive.
-This method uses population simulations
+This method uses population simulations of the light curves of
 of false positive scenarios and true transiting planets to quantify
 the typical shape of each, comparing to the observed transit shape.
 It then combines this information with observationally motivated prior
-assumtions about the populations of field stars, the properties of
+assumptions about the populations of field stars, the properties of
 multiple star systems, and the occurrence rate of planets as determined
 from \kep\ \citet{Fressin13}, in order to determine the probability that
 the observed signal may be a false positive.
@@ -434,20 +434,17 @@ number of candidates.
 
 In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
-a new implementation of the \citet{Morton12} procedure, to calculate
-false positive probabilities (FPPs) for each of these K2 candidates.
-While we have obtained follow-up observations of a number of these systems,
-we do the preliminary FPP calculations without taking these into account,
-in order to demonstrate the power of \texttt{vespa} analysis
-even in the absence of follow-up observations.
-The constraints we impose on false positive scenarios in these
-``follow-up free'' calculations are the following:
+a new general-purpose implementation of the \citet{Morton12} procedure, 
+to calculate false positive probabilities (FPPs) for each of these 
+K2 candidates.  We impose the following constraints on false positive
+scenarios:
 \begin{itemize}
-\item A chance-aligned eclipsing binary system must reside within
-a 4 arcsecond radius of the target star.
+\item A chance-aligned eclipsing binary system may reside within
+a sky area equivalent to 8 arcsecond radius of the target star.
 \item The maximum allowed depth of a potential secondary eclipse event,
 determined as the most significantly detected signal at the same
 period of the planet candidate, once the primary transit is masked out.
+\item High-resolution imaging constraints, where available (see below)
 \end{itemize}
 
 
@@ -464,7 +461,11 @@ have FPP $<$ 1\%; these we consider to be validated planets.
 The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
 nor low enough to securely validate.
 
-We emphasize that t
+We emphasize that the majority of these planets were validated based 
+solely on the transit signal, with no need for follow-up imaging.  This
+demonstrates the utility of \texttt{vespa} analysis, which will be
+crucial to interpreting future \kt\ detected candidates and prioritizing
+follow-up observing efforts.
 
 \subsection{Adaptive Optics Imaging}
 
