@@ -100,15 +100,20 @@
 Candidates and Validation of \Nvalidated\ Systems, (Including a Planet Receiving
 Earth-like Insolation?)}
 
-\newcommand{\caltech}{2}
-\newcommand{\cfa}{3}
-\newcommand{\nyu}{4}
-\newcommand{\princeton}{5}
-\newcommand{\mpia}{6}
-\newcommand{\cds}{7}
+\newcommand{\caltech}{1}
+\newcommand{\cfa}{2}
+\newcommand{\nyu}{3}
+\newcommand{\princeton}{4}
+\newcommand{\mpia}{5}
+\newcommand{\cds}{6}
+\newcommand{\jcpa}{7}
+\newcommand{\texas}{8}
+\newcommand{\hjs}{9}
+
+
 \author{%
 % The Heavy Lifters
-Benjamin~T.~Montet\altaffilmark{1,\caltech,\cfa},
+Benjamin~T.~Montet\altaffilmark{\caltech,\cfa},
 Daniel~Foreman-Mackey\altaffilmark{\nyu},
 Timothy~D.~Morton\altaffilmark{\princeton},
 % The Benefactors
@@ -116,15 +121,15 @@ John~Asher~Johnson\altaffilmark{\cfa},
 David~W.~Hogg\altaffilmark{\nyu,\mpia,\cds},
 % The Observers
 % (ranked by integration time x collecting area)
-Brendan~P.~Bowler,
-David~W.~Latham,
-Allyson~Bieryla,
-Andrew~W.~Mann,
+Brendan~P.~Bowler\altaffilmark{\caltech, \jcpa},
+David~W.~Latham\altaffilmark{\cfa},
+Allyson~Bieryla\altaffilmark{\cfa},
+Andrew~W.~Mann\altaffilmark{\texas, \hjs},
 And Any TRES Team Members We Should Add
 }
 
 
-\altaffiltext{1}         {btm@astro.caltech.edu}
+\email{btm@astro.caltech.edu}
 \altaffiltext{\caltech}  {Cahill Center for Astronomy and Astrophysics,
                           California Institute of Technology, Pasadena, CA,
                           91125, USA}
@@ -140,6 +145,12 @@ And Any TRES Team Members We Should Add
 \altaffiltext{\cds}      {Center for Data Science,
                           New York University,
                           726 Broadway, 7th Floor, New York, NY, 10003, USA}
+\altaffiltext{\jcpa} {Caltech Joint Center for Planetary Astronomy Fellow}
+\altaffiltext{\texas} {Department of Astronomy, The University of Texas at
+                            Austin, Austin, TX 78712, USA}
+\altaffiltext{\hjs} {Harlan J. Smith Fellow, The University of Texas at Austin}
+
+
 
 
 \date{\today, \currenttime}
@@ -157,7 +168,8 @@ orbital period of 33 days.
 \anytodo{Anything we should add?}
 \end{abstract}
 
-\keywords{\btmtodo{Keywords}}
+\keywords{catalogs --- planetary systems --- planets and satellites: detection
+                   --- stars: fundamental parameters}
 
 \maketitle
 
@@ -733,6 +745,18 @@ With the exception of one object, all of the stellar parameters are derived from
 photometric observations to the Dartmouth stellar evolution models.
 As a result, both the stellar and planet parameters are subject to systematic biases induced
 by discrepancies between the models and reality.
+Even more dangerously, any region of parameter space not probed by the models would 
+be entirely missed in our stellar modeling.
+
+As stated in \textsection\ref{sec:stellarparams}, we place a distance upper limit of 500 pc 
+for all stars in our sample. 
+Given the location of the \Ci\ field with respect to the galactic plane, we expect a low 
+contamination rate by halo giants. 
+However, there are a few stars that are possibly miscategorized giants.
+EPIC 201257461 is identified in the RAdial Velocity Experiment (RAVE) Fourth Data Release
+as a target with $\logg = 3.18$, consistent with that of a giant star.
+It is therefore perhaps not surprising that this system is flagged as a false positive based on 
+the transit shape.
 
 
 \anytodo{We should have a figure of many subplots, of phase-folded
@@ -785,19 +809,19 @@ University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
 B.T.M. is supported by the National Science Foundation Graduate Research
-Fellowship under Grant No. DGE‚Äê1144469.
+Fellowship under Grant No. DGE-Äê1144469.
 J.A.J. is supported by generous grants from the David and Lucile Packard
 Foundation and the Alfred P. Sloan Foundation.
 
 
 D.F.M. and D.W.H. were partially supported by the National Science Foundation
 (grant IIS-1124794), the National Aeronautics and Space Administration (grant
-NNX12AI50G), and the Moore‚ÄìSloan Data Science Environment at NYU.
+NNX12AI50G), and the Moore-Sloan Data Science Environment at NYU.
 
 T.D.M.~is supported by the National Aeronautics and Space Administration (grant
 NNX14AE11G).
 
-{\it Facilities:} \facility{Kepler}%, \btmtodo{More...}
+{\it Facilities:} \facility{Kepler}, \btmtodo{More...}
 
 \appendix
 \section{Computing physical planet parameters}
@@ -826,10 +850,12 @@ Now, if we want to update this with a new measurement $p^\prime(w)$,
 \bibliography{exopapers}
 
 \include{table_photometry}
-\turnpage
+%\turnpage
 
 \include{table_stellarprops}
 
+\include{table_planets}
+\turnpage
 \include{table_fpp}
 
 \end{document}
