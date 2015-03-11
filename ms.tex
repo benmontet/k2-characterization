@@ -89,21 +89,21 @@
 \newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
 
 \newcommand{\Nfp}{4}
-\newcommand{\Nvalidated}{22}
-\newcommand{\Nlimbo}{10} %adds to 36?  good.
+\newcommand{\Nvalidated}{21}
+\newcommand{\Nlimbo}{11} %adds to 36?  good.
 
 \begin{document}
 
 
 
 \title{(Working Title) Stellar and Planetary Properties of \KT\ \Ci\
-Candidates and Validation of \Nvalidated\ Systems, (Including a Planet Receiving
-Earth-like Insolation?)}
+Candidates and Validation of \Nvalidated\ Systems, Including a Planet Receiving
+Earth-like Insolation?}
 
 \newcommand{\caltech}{1}
 \newcommand{\cfa}{2}
-\newcommand{\nyu}{3}
-\newcommand{\princeton}{4}
+\newcommand{\nyu}{4}
+\newcommand{\princeton}{3}
 \newcommand{\mpia}{5}
 \newcommand{\cds}{6}
 \newcommand{\jcpa}{7}
@@ -114,8 +114,8 @@ Earth-like Insolation?)}
 \author{%
 % The Heavy Lifters
 Benjamin~T.~Montet\altaffilmark{\caltech,\cfa},
-Daniel~Foreman-Mackey\altaffilmark{\nyu},
 Timothy~D.~Morton\altaffilmark{\princeton},
+Daniel~Foreman-Mackey\altaffilmark{\nyu},
 % The Benefactors
 John~Asher~Johnson\altaffilmark{\cfa},
 David~W.~Hogg\altaffilmark{\nyu,\mpia,\cds},
@@ -246,8 +246,8 @@ true transiting planets.
 In this paper, we present stellar and planetary parameters for each system.
 Given these parameters and the transit data, as well as archival imaging, ground-based
 seeing limited survey data, and adaptive optics imaging, we are able to confirm
-\anytodo{Number} of these systems as transiting planets at the \anytodo{Sigma} confidence
-level. We also are able to confirm \anytodo{Number} of these systems as false positives.
+\Nvalidated\ of these systems as transiting planets at the 99\% confidence
+level. We also are able to confirm \Nfp\ of these systems as false positives.
 
 This paper is organized as follows.
 In \textsection2, we develop stellar properties through
@@ -271,7 +271,7 @@ For each system, we query the VizieR database of astronomical catalogues
 \citep{Ochseinbein00}.
 We record the $B$, $V$, $g'$, $r'$, and $i'$ magnitudes and their
 uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6
-\btmtodo{Cite: Who?}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
+\citep{Henden14}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
 We also record the $J$, $H$, and $K$ magnitudes and their uncertainties
 as found in the 2MASS All-Sky Catalog of Point Sources \citep{Cutri03}
 and the $W1-W3$ WISE magnitudes and uncertainties from the ALLWise Data
@@ -280,6 +280,7 @@ For all except two of our targets, the $W4$ band is only an upper limit,
 and in the remaining two cases, the photometric uncertainity in $W4$ is at least an
 order of magnitude larger than those in $W1-W3$, so we neglect $W4$.
 These data are reported in Table 1.
+
 
 
 \subsection{Stellar Models}
@@ -311,7 +312,9 @@ In this work, we use grids from the Dartmouth Stellar
 Evolution Database \citep{Dotter08} at solar values of \afe=$0.0$ and
 helium abundance $Y=0.2741$, which come packaged with the \texttt{isochrones}
 module.  
-We then run an MCMC chain using \texttt{emcee} \citep{Foreman-Mackey12}
+We then run an MCMC chain using \texttt{emcee} \citep{Foreman-Mackey12},
+an implementation of the affine-invariant ensemble sampler of 
+\citet{Goodman10}
 for each host star conditioned on the observed 
 photometric properties as presented in \ref{Table:photometry}, with 
 the exception of the W4 band, which we leave out this analysis due to 
@@ -333,18 +336,8 @@ We provide full chains using both inflated and un-inflated uncertainties,
 though in the rest of this work we adopt
 the results obtained using the inflated values.
 
-\anytodo{Is this paragraph necessary anymore?}
-We find that by measuring stellar parameters without any WISE data (that is, using
-only $BVgriJHK$), we largely reproduce the same effective temperatures as when
-the WISE data is included.
-However, at the low-mass end including the WISE data systematically increases the
-measured radius and increases \logg, as shown in \btmtodo{Figure}.
-Suggestively, spectroscopic stellar parameters of EPIC 201912552
-(\textsection\ref{Spexobs}) suggest the derived photometric properties better
-represent the true physical parameters when the WISE data is included.
 
 
-\btmtodo{Show plot}
 
 
 
@@ -564,8 +557,9 @@ Therefore, it cannot be caused by this observed background dwarf star.
 For EPIC 201295312, the transit depth is significantly shallower than
 the maximum false positive depth, so we cannot immediately
 reject the hypothesis that the transit is actually a false positive
-induced by a background eclipsing binary. \anytodo{Can we place limits
-on this possibility from the lack of a centroid shift?}
+induced by a background eclipsing binary. 
+However, from the transit shape alone we can place a FPP of this
+system of $1.1 \times 10^{-4}$. 
 
 SDSS is 95\% complete at $r=22.2$ and the telescope has a point
 spread function of $1\farcs4$. In all cases except the four above, we
@@ -582,13 +576,30 @@ of P200 at $2\mu$m, but nonzero.
 We can rule out the possibility of such chance alignments with
 archival imaging data.
 
-\btmtodo{Method}
+For all targets with AO, we can confirm the planetary nature of the signal 
+without this extra step, but we include it for EPIC 201912552 for 
+completeness, considering thee additional follow-up this target may warrant.
+We download data from the POSS I and II surveys, which imaged
+EPIC 201912552 in 1955 and 1989, respectively. 
+This star has a proper motion of $-74 \pm 2$ mas yr$^{-1}$ in RA and 
+$-122 \pm 4$ mas yr$^{-1}$ in declination, so it has moved by $8.35\arcsec$ 
+since the POSS I data were collected.
+As shown in Figure \ref{fig:archival}, we do not detect any targets at the 
+present-day location of EPIC 201912552 in either of the POSS surveys. 
 
-\btmtodo{Plots showing POSS observations.}
+\begin{figure*}[htbp]
+\centerline{\includegraphics[width=1.0\textwidth, trim=0 1.5cm 0 1.5cm, clip=true]{f3}}
+\caption{Imaging for EPIC 201912552 from 1955 to 2002. There is no background
+object directly behind the present day location of the target (red circle) that could be missed 
+by the AO observations, while modern SDSS imaging can rule out wide companions
+that may have been missed at wide separations, beyond the AO field of view.}
+\label{fig:archival}
+\end{figure*}
 
-For these targets, we can extend our contrast curves to zero
+
+For this target, we can extend our contrast curves to zero
 present-day orbital separation and rule out the possibility that
-these transit events are caused by background eclipsing binaries.
+these transit events are caused by a background eclipsing binary.
 By combining present-day seeing-limited photometric survey data,
 adaptive optics imaging, and archival photometry, the only stellar companions
 we would not detect would be those that are gravitationally bound to the target
@@ -598,7 +609,7 @@ Such an alignment would require the orbital inclination of the binary to be
 nearly $90^\circ$ and the phase $\varpi + \theta \approx \pi/2$ or $3\pi/2$.
 While we cannot fully rule out this possibility, such an alignment is unlikely
 to occur, and highly unlikely to cause enough dilution to call the planetary
-nature of these signals into question.
+nature of this signal into question.
 
 
 
@@ -631,9 +642,6 @@ transiting planet is actually a false positive.
 
 
 
-\subsection{False Positive Rates (and confirmations?)}
-This is Tim.
-
 \section{Potentially Interesting Systems}
 \subsection{A Mini-Neptune with Earthlike Insolation}
 
@@ -665,24 +673,17 @@ a cool analogue to the highly irradiated planets of a similar size found by
 \kep.
 
 
+\subsection{Two Candidates, One Ephemeris}
 
-\subsection{EPIC 201465501?}
-Is this a subsection? It's a star with a mass of ~0.2 Msun and a candidate with
-a period of 18 days. I suppose it depends on the FPP.
+EPIC 201569483 was originally listed in \paperit\ as a planet candidate.
+The transit events have a depth of approximately 7\%.
+In this work, we conclude this system is more likely than not a false 
+positive, with an FPP of 0.560. 
+The most likely scenario is that of an eclipsing binary, which would 
+not be surprising given the transit depth.
 
-\subsection{An Instrumental False Positive}
-
-EPIC 201555883 was originally listed in \paperit\ as a planet candidate.
-After submission of that work, this object of interest was identified as
-having a transit ephemeris consistent with that of EPIC 201569483,
-which we identify as a likely eclipsing binary due to the observed transit
-depth \anytodo{Right? Right?  Can this be more quantitative?  Are these two stars 
-close to one another?  How bright is  the purported parent? Are they 
-On/near the same CCD column?  FPP gives this a pass, so we 
-need to be clear about this.}.
-We conclude the observed transit signal from EPIC 201555883 is likely the result
-of an instrumental artifact.
-
+It was later realized that EPIC 201555883 has a period, time of transit, 
+and transit duration consistent with EPIC 201569483. 
 Such effects are not uncommon in \kep\ data.
 \citet{Batalha13} found $\sim 25$ planet candidates to be false positives based on matching
 ephemerides between candidates.
@@ -690,10 +691,29 @@ In that paper, the authors limited their search to candidates within $20\arcsec$
 objects of interest.
 \citet{Coughlin14} expanded on this method, identifying 685 KOIs as false positives and
 outlining four physical reasons why these anomalies may occur.
-While EPIC 201555883 is likely a false positive, it does not appear that it can neatly be
-explained by any one of the effects described by \citet{Coughlin14} alone.
-This artifact should be carefully studied in the future, as it may help illuminate other
-potential detector artifacts, both in \kep\ and \KT\ data.
+As those authors explain, period-matching candidates can be the result of direct PRF 
+contamination, antipodal reflection across the Schmidt telescope, CCD crosstalk 
+across a \kep\ module, or ``column anomalies'' across one column of the CCD.
+
+EPIC 201555883 is a unique case in that it does not appear to fall under any of these 
+cases. It falls on module 23, while EPIC 201569483 is on module 8, neither 180 degrees
+away from or on the same column as this candidate. 
+Moreover, there is not any evidence of a mechanism that could cause a third star to 
+induce both the appearance of a $7\%$ eclipse on one module and an additional 
+transit event on a different module.
+
+Formally, our false positive validation scheme gives a FPP of $9.5 \times 10^{-4}$, 
+reaching our threshold for planet validation. 
+In this case, given the period matching between the two events, we refrain from 
+declaring this system a planet. 
+However, since we cannot explain how such a false positive would occur as a result
+of an instrumental systematic in the \kep\ telescope, we also refrain from declaring 
+this target a definite false positive. 
+Additional follow-up observations of both targets are clearly warranted to better
+understand a possible systematic that has not previously been observed in 
+either \kep\ or \KT.
+
+
 
 
 \subsection{Multiple Planet Systems}
@@ -738,8 +758,8 @@ JWST to probe planetary atmospheres.
 \section{Results and Discussion}
 
 We have presented stellar parameters for all planet candidates systems observed by
-\paperit, confirming \btmtodo{Nconfirm} of the 36 candidates as bona fide planets and
-\btmtodo{NFP} as bona fide false positives.
+\paperit, validating \Nvalidated\ of the 36 candidates as bona fide planets and
+\Nfp\ as bona fide false positives.
 
 With the exception of one object, all of the stellar parameters are derived from comparing
 photometric observations to the Dartmouth stellar evolution models.
@@ -768,8 +788,8 @@ purposes.}
 
 
 \acknowledgements
-We thank Eric Agol (UW), Dan Huber (Sydney) [and Other People] for conversations and
-suggestions which improved the quality of this manuscript.
+We thank Eric Agol (UW), Dan Huber (Sydney) and Jeff Coughlin (SETI) for 
+conversations and suggestions which improved the quality of this manuscript.
 
 
 We are grateful to the entire Kepler team, past and present.
@@ -821,7 +841,8 @@ NNX12AI50G), and the Moore-Sloan Data Science Environment at NYU.
 T.D.M.~is supported by the National Aeronautics and Space Administration (grant
 NNX14AE11G).
 
-{\it Facilities:} \facility{Kepler}, \btmtodo{More...}
+{\it Facilities:} \facility{Kepler},  \facility{PO:Hale (PHARO)}, \facility{FLWO:1.5m},
+\facility{IRTF:SpeX}
 
 \appendix
 \section{Computing physical planet parameters}
