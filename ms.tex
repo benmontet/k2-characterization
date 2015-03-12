@@ -96,9 +96,9 @@
 
 
 
-\title{(Working Title) Stellar and Planetary Properties of \KT\ \Ci\
+\title{Stellar and Planetary Properties of \KT\ \Ci\
 Candidates and Validation of \Nvalidated\ Systems, Including a Planet Receiving
-Earth-like Insolation?}
+Earth-like Insolation}
 
 \newcommand{\caltech}{1}
 \newcommand{\cfa}{2}
@@ -135,11 +135,11 @@ And Any TRES Team Members We Should Add
                           91125, USA}
 \altaffiltext{\cfa}      {Harvard-Smithsonian Center for Astrophysics,
                           Cambridge, MA 02138, USA}
+\altaffiltext{\princeton}{Department of Astrophysics, Princeton University,
+                          Princeton, NJ, 08544, USA}
 \altaffiltext{\nyu}      {Center for Cosmology and Particle Physics,
                           Department of Physics, New York University,
                           4 Washington Place, New York, NY, 10003, USA}
-\altaffiltext{\princeton}{Department of Astrophysics, Princeton University,
-                          Princeton, NJ, 08544, USA}
 \altaffiltext{\mpia}     {Max-Planck-Institut f\"ur Astronomie,
                           K\"onigstuhl 17, D-69117 Heidelberg, Germany}
 \altaffiltext{\cds}      {Center for Data Science,
@@ -279,11 +279,23 @@ Release \citep{Cutri13}.
 For all except two of our targets, the $W4$ band is only an upper limit,
 and in the remaining two cases, the photometric uncertainity in $W4$ is at least an
 order of magnitude larger than those in $W1-W3$, so we neglect $W4$.
-These data are reported in Table 1.
+These data are reported in Table 1, and a color-color diagram showing the
+$r-J, J-K$ colors of our candidates is included as Fig. \ref{fig:photometry}.
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{f1}}
+\caption{Color-color diagram displaying $r-J, J-K$ photometry for targets 
+observed by \kep\ during the original
+mission (black), with our \KT\ \Ci\ planet candidates overlaid (fuchsia). 
+Also included is the location of the Sun (yellow). 
+Nearly all of our candidates have photometry consistent with later spectral
+types than G2.}
+\label{fig:photometry}
+\end{figure}
 
 
 \subsection{Stellar Models}
+\label{sec:stellarparams}
 To convert the observed photometric data into physical properties for each
 star, we used the publicly available \texttt{isochrones} Python module\footnote{
 \url{http://github.com/timothydmorton/isochrones}}, a general-purpose
@@ -531,16 +543,11 @@ Unlike the original \kep\ field, the field for \KT\ \Ci\ is
 well out of the galactic plane, so the rate of giant, distanct background
 stars is significantly lower.
 We include a list of these potential contaminants as Table
-\ref{Table:BGstars}.
+6.
 
-%Table:BGstars
-% Primary    RA Dec Separation DeltaR         MaxDepth
-% 201295312  &  &   &          & 7.10 \pm 0.10 & 0.75
-% 201465501  &  &   &          & 7.90 \pm 0.25 & 0.36
-% 201546283  &  &   &          & 5.87 \pm 0.06 & 2.31
-% 201779067  &  &   &          & 4.21 \pm 0.03 & 10.56
 
-In Table \ref{Table:BGstars}, the ``maximum depth'' column represents
+
+In Table 6, the ``maximum depth'' column represents
 the maximum observed ``transit'' depth if the transit were actually caused
 by a total eclipse of the hypothetical background binary system, inducing
 a 50\% flux decrement in the background star's apparent brightness.
@@ -776,8 +783,8 @@ by discrepancies between the models and reality.
 Even more dangerously, any region of parameter space not probed by the models would 
 be entirely missed in our stellar modeling.
 
-As stated in \textsection\ref{sec:stellarparams}, we place a distance upper limit of 500 pc 
-for all stars in our sample. 
+As stated in \textsection\ref{sec:stellarparams}, we infer stellar parameters using the 
+Dartmouth models, with a mass upper limit of $3.7 M_\odot$. 
 Given the location of the \Ci\ field with respect to the galactic plane, we expect a low 
 contamination rate by halo giants. 
 However, there are a few stars that are possibly miscategorized giants.
@@ -785,7 +792,15 @@ EPIC 201257461 is identified in the RAdial Velocity Experiment (RAVE) Fourth Dat
 as a target with $\logg = 3.18$, consistent with that of a giant star.
 It is therefore perhaps not surprising that this system is flagged as a false positive based on 
 the transit shape.
-EPIC 201929294 has a reduced proper motion consistent with that of a giant star
+EPIC 201929294, with a proper motion of $0.010\arcsec$ yr$^{-1}$ \citep{Zacharias12}  has 
+a reduced proper motion consistent with that of a giant star.
+While suggestive, this observation does not definitively provide information about the
+nature of this target. 
+Likewise, our false positive analysis is neither able to confirm nor exclude the planetary
+nature of the observed transit signal around this target. 
+
+
+
 
 
 \anytodo{We should have a figure of many subplots, of phase-folded
@@ -887,8 +902,11 @@ Now, if we want to update this with a new measurement $p^\prime(w)$,
 \include{table_stellarprops_inflated}
 
 \include{table_planets}
-\turnpage
+\begin{turnpage}
 \include{table_fpp}
+\end{turnpage}
+
+\include{table_bg}
 
 \end{document}
 
