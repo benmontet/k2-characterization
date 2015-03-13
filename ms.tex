@@ -165,7 +165,9 @@ adaptive optics imaging with a detailed transit analysis scheme to confirm
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an
 orbital period of 33 days.
-\anytodo{Anything we should add?}
+We also present \texttt{vespa}, a new general-purpose implementation
+of the \citet{Morton12} procedure to calculate false positive probabilities
+for \KT\ candidates.
 \end{abstract}
 
 \keywords{catalogs --- planetary systems --- planets and satellites: detection
@@ -328,9 +330,7 @@ We then run an MCMC chain using \texttt{emcee} \citep{Foreman-Mackey12},
 an implementation of the affine-invariant ensemble sampler of 
 \citet{Goodman10}
 for each host star conditioned on the observed 
-photometric properties as presented in \ref{Table:photometry}, with 
-the exception of the W4 band, which we leave out this analysis due to 
-its unreliability.  
+photometric properties as presented in Table 1.
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
@@ -481,7 +481,7 @@ In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
 a new general-purpose implementation of the \citet{Morton12} procedure, 
 to calculate false positive probabilities (FPPs) for each of these 
-K2 candidates.  We impose the following constraints on false positive
+\KT\ candidates.  We impose the following constraints on false positive
 scenarios:
 \begin{itemize}
 \item A chance-aligned eclipsing binary system may reside anywhere within
@@ -527,7 +527,7 @@ identify companions at close projected orbital separations.
 For the two systems with imaged companions, EPIC 201546283 and 201828749,
 only unsaturated frames are collected.
 All subplots, including insets, are plotted on the same scale.}
-\label{fig:AO}
+\label{Fig:AO}
 \end{figure*}
 
 \anytodo{201828749 has an AO companion, flux ratio 6:1 or so. We call it a planet.
@@ -538,11 +538,12 @@ to talk about this though.}
 
 
 \subsection{Known Background Stars}
-The P3K AO system has a field of view of $3.84 \times 3.84$ arcseconds.
-\btmtodo{Check with Brendan to make sure he used this mode}.
+The PHARO AO system has a field of view of NUMBER arcseconds.
+\btmtodo{Check with Brendan to find this number}.
 Each \KT\ pixel is a square of $3.98 \times 3.98$ arcseconds.
 A background eclipsing binary within a few \KT\ pixels of our target
-stars could mimic a transit signal while evading detection by P3K.
+stars could mimic a transit signal inside our aperture while evading detection 
+by PHARO.
 Such wide eclipsing binaries should appear in seeing-limited ground-based
 surveys.
 
@@ -788,7 +789,9 @@ JWST to probe planetary atmospheres.
 
 We have presented stellar parameters for all planet candidates systems observed by
 \paperit, validating \Nvalidated\ of the 36 candidates as bona fide planets and
-\Nfp\ as bona fide false positives.
+\Nfp\ as bona fide false positives. 
+Of these planets, 4 have been previously validated in other works, while 17 are 
+validated here for the first time.
 
 With the exception of one object, all of the stellar parameters are derived from comparing
 photometric observations to the Dartmouth stellar evolution models.
@@ -863,7 +866,7 @@ conversations and suggestions which improved the quality of this manuscript.
 
 We are grateful to the entire Kepler team, past and present.
 Their tireless efforts were all essential to the tremendous success of the mission and the
-successes of K2, present and future.
+successes of \KT\, present and future.
 
 
 Some of the data presented in this paper were obtained from the Mikulski
