@@ -96,7 +96,7 @@
 
 
 
-\title{Stellar and Planetary Properties of \KT\ \Ci\
+\title{Stellar and Planetary Properties of \KT\ Campaign 1
 Candidates and Validation of \Nvalidated\ Systems, Including a Planet Receiving
 Earth-like Insolation}
 
@@ -189,7 +189,7 @@ controlled by the two remaining reaction wheels, while the roll of the
 spacecraft is balanced with solar radiation pressure and quasiperiodic
 thruster firing.
 The result of this observing strategy is that the targets appear to drift
-at the rate of $\sim 1\arcsec$ s$^{-1}$, with rapid corrections that occur
+at the rate of $\sim 1\arcsec$ hr$^{-1}$, with rapid corrections that occur
 approximately once every six hours.
 Over the full duration of each campaign, the targets appear to remain near the
 same location on the detector but both the slow drift and the corrections are
@@ -331,6 +331,8 @@ an implementation of the affine-invariant ensemble sampler of
 \citet{Goodman10}
 for each host star conditioned on the observed 
 photometric properties as presented in Table 1.
+We include a prior on stellar metallicity representative of the observed metallicities
+of stars within 1 kpc of the Sun, following the results of \citet{Hayden15}.
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
@@ -345,7 +347,7 @@ atmospheres, which have been shown to predict near-IR colors that are too blue
 In order to try to encapsulate the effect of model uncertainties, we also run 
 MCMC chains with photometric errors inflated artificially by a factor of three.  
 We provide full chains using both inflated and un-inflated uncertainties, 
-though in the rest of this work we adopt
+though in the rest of this work (and in Table 2) we adopt
 the results obtained using the inflated values.
 
 
@@ -407,9 +409,7 @@ a radius 0.394$\pm0.038R_\odot$.
 We use these parameters instead of the derived photometric properties for this target.
 
 The full list of stellar parameters adopted in this paper is included in
-Tables 2 and 3. The former lists parameters derived from photometry with
-un-inflated uncertainties, while the latter includes this inflating intended to
-encapsulate the effect of model uncertainties.
+Table 2.
 % For some reason I can't get it to identify the table \ref here.
 % If anyone can figure it out, be my guest!
 
@@ -423,20 +423,19 @@ In \paperit, the authors generated MCMC samples from the posterior
 probability distribution over all the physical parameters (including stellar
 mass and radius, and the planet radius) using broad, un-informative priors on
 the values that are not constrained by the light curve.
-As described in SOME APPENDIX, these samples can be re-weighted and used to
+As described in the Appendix, these samples can be re-weighted and used to
 evaluate the posterior probability of the physical parameters of the planets
 conditioned on the stellar values.
 This also means that the effects of different measurements of the stellar
-parameters can be easily tested by applying the method described in THAT SAME
-APPENDIX.
-
+parameters can be easily tested by applying the method described in 
+Appendix A.
 The key assumption of this method is that the likelihood function used in
 \paperit\ is correct.
 That model was an exposure-time integrated, limb darkened light curve
 \citep{Mandel02,Kipping10b} marginalized over the parameters of the
 data-driven model of the instrumental systematics described in \paperit.
 
-The results are given in SOME TABLE.
+The results are given in Table 3.
 
 
 (Include comment here about how the planet parameters assume no dilution.
@@ -493,7 +492,7 @@ period of the planet candidate, once the primary transit is masked out.
 and archival imaging data (discussed in detail below).
 \end{itemize}
 
-Table \ref{Table:FPP} summarizes the results of these
+Table 4 summarizes the results of these
 calculations, presenting the relative probability for each candidate
 to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
@@ -557,12 +556,11 @@ Of the 31 stars in our sample, four have such a companion.
 Unlike the original \kep\ field, the field for \KT\ \Ci\ is
 well out of the galactic plane, so the rate of giant, distanct background
 stars is significantly lower.
-We include a list of these potential contaminants as Table
-6.
+We include a list of these potential contaminants as Table 5.
 
 
 
-In Table 6, the ``maximum depth'' column represents
+In Table 5, the ``maximum depth'' column represents
 the maximum observed ``transit'' depth if the transit were actually caused
 by a total eclipse of the hypothetical background binary system, inducing
 a 50\% flux decrement in the background star's apparent brightness.
@@ -947,7 +945,6 @@ Now, if we want to update this with a new measurement $p^\prime(w)$,
 
 \include{table_stellarprops}
 
-\include{table_stellarprops_inflated}
 
 \include{table_planets}
 \begin{turnpage}
