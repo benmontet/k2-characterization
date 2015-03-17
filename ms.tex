@@ -87,6 +87,7 @@
 \newcommand{\todo}[3]{{\color{#2} \emph{#1} TO DO: #3}}
 \newcommand{\btmtodo}[1]{\todo{BEN}{red}{#1}}
 \newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
+\newcommand{\dfmtodo}[1]{\todo{DFM}{ForestGreen}{#1}}
 
 \newcommand{\Nfp}{4}
 \newcommand{\Nvalidated}{21}
@@ -415,22 +416,7 @@ Table 2.
 
 \section{Planet Properties}
 
-To derive the physical planet parameters conditioned on the measured stellar
-parameters, we used the posterior probability distribution for quantities
-measured using the light curve---from \paperit---and re-weighted them using
-the results of the photometric and spectroscopic analysis.
-In \paperit, the authors generated MCMC samples from the posterior
-probability distribution over all the physical parameters (including stellar
-mass and radius, and the planet radius) using broad, un-informative priors on
-the values that are not constrained by the light curve.
-As described in the Appendix, these samples can be re-weighted and used to
-evaluate the posterior probability of the physical parameters of the planets
-conditioned on the stellar values.
-This also means that the effects of different measurements of the stellar
-parameters can be easily tested by applying the method described in
-Appendix A.
-The key assumption of this method is that the likelihood function used in
-\paperit\ is correct.
+\dfmtodo{Re-write this section.}
 That model was an exposure-time integrated, limb darkened light curve
 \citep{Mandel02,Kipping10b} marginalized over the parameters of the
 data-driven model of the instrumental systematics described in \paperit.
@@ -913,30 +899,6 @@ NNX14AE11G).
 
 {\it Facilities:} \facility{Kepler},  \facility{PO:Hale (PHARO)}, \facility{FLWO:1.5m},
 \facility{IRTF:SpeX}
-
-\appendix
-\section{Computing physical planet parameters}
-
-In \paperit, the authors generated $K$ samples from the posterior probability
-distribution of the physical parameters of the systems conditioned on the
-light curves using broad, un-informative priors on most of the parameters.
-
-\begin{eqnarray}
-p(w\,|\,x) &=& \frac{p(w)\,p(x\,|\,w)}{p(x)} \\
-&=& \frac{q(w)\,p(x\,|\,w)}{q(x)}\,\frac{p(w)}{q(w)}\,\frac{q(x)}{p(x)} \\
-&=& q(w\,|\,x)\,\frac{p(w)}{q(w)}\,\frac{q(x)}{p(x)}
-\end{eqnarray}
-
-We have $K$ samples
-\begin{eqnarray}
-w^{(k)} &\sim& p(w\,|\,x)
-\end{eqnarray}
-and the point of these samples is to do integrals of the form
-\begin{eqnarray}
-E[f(w)] &=& \int f(w)\,p(w\,|\,x) \dd w \quad.
-\end{eqnarray}
-Now, if we want to update this with a new measurement $p^\prime(w)$,
-
 
 \bibliography{exopapers}
 
