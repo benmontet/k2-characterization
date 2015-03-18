@@ -483,8 +483,8 @@ multiple star systems, and the occurrence rate of planets as determined
 from \kep\ \citep{Fressin13}, in order to determine the probability that
 the observed signal may be a false positive.
 Similar in spirit to other published methods of
-probabilistic validation, such as Blender \citep{} and PASTIS
-\citep{}, it has the advantage of being computationally less demanding
+probabilistic validation, such as Blender \citep{Torres11a} and PASTIS
+\citep{Diaz14a}, it has the advantage of being computationally less demanding
 and fully automated, and thus easily applied in batch to a large
 number of candidates.
 
@@ -522,6 +522,23 @@ solely on the transit signal, with no need for follow-up imaging.  This
 demonstrates the utility of \texttt{vespa} analysis, which will be
 crucial to interpreting future \KT\ detected candidates and prioritizing
 follow-up observing efforts.
+We show these transit signals as Fig. \ref{fig:transits}. 
+
+\begin{figure*}[htbp]
+\centerline{\includegraphics[width=1.0\textwidth]{f2}}
+\caption{\btmtodo{PLACEHOLDER, UPDATE}.
+Phase-folded \KT\ photometry for all planet candidates analyzed in 
+this paper.
+Each is the product of a fiducial noise model, in which the median systematic
+has been removed for illustrative purposes.
+The systems which we validate as transiting planets are labeled in 
+green. 
+The systems which we confirm as false positive events are labeled in red.
+The systems which we leave as candidates are labeled in black.
+}
+\label{fig:transits}
+\end{figure*}
+
 
 \subsection{Adaptive Optics Imaging}
 \label{sec:AO}
@@ -562,14 +579,24 @@ Relative photometry of nearby stars is carried out using aperture photometry wit
 an aperture radius of 12~pix (0$\farcs$3).  
 For EPIC~201828749, we also acquired $J$- and $H$-band images.
 Astrometry and photometry is derived separately for each image, and the mean and standard deviation 
-of these measurements is adopted for our final values listed in Table~XX.
+of these measurements is adopted for our final values listed in Table~6.
+
+We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
+companion. 
+From the transit shape, we can rule out the possibility this system is a background eclipsing
+binary.
+Regardless of which star this object transits, the object is planet-sized.
+Given that small planets are significantly more common than large planets, it is more likely
+that the planet is orbiting the brighter star, and our parameters listed in Table 3 reflect this
+likelihood. If the planet is truly orbiting the fainter star, then it has a larger radius than is 
+listed in this table.
 
 Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO},
 while contrast curves showing the $5\sigma$ limits for detection
 as a function of orbital separation are given in Fig. \ref{Fig:CC}.
 
 \begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth]{f2}}
+\centerline{\includegraphics[width=1.0\textwidth]{f3}}
 \caption{AO data for all systems imaged.
 The main frame for each single system shows the deep, saturated image.
 The inset for each single system shows a shallower, unsaturated image to better
@@ -584,7 +611,7 @@ All subplots, including insets, are plotted on the same scale.}
 \end{figure*}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{f3}}
+\centerline{\includegraphics[width=0.5\textwidth]{f4}}
 \caption{$5\sigma$ contrast curves for all systems with AO nondetections.
 For all systems, we can exclude the possibility that a companion at a given $\Delta K_S$
 exists. 
@@ -592,11 +619,6 @@ From our known transit depths, we can then rule out significant parameter space 
 an eclipsing binary could reside and mimic a transit signal.}
 \label{Fig:CC}
 \end{figure}
-
-\anytodo{201828749 has an AO companion, flux ratio 6:1 or so. We call it a planet.
-It's a very flat bottom thing, with fairly short ingress and egress: the transit shape
-is way more planet than EB so I'm comfortable with this designation. We need
-to talk about this though.}
 
 
 
@@ -678,7 +700,7 @@ As shown in Figure \ref{fig:archival}, we do not detect any targets at the
 present-day location of EPIC 201912552 in either of the POSS surveys.
 
 \begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth, trim=0 6.30cm 0 6.30cm, clip=true]{f4}}
+\centerline{\includegraphics[width=1.0\textwidth, trim=0 6.30cm 0 6.30cm, clip=true]{f5}}
 \caption{Imaging for EPIC 201912552 from 1955 to 2002. There is no background
 object directly behind the present day location of the target (red circle) that could be missed
 by the AO observations, while modern SDSS imaging can rule out wide companions
@@ -815,7 +837,7 @@ One of these is EPIC 201367065, a three-planet system originally announced by
 Another of these is EPIC 201505350 \citep{Armstrong15b}, a two-planet system with the
 orbital periods of the two planets near a 3:2 period commensurability.
 The remaining three are all representative of the multiple-planet systems observed by
-\kep \citep{Lissauer11b, Fabrycky14}.
+\kep\ \citep{Lissauer11b, Fabrycky14}.
 Two of the systems are near a period commensurability and all three consist of
 mini-Neptune sized planets.
 Like in the \kep\ field, the false positive rate we measure for the multiple planet sample
@@ -912,11 +934,6 @@ less massive than the Sun.
 \anytodo{Does anyone feel we should include anything else in the discussion?}
 
 
-\anytodo{We should have a figure of many subplots, of phase-folded
-transits for all the confirmed planets.
-To ease Dan's mind, we will say that they are the product of
-some fidicual transit model and are only presented here for illustrative
-purposes.}
 
 
 
