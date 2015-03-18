@@ -164,7 +164,7 @@ We combine ground-based seeing limited survey data and
 adaptive optics imaging with a detailed transit analysis scheme to confirm
 \Nvalidated\ as planets and identify \Nfp\ as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
-hosting a \anytodo{Radius} planet with $T_{eq} = 275 \pm 15$ K and an
+hosting a $2.29 \pm 0.24 R_\odot$ planet with $T_{eq} = 273 \pm 15$ K and an
 orbital period of 33 days.
 We also present \texttt{vespa}, a new general-purpose implementation
 of the \citet{Morton12} procedure to calculate false positive probabilities
@@ -416,19 +416,40 @@ Table 2.
 
 \section{Planet Properties}
 
-\dfmtodo{Re-write this section.}
-That model was an exposure-time integrated, limb darkened light curve
-\citep{Mandel02,Kipping10b} marginalized over the parameters of the
+In \paperit, we present only parameters directly observable from the \KT\
+light curve itself: the period, time of transit center, and transit depth.
+With stellar properties now in hand, we can convert these observational
+results into fundamental parameters of each planet candidate.
+
+For each candidate, we fit a transit and systematic model simultaneously
+to the data.
+The transit model is an exposure-time integrated, two-parameter limb darkened 
+light curve \citep{Mandel02,Kipping10b}.
+We parameterize... \dfmtodo{What are the parameters in the model?}
+
+This method enable us to marginalize over the parameters of the
 data-driven model of the instrumental systematics described in \paperit.
 
 The results are given in Table 3.
 
+\dfmtodo{Add more to this section.}
 
-(Include comment here about how the planet parameters assume no dilution.
-Except for the two that we have AO detected binaries for, probably?
-Brendan should have us flux ratios by the end of the day.
-In those cases, I suppose we need to include planet properties in both cases
-in which the transit is around either the more or less massive star.)
+In this analysis, we assume the dilution caused by additional stars contributing
+flux into the aperture is negligible for nearly all systems.
+Given the location of the \Ci\ field at a high galactic latitude, we expect low
+contamination by background giants. 
+Nevertheless, this assumption may not be valid for all systems.
+Any contamination unaccounted for, as may happen if any of these stars are
+actually unresolved binaries, would cause us to underestimate the radii
+of any planets we detect.
+Therefore, high-contrast adaptive optics imaging of any systems should be
+obtained before any of these planets are placed on a planet mass-radius
+diagram.
+
+One system, EPIC 201828749, is known to be a binary through AO imaging
+as discussed in \ref{sec:AO}. \btmtodo{More text...}
+
+
 
 \section{False Positive Analysis}
 
@@ -498,6 +519,7 @@ crucial to interpreting future \KT\ detected candidates and prioritizing
 follow-up observing efforts.
 
 \subsection{Adaptive Optics Imaging}
+\label{sec:AO}
 
 This is Brendan.
 
@@ -678,9 +700,9 @@ to become a prime target for atmospheric characterization studies
 and is ideal as a target for future space-based missions such as JWST.
 
 Unlike GJ\,1214b, EPIC 201912552b is not highly irradiated.
-Instead, it is at an reduced semimajor axis \ars$ = 82.1 \pm 8.6$.
-Its equilibrium temperature is then, assuming zero albedo, $T_{eq} = 275 \pm 15$
-K, meaning its bulk insolation is $135 \pm 30$ percent that of the Earth's.
+Instead, it is at an reduced semimajor axis \ars$ = 83.2 \pm 9.1$.
+Its equilibrium temperature is then, assuming zero albedo, $T_{eq} = 273 \pm 15$
+K, meaning its bulk insolation is $131 \pm 30$ percent that of the Earth's.
 Although the planet is likely too large to be rocky \citep{Rogers14},
 its atmosphere is likely to be the focus of many future observations, providing
 a cool analogue to the highly irradiated planets of a similar size found by
