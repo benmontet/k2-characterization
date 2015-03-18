@@ -447,7 +447,12 @@ obtained before any of these planets are placed on a planet mass-radius
 diagram.
 
 One system, EPIC 201828749, is known to be a binary through AO imaging
-as discussed in \ref{sec:AO}. \btmtodo{More text...}
+as discussed in \textsection\ref{sec:AO}. 
+In this case, we do account for the dilution induced by the companion. 
+From our relative $JHK$ photometry of the two stars, we infer an expected flux
+ratio between the two stars in the \kep\ bandpass, inflating the transit depth by 
+this factor to account for the dilution. 
+We marginalize  \dfmtodo{More text...}
 
 
 
@@ -521,9 +526,47 @@ follow-up observing efforts.
 \subsection{Adaptive Optics Imaging}
 \label{sec:AO}
 
-This is Brendan.
+We obtained high resolution images of seven stars with the 
+Palomar High Angular Resolution Observer (PHARO) infrared detector 
+\citep{Hayward01} behind the PALM3000 adaptive optics system \citep{Dekany13}
+at the Palomar 5.1-meter Hale telescope on the nights of 2015 Feb 3 and 4 UT.
+Sky conditions were mostly clear with light cirrus and $\approx$1$\farcs$0--1$\farcs$3 seeing
+on both nights.  
+We used the smallest plate scale of 25~mas pix$^{-1}$ which resulted
+in a field of view of 25$\farcs$6$\times$25$\farcs$6 across the 1024$^{2}$ pix$^{2}$ array.
+All observations were obtained with the 32x pupil sampling mode, resulting in Strehl ratios
+of $\approx$20--30\% in $K_S$ for our $V$=11--13~mag targets as measured by the Strehl
+monitor at the telescope in real time.
+We obtained unsaturated dithered frames of each target in $K_S$-band with typical 
+integration times of 2--10~s.
+Except for EPIC~201828749 and EPIC~201546283, which had nearby candidate 
+binary companions, we also 
+acquired deep saturated images (5--10 frames at 60 sec each) 
+to search for fainter companions.
 
-Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO}.
+Images were registered and contrast curves were generated following \citet{Bowler15a}.
+For the saturated data, the star's position in each image was found by masking the
+saturated region and fitting a 2D bivariate Gaussian to the PSF wings.  
+Contrast
+curves for the median-combined image are calibrated using the unsaturated frames.  
+The typical sensitivity is 6.5--7.5~mag at 1$''$.
+The images were astrometrically calibrated using dithered observations of the 
+Trapezium cluster centered
+on $\theta$$^1$~Ori~C taken on 2015 Feb 3 UT.  
+Based on the reference astrometry for pairs of stars in the field from
+\citet{McCaughrean94}, we measure a plate scale of 25.2~$\pm$~0.4~mas pix$^{-1}$ 
+and north orientation of --0.2~$\pm$~0.3$^{\circ}$.  
+Since this latter value is consistent with being aligned with 
+the detector columns, we adopt a value of 0.0~$\pm$~0.3$^{\circ}$ for this work.
+Relative photometry of nearby stars is carried out using aperture photometry with 
+an aperture radius of 12~pix (0$\farcs$3).  
+For EPIC~201828749, we also acquired $J$- and $H$-band images.
+Astrometry and photometry is derived separately for each image, and the mean and standard deviation 
+of these measurements is adopted for our final values listed in Table~XX.
+
+Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO},
+while contrast curves showing the $5\sigma$ limits for detection
+as a function of orbital separation are given in Fig. \ref{Fig:CC}.
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{f2}}
@@ -533,9 +576,22 @@ The inset for each single system shows a shallower, unsaturated image to better
 identify companions at close projected orbital separations.
 For the two systems with imaged companions, EPIC 201546283 and 201828749,
 only unsaturated frames are collected.
+The pixel scale is 0.0252$\arcsec$ per pixel, and each subplot is a square 400 pixels
+on a side. 
+Each inset is a square 100 pixels on a side.
 All subplots, including insets, are plotted on the same scale.}
 \label{Fig:AO}
 \end{figure*}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{f3}}
+\caption{$5\sigma$ contrast curves for all systems with AO nondetections.
+For all systems, we can exclude the possibility that a companion at a given $\Delta K_S$
+exists. 
+From our known transit depths, we can then rule out significant parameter space in which 
+an eclipsing binary could reside and mimic a transit signal.}
+\label{Fig:CC}
+\end{figure}
 
 \anytodo{201828749 has an AO companion, flux ratio 6:1 or so. We call it a planet.
 It's a very flat bottom thing, with fairly short ingress and egress: the transit shape
@@ -545,8 +601,7 @@ to talk about this though.}
 
 
 \subsection{Known Background Stars}
-The PHARO AO system has a field of view of NUMBER arcseconds.
-\btmtodo{Check with Brendan to find this number}.
+The PHARO AO system has a field of view of 25 arcseconds.
 Each \KT\ pixel is a square of $3.98 \times 3.98$ arcseconds.
 A background eclipsing binary within a few \KT\ pixels of our target
 stars could mimic a transit signal inside our aperture while evading detection
@@ -623,7 +678,7 @@ As shown in Figure \ref{fig:archival}, we do not detect any targets at the
 present-day location of EPIC 201912552 in either of the POSS surveys.
 
 \begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth, trim=0 6.30cm 0 6.30cm, clip=true]{f3}}
+\centerline{\includegraphics[width=1.0\textwidth, trim=0 6.30cm 0 6.30cm, clip=true]{f4}}
 \caption{Imaging for EPIC 201912552 from 1955 to 2002. There is no background
 object directly behind the present day location of the target (red circle) that could be missed
 by the AO observations, while modern SDSS imaging can rule out wide companions
