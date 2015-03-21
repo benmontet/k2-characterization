@@ -78,8 +78,9 @@ def get_trsig(epic_id, i=None):
     else:
         name += '{:.0f}'.format(i)
 
-    TransitSignal_FromSamples(period, 
+    trsig = TransitSignal_FromSamples(period, 
                                 samples['T'],
                                 samples['delta'],
-                                samples['T_tau'])
-    self.name = name    
+                                samples['T_tau'],
+                                name=name)
+    return trsig
