@@ -46,8 +46,9 @@ def write_ini(epic_id, i=1, maxrad=12):
     config['constraints'] = {}
     config['constraints']['maxrad'] = maxrad
     ccfiles = glob.glob('{}/{}/*.cc'.format(FOLDER,config['name']))
-    config['constraints']['ccfiles'] = [os.path.basename(f)
-                                        for f in ccfiles]
+    if len(ccfiles > 0):
+        config['constraints']['ccfiles'] = [os.path.basename(f)
+                                            for f in ccfiles]
     config.write()
 
 def write_trsig(epic_id, i=1):
