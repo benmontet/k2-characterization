@@ -87,4 +87,8 @@ class K2_FPPCalculation(FPPCalculation):
 
         FPPCalculation.__init__(self, trsig, popset, folder=folder)
         self.apply_secthresh(max_secondary(epic_id, i))
-        
+
+
+#function version of the above
+def get_trsig(epic_id, i=None, recalc=False, **kwargs):
+    
