@@ -7,6 +7,7 @@ from configobj import ConfigObj
 
 from k2fpp.tables import PAPER1_TABLE, MAGS
 from k2fpp.photometry import all_mags
+from k2fpp.transitsignal import K2_TransitSignal
 
 cands = np.loadtxt('allcands.list', dtype=str)
 
@@ -48,7 +49,11 @@ def write_ini(epic_id, i=1, maxrad=12):
     config['constraints']['ccfiles'] = [os.path.basename(f)
                                         for f in ccfiles]
     config.write()
-        
+
+def write_trsig(epic_id, i=1):
+    trsig = K2_TransitSignal(epic_id, i)
+    trsig.save('{}/{}.{}/trsig.pkl'.format(FOLDER, epic_id, i))
+    
 if __name__=='__main__':
 
     for cand in cands:
@@ -57,3 +62,4 @@ if __name__=='__main__':
             epic_id = int(m.group(1))
             i = int(m.group(2))
             write_ini(epic_id, i)
+            write_trsig(epic_id, i)
