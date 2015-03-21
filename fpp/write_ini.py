@@ -51,9 +51,11 @@ def write_ini(epic_id, i=1, maxrad=12):
                                             for f in ccfiles]
     config.write()
 
-def write_trsig(epic_id, i=1):
-    trsig = get_trsig(epic_id, i)
-    trsig.save('{}/{}.{}/trsig.pkl'.format(FOLDER, epic_id, i))
+def write_trsig(epic_id, i=1, redo=False):
+    trsig_file = '{}/{}.{}/trsig.pkl'.format(FOLDER, epic_id, i)
+    if not os.path.exists(trsig_file) and not redo:
+        trsig = get_trsig(epic_id, i)
+        trsig.save(trsig_file)
     
 if __name__=='__main__':
 
