@@ -9,7 +9,7 @@ NAME = ms
 
 all: ${NAME}.pdf
 
-${NAME}.pdf: ${NAME}.tex *.bib
+${NAME}.pdf: ${NAME}.tex *.bib *.tex
 	${LATEX} ${NAME}
 	bibtex ${NAME}
 	${LATEX} ${NAME}
