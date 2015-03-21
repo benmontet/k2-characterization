@@ -9,6 +9,7 @@ from scipy.io.idl import readsav
 from starutils.contrastcurve import ContrastCurve
 
 from .photometry import all_mags
+from .tables import MAGS
 
 AODATA_DIR = os.path.expanduser('~/repositories/k2-characterization/aodata/proc')
 
@@ -30,6 +31,23 @@ def AO_contrast_curves(epic_id):
             ok = coverage==1
             ccs.append(ContrastCurve(rs[ok],dmags[ok],band,
                                      name='PHARO'.format(band)))
+
+    #no join curve for this one
+    if epic_id==201828749:
+        for f in files:
+            m = re.search('_epic\d+_(\w+)_sat_unsat_qlconprofiles.sav', f)
+            if m:
+                data = readsav(f)
+                band = m.group(1).upper()
+                if band=='KS':
+                    band = 'K'
+                rs = data['angscalearr']
+                dmags = data['fivesigqlconprof']
+                coverage = data['unsatfraccoverage']
+                ok = coverage==1
+                ccs.append(ContrastCurve(rs[ok],dmags[ok],band,
+                                     name='PHARO'.format(band)))
+            
     return ccs
 
 def SDSS_contrast(epic_id):
@@ -56,3 +74,8 @@ def write_ccs(epic_id, rootfolder=os.path.expanduser('~/repositories/k2-characte
             outfile = '{}/{}_{}.cc'.format(dir, cc.name, cc.band)
             np.savetxt(outfile, np.array([cc.rs,cc.dmags]).T)
     
+def write_all_ccs():
+    for epic_id in MAGS.index:
+        write_ccs(epic_id)
+
+        
