@@ -13,7 +13,7 @@ cands = np.loadtxt('allcands.list', dtype=str)
 
 FOLDER = os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')
 
-def write_ini(epic_id, i=1, maxrad=12):
+def write_ini(epic_id, i=1, maxrad=12, photerr_inflate=3):
     filename ='{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
     config = ConfigObj()
     config.filename = filename
@@ -40,7 +40,7 @@ def write_ini(epic_id, i=1, maxrad=12):
     for b in ['B','V','g','r','i','J','H','K',
               'W1','W2','W3']:
         mag, err = (mags[b], mags['{}err'.format(b)])
-        config['mags'][b] = [mag,err]
+        config['mags'][b] = [mag,err*photerr_inflate]
     config['mags']['Kepler'] = mags['Kepler']
 
     config['constraints'] = {}
