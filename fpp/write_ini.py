@@ -37,7 +37,7 @@ def write_ini(epic_id, i=1, maxrad=12):
 
     mags = all_mags(epic_id)
     config['mags'] = {}
-    for b in ['B','V','J','H','K',
+    for b in ['B','V','g','r','i','J','H','K',
               'W1','W2','W3']:
         mag, err = (mags[b], mags['{}err'.format(b)])
         config['mags'][b] = [mag,err]
