@@ -68,8 +68,14 @@ def mag_table(filename='../table_photometry.txt'):
     df.index = df['name']
     return df
 
+def aperture_table(filename='../apertures.csv'):
+    df = pd.read_csv(filename)
+    df.index = df['epic']
+    return df
+    
 MAGS = mag_table()
 DARTMOUTH_PARS = dartmouth_table()
 PADOVA_PARS = padova_table()
 PAPER1_TABLE = paper1_table()
+APERTURES = aperture_table()
 

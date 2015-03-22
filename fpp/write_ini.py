@@ -5,7 +5,7 @@ import numpy as np
 import os, os.path, re, glob
 from configobj import ConfigObj
 
-from k2fpp.tables import PAPER1_TABLE, MAGS
+from k2fpp.tables import PAPER1_TABLE, MAGS, APERTURES
 from k2fpp.photometry import all_mags
 from k2fpp.transitsignal import get_trsig
 
@@ -13,7 +13,7 @@ cands = np.loadtxt('allcands.list', dtype=str)
 
 FOLDER = os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')
 
-def write_ini(epic_id, i=1, maxrad=12, photerr_inflate=3):
+def write_ini(epic_id, i=1, photerr_inflate=3):
     filename ='{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
     config = ConfigObj()
     config.filename = filename
@@ -44,7 +44,7 @@ def write_ini(epic_id, i=1, maxrad=12, photerr_inflate=3):
     config['mags']['Kepler'] = mags['Kepler']
 
     config['constraints'] = {}
-    config['constraints']['maxrad'] = maxrad
+    config['constraints']['maxrad'] = (APERTURES.ix[epic_id, 'radius'] + 1)*4
     ccfiles = glob.glob('{}/{}/*.cc'.format(FOLDER,config['name']))
     if len(ccfiles) > 0:
         config['constraints']['ccfiles'] = [os.path.basename(f)
