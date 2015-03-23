@@ -14,11 +14,11 @@ from .photometry import all_mags
 
 DARTMOUTH = Dartmouth_Isochrone()
 
-STARMODEL_DIR = 'starmodels_inflated'
+STARMODEL_DIR = 'starmodels_inflated_nogri'
 
 class EPIC_StarModel(StarModel):
-    def __init__(self, epic_id, exclude_bands=['W4'],
-                 maxAV=0.1, max_distance=500, refit=False, inflate_error=3,
+    def __init__(self, epic_id, exclude_bands=['W4','g','r','i'],
+                 maxAV=0.1, max_distance=2000, refit=False, inflate_error=3,
                  **kwargs):
 
         self.epic_id = epic_id

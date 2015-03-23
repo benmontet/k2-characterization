@@ -9,6 +9,7 @@ from scipy.io.idl import readsav
 from starutils.contrastcurve import ContrastCurve
 
 from .photometry import all_mags
+from .tables import MAGS
 
 AODATA_DIR = os.path.expanduser('~/repositories/k2-characterization/aodata/proc')
 
@@ -18,22 +19,35 @@ def AO_contrast_curves(epic_id):
     pattern = AODATA_DIR + '/*epic{}*'.format(epic_id)
     files = glob.glob(pattern)
     for f in files:
-        m = re.search('_epic\d+_(\w+)_sat_medcomb_qlconprofiles.sav', f)
+        m = re.search('_epic\d+_(\w+)_sat.*join.*_5sig.sav', f)
         if m:
             data = readsav(f)
             band = m.group(1).upper()
             if band=='KS':
                 band = 'K'
-            bins = data['angscalearr']
-            dmags = data['fivesigqlconprof']
-            coverage = data['corfraccoverage']
-            coverage[0] = 1.
-            if len(bins)==1 + len(dmags):
-                bin_centers = (bins[1:]+bins[:-1])/2
-            else:
-                bin_centers = bins
-            ccs.append(ContrastCurve(bin_centers,dmags,band,
-                                     name='PHARO {} band'.format(band)))
+            rs = data['conarr'][:,1]
+            dmags = data['conarr'][:,0]
+            coverage = data['conarr'][:,2]
+            ok = coverage==1
+            ccs.append(ContrastCurve(rs[ok],dmags[ok],band,
+                                     name='PHARO'.format(band)))
+
+    #no join curve for this one
+    if epic_id==201828749:
+        for f in files:
+            m = re.search('_epic\d+_(\w+)_sat_unsat_qlconprofiles.sav', f)
+            if m:
+                data = readsav(f)
+                band = m.group(1).upper()
+                if band=='KS':
+                    band = 'K'
+                rs = data['angscalearr']
+                dmags = data['fivesigqlconprof']
+                coverage = data['unsatfraccoverage']
+                ok = coverage==1
+                ccs.append(ContrastCurve(rs[ok],dmags[ok],band,
+                                     name='PHARO'.format(band)))
+            
     return ccs
 
 def SDSS_contrast(epic_id):
@@ -43,11 +57,25 @@ def SDSS_contrast(epic_id):
     rs = [2.8,4,8,12] #blah blah
     dmag = 22.2-mags['r']
     dmags = [dmag]*len(rs)
-    return ContrastCurve(rs,dmags,'r',name='SDSS r band')
+    return ContrastCurve(rs,dmags,'r',name='SDSS')
 
 def all_ccs(epic_id):
     ccs = AO_contrast_curves(epic_id)
     ccs.append(SDSS_contrast(epic_id))
     return  ccs
 
+
+def write_ccs(epic_id, rootfolder=os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')):
+    ccs = all_ccs(epic_id)
+
+    dirs = glob.glob('{}/{}.?'.format(rootfolder,epic_id))
+    for dir in dirs:
+        for cc in ccs:
+            outfile = '{}/{}_{}.cc'.format(dir, cc.name, cc.band)
+            np.savetxt(outfile, np.array([cc.rs,cc.dmags]).T)
     
+def write_all_ccs():
+    for epic_id in MAGS.index:
+        write_ccs(epic_id)
+
+        

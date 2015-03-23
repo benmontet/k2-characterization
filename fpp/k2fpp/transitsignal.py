@@ -61,3 +61,26 @@ class K2_TransitSignal(TransitSignal_FromSamples):
                                         samples['T_tau'])
         self.name = name
 
+#function version of the above
+def get_trsig(epic_id, i=None):
+    samples = get_samples(epic_id)
+
+    if(type(samples)==list):
+        #integer number must be passed
+        samples = samples[i-1]
+        period = PAPER1_TABLE.ix[epic_id, 'period'].iloc[i-1]
+    else:
+        period = PAPER1_TABLE.ix[epic_id, 'period']
+
+    name = '{}'.format(epic_id)
+    if i is None:
+        name += '.1'
+    else:
+        name += '{:.0f}'.format(i)
+
+    trsig = TransitSignal_FromSamples(period, 
+                                samples['T'],
+                                samples['delta'],
+                                samples['T_tau'],
+                                name=name)
+    return trsig

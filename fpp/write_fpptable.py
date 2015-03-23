@@ -2,20 +2,26 @@
 
 import re
 import os, os.path, glob
+import numpy as np
 
 from k2fpp.fpp import max_secondary
+from k2fpp.contrast import AO_contrast_curves
 
 def prob_entry(val):
     val = float(val)
     if val > 1e-4:
-        return '${:.2g}$'.format(val)
+        if val < 0.01:
+            lv = -np.floor(np.log10(val))
+            return '${:.1f}\\times10^{{-{:.0f}}}$'.format(val*10**lv,lv)
+        else:
+            return '${:.3f}$'.format(val)
     else:
         return '$< 10^{-4}$'
 
 def format_line(line, fpp):
     fpp = float(fpp)
     newline = line
-    if fpp < 0.01 and False:
+    if fpp < 0.01 and False: #not bothering to bold.
         newline = ''
         for v in line.split('&'):
             m = re.search('\$(.*)\$\s+\\\\',v)
@@ -42,15 +48,16 @@ fout = open('../table_fpp.tex','w')
 fout.write(r"""
 \clearpage
 %\LongTables
-\begin{deluxetable*}{lcllllllc}
+\begin{deluxetable*}{lclccccccc}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
-\label{Tab:FPP}
+\label{Table:FPP}
 \tablehead{
 \colhead{EPIC} &
 \colhead{Cand. Num.} &
 \colhead{max($\delta_{\rm sec}$)} &
+\colhead{AO?} &
 \colhead{${\rm Pr}_{\rm EB}$} &
 \colhead{${\rm Pr}_{\rm BEB}$} &
 \colhead{${\rm Pr}_{\rm HEB}$} &
@@ -68,11 +75,18 @@ for f in folders:
     for line in open(resultsfile,'r'):
         line = line.split()
     beb,eb,heb,pl,fpV,fp,FPP = line
+
     m = re.search('(\d+)\.(\d)',f)
     epic_id = int(m.group(1))
     i = int(m.group(2))
     line = '${}$ & ${}$ & '.format(epic_id,i)
     line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3)
+    ccs = AO_contrast_curves(epic_id)
+    if len(ccs)>0:
+        line += ' Y & '
+    else:
+        line += ' - & '
+
     for val in [eb,beb,heb]:
         val = float(val)
         line += '{} & '.format(prob_entry(val))
