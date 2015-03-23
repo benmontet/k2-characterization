@@ -817,38 +817,46 @@ not be surprising given the transit depth.
 It was later realized that EPIC 201555883 has a period, time of transit,
 and transit duration consistent with EPIC 201569483.
 Such effects are not uncommon in \kep\ data.
-\citet{Batalha13} found $\sim 25$ planet candidates to be false positives based on matching
-ephemerides between candidates.
-In that paper, the authors limited their search to candidates within $20\arcsec$ of other
-objects of interest.
-\citet{Coughlin14} expanded on this method, identifying 685 KOIs as false positives and
-outlining four physical reasons why these anomalies may occur.
-As those authors explain, period-matching candidates can be the result of direct PRF
-contamination, antipodal reflection across the Schmidt telescope, CCD crosstalk
-across a \kep\ module, or ``column anomalies'' across one column of the CCD.
-Typically, the instrumental false positive event appears considerably shallower than the
-true astrophysical event.
+\citet{Batalha13} found $\sim 25$ planet candidates to be false positives
+based on matching ephemerides between candidates.
+In that paper, the authors limited their search to candidates within
+$20\arcsec$ of other objects of interest.
+\citet{Coughlin14} expanded on this method, identifying 685 KOIs as false
+positives and outlining four physical reasons why these anomalies may occur.
+As those authors explain, period-matching candidates can be the result of
+direct PRF contamination, antipodal reflection across the Schmidt telescope,
+CCD crosstalk across a \kep\ module, or ``column anomalies'' across one column
+of the CCD.
+Typically, the instrumental false positive event appears considerably
+shallower than the true astrophysical event.
 
-EPIC 201555883 is a unique case in that it does not appear to fall under any of these
-cases. It falls on module 23, while EPIC 201569483 is on module 8, neither 180 degrees
-away from nor on the same column as this candidate.
-Moreover, there is not any evidence of a mechanism that could cause a third star to
-induce both the appearance of a $7\%$ eclipse on one module and an additional
-anomalous transit event on a different module.
+EPIC 201555883 is a unique case in that it does not appear to fall under any
+of these cases. It falls on module 23, while EPIC 201569483 is on module 8,
+neither 180 degrees away from nor on the same column as this candidate.
+Moreover, there is not any evidence of a mechanism that could cause a third
+star to induce both the appearance of a $7\%$ eclipse on one module and an
+additional anomalous transit event on a different module.
+Instead, this candidate could be a false positive caused by a different
+systematic mechanism.
+\paperit\ modeled the systematic effects in the \KT\ light curves using a
+linear combination of ``eigen light curves'' generated empirically by running
+a principle component analysis on the light curves of every star.
+This means that the training set includes the light curves for variable stars,
+eclipsing binaries, and even transiting planets.
 
-Formally, our false positive validation scheme gives a FPP of $9.5 \times 10^{-4}$,
-reaching our threshold for planet validation.
-Since \texttt{vespa} does not account for the possibility of instrumental artifacts
-in the data, this number represents only the \textit{astrophysical} false positive
-probability.
-In this case, given the period matching between the two events, we refrain from
-declaring this system a planet.
-However, since we cannot explain how such a false positive would occur as a result
-of an instrumental systematic in the \kep\ telescope, we also refrain from declaring
-this target a definite false positive.
-Additional follow-up observations of both targets are clearly warranted to better
-understand a possible systematic that has not previously been observed in
-either \kep\ or \KT.
+Formally, our false positive validation scheme gives a FPP of $9.5 \times
+10^{-4}$, reaching our threshold for planet validation.
+Since \texttt{vespa} does not account for the possibility of instrumental
+artifacts in the data, this number represents only the \textit{astrophysical}
+false positive probability.
+In this case, given the period matching between the two events, we refrain
+from declaring this system a planet.
+However, since we cannot explain how such a false positive would occur as a
+result of an instrumental systematic in the \kep\ telescope, we also refrain
+from declaring this target a definite false positive.
+Additional follow-up observations of both targets are clearly warranted to
+better understand a possible systematic that has not previously been observed
+in either \kep\ or \KT.
 
 
 
