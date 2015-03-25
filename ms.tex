@@ -156,9 +156,11 @@ Andrew~W.~Mann\altaffilmark{\texas, \hjs},
 \date{\today, \currenttime}
 
 \begin{abstract}
-Recently, \paperit{} presented a list of 36 planet candidates orbiting
-31 stars in \KT\ \Ci.
-In this paper, we present stellar and planetary properties for all systems.
+The extended \kep\ mission, \KT, is now providing photometry of new fields every 
+three months in a search for transiting planets.
+In a recent study, Foreman-Mackey and collaborators presented a list of 36 planet 
+candidates orbiting 31 stars in \KT\ \Ci.
+In this contribution, we present stellar and planetary properties for all systems.
 We combine ground-based seeing limited survey data and
 adaptive optics imaging with a detailed transit analysis scheme to validate
 \Nvalidated\ candidates as planets and identify \Nfp\ candidates as likely false positives.
@@ -167,6 +169,7 @@ hosting a $2.24 \pm 0.25 R_\odot$ planet with $T_{eq} = 271 \pm 16$ K and an
 orbital period of 33 days.
 We also present \texttt{vespa}, a new general-purpose implementation
 of the \citet{Morton12} procedure to calculate false positive probabilities
+and statistically validate transiting exoplanets
 for \KT\ candidates.
 \end{abstract}
 
@@ -180,8 +183,8 @@ The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and pla
 astrophysics, with 7305 ``objects of interest'' and 4173 ``planet candidates''
 discovered to date \citep{Borucki11a, Borucki11b, Batalha13, Burke14, Rowe15, Mullaly15}.
 The fidelity of this sample is high: most of these planet candidates are truly planets
-\citep{Morton11b, Fressin13}.
-The demise of two reaction wheels on the spacecraft led to a repurposing
+\citep{Morton11b, Fressin13, Desert15}.
+The mechanical failure of two reaction wheels on the spacecraft led to a repurposing
 of the spacecraft into the \KT\ mission, in which the telescope points at
 fields near the ecliptic plane for $\sim 75$ days at a time \citep{Howell14}.
 In this observing strategy, two axes of motion of the spacecraft are
@@ -189,7 +192,7 @@ controlled by the two remaining reaction wheels, while the roll of the
 spacecraft is balanced with solar radiation pressure and quasiperiodic
 thruster firing.
 As a result, the detector drifts relative to the sky
-at the rate of $\sim 1\arcsec$ hr$^{-1}$, with rapid corrections
+at the rate of $\sim 1\arcsec$ hr$^{-1}$, with rapid corrections due to thruster fires
 approximately once every six hours.
 Over the full duration of each campaign, the targets appear to remain near the
 same location on the detector but both the slow drift and the corrections are
@@ -203,14 +206,15 @@ masking the observational signature of a planet passing between \kep\ and its ho
 
 There has been considerable effort to recover these planetary signals.
 \citet{Vanderburg14} extract aperture photometry and de-correlate with image centroid
-position, ``correcting'' the data to ``remove'' the effects of the spacecraft motion.
+position to calibrate the photometry as a function of position.
 These data were used to confirm the first planet discovered in \KT\ \citep{Vanderburg15}.
 A similar technique was employed by \citet{Armstrong15a} to identify potential eclipsing
 binary systems and to identify a transiting system near a 3:2 period commensurability
 \citep{Armstrong15b}.
-\citet{Aigrain15} and \citet{Crossfield15} use a Gaussian Process model for the measured
+\citet{Aigrain15} use a Gaussian Process model for the measured
 flux, with pointing measurements as the inputs, and then ``de-trend'' the data with that model.
-The latter of these detected the first multi-planet system in \KT\ data.
+\citet{Crossfield15} apply a very similar method, which was used to detect the first 
+multi-planet system in \KT\ data.
 
 What is common to all of these methods are that removal of systematics is considered a
 step to be undertaken before the search for planets.
@@ -243,13 +247,14 @@ Additionally, the authors follow the convention of the \kep\ team to include any
 transit event as a candidate system rather than a false positive if a secondary eclipse
 is not detected: there is no enforced upper limit on the allowed planet radius.
 The authors intentionally make no effort to separate astrophysical false positives from
-true transiting planets.
+true transiting planets, similar to the \kep\ ``objects of interest.''
 
 In this paper, we present stellar and planetary parameters for each system.
 Given these parameters and the transit data, as well as archival imaging, ground-based
 seeing-limited survey data, and adaptive optics imaging, we are able to confirm
 \Nvalidated\ of these systems as transiting planets at the 99\% confidence
-level. We also are able to confirm \Nfp\ of these systems as false positives.
+level. 
+Additionally, we identify four systems as false positives.
 
 This paper is organized as follows.
 In \textsection2, we develop stellar properties through
@@ -281,7 +286,8 @@ and the $W1-W3$ WISE magnitudes and uncertainties from the ALLWise Data
 Release \citep{Cutri13}.
 For all except two of our targets, the $W4$ band is only an upper limit,
 and in the remaining two cases, the photometric uncertainity in $W4$ is at least an
-order of magnitude larger than those in $W1-W3$, so we neglect $W4$.
+order of magnitude larger than those in $W1-W3$, so we do not use $W4$ 
+for any system.
 These data are reported in Table 1, and a color-color diagram showing the
 $r-J, J-K$ colors of our candidates is included as Fig. \ref{fig:photometry}.
 
@@ -289,10 +295,11 @@ $r-J, J-K$ colors of our candidates is included as Fig. \ref{fig:photometry}.
 \centerline{\includegraphics[width=0.5\textwidth]{f1}}
 \caption{Color-color diagram displaying $r-J, J-K$ photometry for targets
 observed by \kep\ during the original
-mission (black), with our \KT\ \Ci\ planet candidates overlaid (fuchsia).
-Also included is the location of the Sun (yellow).
-Nearly all of our candidates have photometry consistent with later spectral
-types than G2.}
+mission (black), with our \KT\ \Ci\ planet candidates overlaid (red).
+Also included is the location of the Sun (yellow) and host stars of previously
+confirmed \KT\ planets (blue).
+90\% of our candidates have photometry consistent with later spectral
+types than the Sun.}
 \label{fig:photometry}
 \end{figure}
 
@@ -302,7 +309,8 @@ types than G2.}
 To convert the observed photometric data into physical properties for each
 star, we used the publicly available \texttt{isochrones} Python module\footnote{
 \url{http://github.com/timothydmorton/isochrones}}, a general-purpose
-interpolation tool for stellar model grids.
+interpolation tool for the fitting of stellar models to photometric or spectroscopic
+parameters.
 This software does trilinear interpolation in mass--age--\feh\ space for any
 given set of model grids, thus being able to predict the value for any
 physical or photometric property provided by the models at any values of
@@ -314,13 +322,13 @@ or both, to define a likelihood function that may be sampled in
 an MCMC chain:
 \begin{equation}
 \label{eq:ischochronelhood}
-\ln \mathcal L(\boldsymbol{\theta}) = -\frac{1}{2} \displaystyle \sum_i \frac{\left(x_i -
+\ln \mathcal L(\boldsymbol{\theta}) \propto -\frac{1}{2} \displaystyle \sum_i \frac{\left(x_i -
   I_i\left(\boldsymbol{\theta} \right)\right)^2}{\sigma_i^2},
 \end{equation}
 where $I_i(\boldsymbol{\theta})$ is the isochrone model prediction of property
 $i$ at the given parameters $\boldsymbol{\theta}$.
 If the observed properties include any apparent magnitudes, then
-$\boldsymbol{\theta}$ includes distance and $A_V$ extinction in addition
+$\boldsymbol{\theta}$ includes distance and extinction in addition
 to mass, age, and \feh.
 
 In this work, we use grids from the Dartmouth Stellar
@@ -340,13 +348,13 @@ Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
 However, we are subject to biases induced by systematics in the models themselves.
 There is some evidence that the Dartmouth models may under-predict
-radii by $\sim 15\%$ when compared to other methods \citep{Newton15,
+radii of M dwarfs by $\sim 15\%$ when compared to other methods \citep{Newton15,
 Montet15}.
 Such an effect may be the result of the Dartmouth model reliance on BT-Settl
 atmospheres, which have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
 
-In order to try to encapsulate the effect of model uncertainties, we also run
+In order to account for the effects of model uncertainties, we also run
 MCMC chains with photometric errors inflated artificially by a factor of three.
 We provide full chains using both inflated and un-inflated
 uncertainties,\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}
@@ -467,29 +475,29 @@ The planet parameters measured by this analysis are listed in Table 3.
 As has been well known from the early days of transit searches, it is
 possible for an eclipsing binary star to masquerade as a transiting
 planet if (a) it is a highly grazing eclipse, or (b) the binary system
-comprises only a small fraction of the total light in the photometric
-aperture, resulting in a diluted eclipse depth.
+shares a photometric aperture with a significantly brighter star, 
+resulting in a diluted eclipse depth.
 When possible, such astrophsycial false positive scenarios are traditionally
 ruled out by detailed follow-up observations, often a combination of
 high-resolution imaging and radial-velocity measurements.
 However, the \kep\ mission, with its thousands of planet candidates
 around mostly faint stars, necessitated a paradigm shift---a move
 toward probabilistic interpretation of transit signals, rather than
-comprehensive follow-up of each individual candidate.
+comprehensive follow-up of each individual candidate \citep{Morton11b}.
 
 \citet{Morton12} presented an automated method to calculate the
 probability that a planet candidate might be caused by an
 astrophysical false positive.
-This method uses population simulations of the light curves of
-of false positive scenarios and true transiting planets to quantify
-the typical shape of each, comparing to the observed transit shape.
+This method uses Galactic population simulations to determine the 
+distributions of possible false positive scenarios, comparing the
+typical light curve shape of each to the data.
 It then combines this information with observationally motivated prior
 assumptions about the populations of field stars, the properties of
 multiple star systems, and the occurrence rate of planets as determined
 from \kep\ \citep{Fressin13}, in order to determine the probability that
 the observed signal may be a false positive.
 Similar in spirit to other published methods of
-probabilistic validation, such as Blender \citep{Torres11a} and PASTIS
+probabilistic validation, such as BLENDER \citep{Torres11a} and PASTIS
 \citep{Diaz14a}, it has the advantage of being computationally less demanding
 and fully automated, and thus easily applied in batch to a large
 number of candidates.
@@ -523,10 +531,10 @@ to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
 and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
-We find that \Nfp\ of the presented candidates FPP $>$90\%;
+We find that four of the presented candidates have FPP $>$90\%;
 these we consider to be likely false positives.
 On the other hand, we find that \Nvalidated\ candidates
-have FPP $<$ 1\%; these we consider to be validated planets.
+have FPP $<$ 1\%; we consider these to be statistically validated planets.
 Of these, 18 are validated for the first time.
 The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
 nor low enough to securely validate.
@@ -534,8 +542,8 @@ nor low enough to securely validate.
 We emphasize that the majority of these planets were validated based
 solely on the transit signal, with no need for follow-up imaging.  This
 demonstrates the utility of \texttt{vespa} analysis, which will be
-crucial to interpreting future \KT\ detected candidates and prioritizing
-follow-up observing efforts.
+crucial to interpreting future candidates detected by \KT, TESS, and PLATO
+and prioritizing follow-up observing efforts.
 We show these transit signals as Fig. \ref{fig:transits}.
 
 \begin{figure*}[htbp]
@@ -612,7 +620,7 @@ as a function of orbital separation are given in Fig. \ref{Fig:CC}.
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{f3}}
-\caption{AO data for all systems imaged.
+\caption{Adaptive optics images for the seven stars observed with high-contrast imaging.
 The main frame for each single system shows the deep, saturated image.
 The inset for each single system shows a shallower, unsaturated image to better
 identify companions at close projected orbital separations.
@@ -655,7 +663,7 @@ all stars within 12\arcsec\ with $\Delta r < 8$ relative to each object
 of interest.
 Of the 31 stars in our sample, four have such a companion.
 Unlike the original \kep\ field, the field for \KT\ \Ci\ is
-well out of the galactic plane, so the rate of giant, distanct background
+well out of the galactic plane, so the rate of giant, distant background
 stars is significantly lower.
 We include all potential contaminants in Table 5.
 
@@ -902,18 +910,18 @@ JWST to probe planetary atmospheres.
 
 \section{Results and Discussion}
 
-We have presented stellar parameters for all planet candidates systems observed by
-\paperit, validating \Nvalidated\ of the 36 candidates as bona fide planets and
-\Nfp\ as false positives.
+We have presented stellar parameters for all planet candidates systems identified by
+\paperit.
+We statistically validate \Nvalidated\ of the 36 candidates as bona fide planets, and we
+identify four as false positives.
 Of these planets, 4 have been previously validated in other works, while 17 are
 validated here for the first time.
+The 11 systems not validated as planets or false positives remain as planet candidates.
 
 With the exception of one object, all of the stellar parameters are derived from comparing
 photometric observations to the Dartmouth stellar evolution models.
 As a result, both the stellar and planet parameters are subject to systematic biases induced
 by discrepancies between the models and reality.
-Even more dangerously, any region of parameter space not probed by the models would
-be entirely missed in our stellar modeling.
 
 As stated in \textsection\ref{sec:stellarparams}, we infer stellar parameters using the
 Dartmouth models, with a mass upper limit of $3.7 M_\odot$.
@@ -935,7 +943,9 @@ The planets we confirm in this paper, like the planets found in the original \ke
 span a wide range of parameter space.
 They are at distances ranging from $34$ to $700$ pc, have radii ranging from $1.3$ to
 5.3 $R_\oplus$, and orbit with periods ranging from 5.0 to 50.3 days.
-Like the original mission, we find significantly more small planets than large planets.
+Like the original mission, we find significantly more small planets than large planets, as
+expected from the radius distributions measured from \kep\ 
+\citep{Howard12, Fressin13, Morton14}.
 
 Unlike the original mission, however, we find that nearly all of our confirmed planets
 are around stars less massive than the Sun.
