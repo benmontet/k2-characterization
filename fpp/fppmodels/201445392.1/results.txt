@@ -1,2 +1,2 @@
-beb eb heb pl fpV fp FPP
-1.40e-03 1.85e-05 1.21e-02 9.87e-01 0.589 0.216 1.35e-02
+heb eb beb pl fpV fp FPP
+7.36e-03 6.45e-02 1.90e-03 9.26e-01 3.1 0.196 7.37e-02

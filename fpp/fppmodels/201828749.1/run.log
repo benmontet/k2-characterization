@@ -1,0 +1,57 @@
+2015-03-24 18:25:55,592: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201828749.1/trsig.pkl...
+2015-03-24 18:25:57,929: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201828749.1/starmodel.h5.
+2015-03-24 18:26:22,882: Loading TRILEGAL simulation from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201828749.1/starfield.h5
+2015-03-24 18:26:24,449: 0 M1s are nan
+2015-03-24 18:26:24,450: 3 M2s are nan
+2015-03-24 18:26:24,450: 0 R1s are nan
+2015-03-24 18:26:24,452: 3 R2s are nan
+2015-03-24 18:26:24,583: 152 binaries are "too close"; gave up trying to fix.
+2015-03-24 18:26:29,980: 1814 BEB systems generated (target 20000)
+2015-03-24 18:26:30,274: 0 M1s are nan
+2015-03-24 18:26:30,275: 56 M2s are nan
+2015-03-24 18:26:30,276: 0 R1s are nan
+2015-03-24 18:26:30,276: 56 R2s are nan
+2015-03-24 18:26:32,060: 2005 binaries are "too close"; gave up trying to fix.
+2015-03-24 18:26:33,071: 24118 BEB systems generated (target 20000)
+2015-03-24 18:26:33,163: Fitting trapezoid models for BEBs...
+2015-03-24 18:27:29,296: No eclipse registered for index 3751
+2015-03-24 18:28:24,166: No eclipse registered for index 7483
+2015-03-24 18:28:54,028: No eclipse registered for index 9514
+2015-03-24 18:29:21,955: No eclipse registered for index 11383
+2015-03-24 18:30:29,360: No eclipse registered for index 15887
+2015-03-24 18:31:30,625: Done.
+2015-03-24 18:31:36,989: Error generating HEB population.
+2015-03-24 18:31:36,990: FPP calculation failed for fppmodels/201828749.1.
+Traceback (most recent call last):
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 114, in <module>
+    n=args.n)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/fpp.py", line 258, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/populations.py", line 1752, in __init__
+    do_only=do_only)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/populations.py", line 1807, in generate
+    mags=mags, MAfn=MAfn, n=n, **heb_kws)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/populations.py", line 1267, in __init__
+    **kwargs)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/populations.py", line 1327, in generate
+    n=n_adapt, **pop_kwargs)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 1807, in __init__
+    **kwargs)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 1920, in generate
+    raise PoorColorsError('Generating population with low efficiency ({:.3f}), so aborting.  Consider dropping color constraints.'.format(efficiency))
+PoorColorsError: Generating population with low efficiency (0.000), so aborting.  Consider dropping color constraints.
+2015-03-24 23:45:03,338: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201828749.1/trsig.pkl...
+2015-03-24 23:45:03,961: Fitting StarModel to {'B': (12.478, 0.12), 'g': (12.135, 0.15), 'i': (11.316, 0.12), 'H': (10.227, 0.12), 'K': (9.933, 0.09), 'J': (10.494, 0.09), 'r': (11.582, 0.12), 'W3': (9.982, 0.174), 'W2': (9.866, 0.063), 'W1': (9.82, 0.069), 'V': (11.763, 0.03)}...
+2015-03-24 23:47:18,282: FPP calculation failed for fppmodels/201828749.1.
+Traceback (most recent call last):
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 114, in <module>
+    n=args.n)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.1.2-py2.7-linux-x86_64.egg/vespa/fpp.py", line 242, in from_ini
+    starmodel.save_hdf(starmodel_file)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/isochrones-0.7.4-py2.7.egg/isochrones/starmodel.py", line 611, in save_hdf
+    self.samples.to_hdf(filename, '{}/samples'.format(path))
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/isochrones-0.7.4-py2.7.egg/isochrones/starmodel.py", line 486, in samples
+    self._make_samples()
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/isochrones-0.7.4-py2.7.egg/isochrones/starmodel.py", line 441, in _make_samples
+    lnprob_thresh = np.percentile(self.sampler.flatlnprobability, thresh*100)
+NameError: global name 'thresh' is not defined

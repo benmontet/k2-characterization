@@ -54,7 +54,7 @@ def SDSS_contrast(epic_id):
     """fwhm 1.4", lim. mag r=22.2
     """
     mags = all_mags(epic_id)
-    rs = [2.8,4,8,12] #blah blah
+    rs = [2.8,4,8,12,25] #blah blah
     dmag = 22.2-mags['r']
     dmags = [dmag]*len(rs)
     return ContrastCurve(rs,dmags,'r',name='SDSS')
