@@ -664,51 +664,60 @@ by PHARO.
 Such wide eclipsing binaries should appear in seeing-limited ground-based
 surveys.
 
-To investigate the possibility that such wide companions exist,
-we query the ninth data release of the Sloan Digital Sky Survey
-\citep[SDSS DR9,][]{Ahn12}.
-For each target, we return
-all stars within 12\arcsec\ with $\Delta r < 8$ relative to each object
-of interest.
-Of the 31 stars in our sample, four have such a companion.
-Unlike the original \kep\ field, the field for \KT\ \Ci\ is
-well out of the galactic plane, so the rate of giant, distant background
-stars is significantly lower.
-We include all potential contaminants in Table 5.
+To investigate the possibility that such wide companions exist, we
+query the ninth data release of the Sloan Digital Sky Survey
+\citep[SDSS DR9,][]{Ahn12} for all stars within 25\arcsec\ with
+$\Delta r < 8$ relative to each object of interest.  
+Each such companion star has a ``maximum depth'' that it could cause
+as a diluted ``transit'' signal, corresponding to a total eclipse 
+of the hypothetical 
+background binary system, inducing a 50\% flux decrement in the 
+background star's apparent brightness.
+Table 5 lists the 11 such stars (plus one detected in AO imaging),
+whose maximum depth is at least as deep 
+as the observed transit depth, thus making them possible contaminants.
 
+The photometric apertures used to detect these candidates range in radius from
+$10\farcs0$ to $19\farcs9$.  In order to be a plausible contaminant,
+any companion star must
+be either within this aperture or just outside but bright
+enough for signficant flux to leak in.  
+Evaluating each of the systems listed in Table 5, we judge that we cannot yet
+rule out contamination as a potential source of the transit signal for four 
+candidates: 201295312.01, 201403446.01, 201546283.01, 201828749.01.  Despite receiving
+low FPP scores from \texttt{vespa}, we list these systems as candidates in
+Table 4, rather than planets.  Further updates to the \texttt{vespa} code 
+will allow consideration of ``specific'' false positive scenarios; that is, 
+scenarios that correspond to actually detected stars such as these, rather than 
+hypothetical background or bound companions.
 
+The candidates with identified companions that we judge to not be plausible 
+sources of potential contamination are the following:
+\begin{itemize}
 
-In Table 5, the ``maximum depth'' column represents
-the maximum observed ``transit'' depth if the transit were actually caused
-by a total eclipse of the hypothetical background binary system, inducing
-a 50\% flux decrement in the background star's apparent brightness.
+\item 201546283.01--- For this system, the ``maximum depth// is nearly 
+identical to the observed transit depth, which would require a perfectly
+V-shaped eclipse to explain.  As this is not the case (see Figure 2), 
+this signal cannot
+be caused by contamination from this star.
 
-For EPIC 201465501 and 201779067, the observed transit depth is
-larger than each of these values, so we reject the possibility that
-these events could be the eclipses of the background binaries detected
-here.
+\item 201629650.01--- The companion to this star is $17\farcs3$ from
+the EPIC target.  As this is outside the aperture 
+(radius $15\farcs9$) and the background star is not particularly bright, 
+we rule out contamination for this system.
 
-For EPIC 201546283, the observed transit depth is nearly identical to
-the maximum false positive depth.
-The photometry for this potential contaminant is consistent with that
-of an M3V star; for this object to cause the observed eclipse it must
-be a total eclipse of two M3V stars.
-However, in that case, the observed event would be exactly V-shaped,
-with second and third contact occurring simultaneously.
-Since the transit is not V-shaped, it must be the result of
-a relatively small body passing in front of a relatively large body.
-Therefore, it cannot be caused by this observed background dwarf star.
+\item 201702477.01--- The companion to this star is $12\farcs15$ from the
+EPIC target, and the aperture size is $10\farcs0$.  In addition,
+the maximum depth in this system is almost identical to the transit depth.
+For these two reasons we rule out contamination in this case.
 
-For EPIC 201295312, the transit depth is significantly shallower than
-the maximum false positive depth, so we cannot immediately
-reject the hypothesis that the transit is actually a false positive
-induced by a background eclipsing binary.
-However, from the transit shape alone we can place a FPP of this
-system of $1.1 \times 10^{-4}$.
+\end{itemize}
 
 SDSS is 95\% complete at $r=22.2$ and the telescope has a point
-spread function of $1\farcs4$. In all cases except the four above, we
-treat the SDSS data as providing a contrast curve at wide separations
+spread function of $1\farcs4$. 
+For the purposes of the \texttt{vespa} calculation, we thus
+treat nondetection in SDSS data as providing a contrast curve at 
+wide separations
 down to a limiting magnitude of $r=22.2$.
 
 \subsection{Archival Imaging}
