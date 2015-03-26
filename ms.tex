@@ -352,11 +352,15 @@ There is some evidence that the Dartmouth models may under-predict
 radii of M dwarfs by $\sim 15\%$ when compared to other methods \citep{Newton15,
 Montet15}.
 Such an effect may be the result of the Dartmouth model reliance on BT-Settl
-atmospheres, which have been shown to predict near-IR colors that are too blue
+atmospheres, which are based on incomplete molecular line lists and
+have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
 
 In order to account for the effects of model uncertainties, we also run
 MCMC chains with photometric errors inflated artificially by a factor of three.
+The observed photometric parameters are then consistent with spectroscopically-derived
+parameters for stars with published spectra, and consistent with typical uncertainties
+from photometric data \citep[e.g.][]{Huber14}.
 We provide full chains using both inflated and un-inflated
 uncertainties,\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}
 though in the rest of this work (and in Table 2) we adopt
@@ -368,7 +372,7 @@ the results obtained using the inflated values.
 
 
 
-\subsection{SpeX Spectroscopy}
+\subsection{SNIFS and SpeX Spectroscopy}
 \label{Spexobs}
 
 
@@ -475,7 +479,9 @@ The planet parameters measured by this analysis are listed in Table 3.
 
 As has been well known from the early days of transit searches, it is
 possible for an eclipsing binary star to masquerade as a transiting
-planet if (a) it is a highly grazing eclipse, or (b) the binary system
+planet. 
+There are many scenarios which can cause an astrophysical false positive.
+The most common scenarios are if (a) it is a highly grazing eclipse, or (b) the binary system
 shares a photometric aperture with a significantly brighter star, 
 resulting in a diluted eclipse depth.
 When possible, such astrophsycial false positive scenarios are traditionally
@@ -611,10 +617,10 @@ companion.
 From the transit shape, we can rule out the possibility this system is a background eclipsing
 binary.
 Regardless of which star this object transits, the object is planet-sized.
-Given that small planets are significantly more common than large planets, it is more likely
-that the planet is orbiting the brighter star, and our parameters listed in Table 3 reflect this
-likelihood. If the planet is truly orbiting the fainter star, then it has a larger radius than is
-listed in this table.
+In Table 3, we assume the planet is orbiting the larger star. 
+If the planet is truly orbiting the fainter star, then its radius must be larger than is listed to 
+account for the observed transit depth. 
+
 
 Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO},
 while contrast curves showing the $5\sigma$ limits for detection
@@ -777,7 +783,8 @@ with very low SNR in the blue.
 The two observed spectra have RVs that differ by $47 \pm 42$ m s$^{-1}$.
 If the RVs were caused by a stellar companion, the RV shift between these
 observations would be on the order of km s$^{-1}$.
-Therefore, the transiting object must be planetary in nature.
+Therefore, we can rule out any stellar-mass companions that would be able
+to create this transit signal.
 
 
 
