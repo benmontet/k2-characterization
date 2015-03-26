@@ -90,9 +90,8 @@
 \newcommand{\dfmtodo}[1]{\todo{DFM}{ForestGreen}{#1}}
 
 \newcommand{\Nfp}{5}
-\newcommand{\Nvalidated}{13} 
-\newcommand{\Nrecandidate}{7}
-\newcommand{\Nlimbo}{11} %adds up to 36
+\newcommand{\Nvalidated}{18} 
+\newcommand{\Nlimbo}{13} %adds up to 36
 
 \begin{document}
 
@@ -164,11 +163,15 @@ candidates orbiting 31 stars in \KT\ \Ci.
 In this contribution, we present stellar and planetary properties for all systems.
 We combine ground-based seeing-limited survey data and
 adaptive optics imaging with an automated transit analysis scheme to validate
-\Nvalidated\ candidates as planets and identify \Nfp\ candidates as likely false positives.
+\Nvalidated\ candidates as planets
+and identify \Nfp\ candidates as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a $2.24 \pm 0.25 R_\odot$ planet with $T_{eq} = 271 \pm 16$ K and an
 orbital period of 33 days.
-We also present \texttt{vespa}, a new general-purpose implementation
+We also present two new open-source software packages that enabled this analysis:  
+\texttt{isochrones}, a flexible tool for fitting theoretical stellar 
+models to observational data to determine stellar properties; and 
+\texttt{vespa}, a new general-purpose implementation
 of the \citet{Morton12} procedure to calculate false positive probabilities
 and statistically validate transiting exoplanets.
 \end{abstract}
@@ -308,7 +311,7 @@ types than the Sun.}
 \subsection{Stellar Models}
 \label{sec:stellarparams}
 To convert the observed photometric data into physical properties for each
-star, we used the publicly available \texttt{isochrones} Python module\footnote{
+star, we used the new publicly available \texttt{isochrones} Python module\footnote{
 \url{http://github.com/timothydmorton/isochrones}}, a general-purpose
 interpolation tool for the fitting of stellar models to photometric or spectroscopic
 parameters.
@@ -512,13 +515,14 @@ number of candidates.
 
 In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
-a new general-purpose implementation of the \citet{Morton12} procedure,
+a new publicly available, general-purpose implementation 
+of the \citet{Morton12} procedure,
 to calculate false positive probabilities (FPPs) for each of these
 \KT\ candidates.  We impose the following constraints on false positive
 scenarios:
 \begin{itemize}
-\item A chance-aligned eclipsing binary system may reside anywhere within
-the photometric aperture of the target star.
+\item A chance-aligned eclipsing binary system may reside anywhere inside
+or within one pixel of the photometric aperture of the target star.
 \item The maximum allowed depth of a potential secondary eclipse event
 is the most significantly detected signal at the same
 period of the planet candidate, once the primary transit is masked out.
@@ -542,18 +546,28 @@ and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 We find that four of the presented candidates have FPP $>$90\%;
 these we consider to be likely false positives.
-On the other hand, we find that \Nvalidated\ candidates
-have FPP $<$ 1\%; we consider these to be statistically validated planets.
-Of these, 18 are validated for the first time.
-The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
-nor low enough to securely validate.
+On the other hand, we find that 21 candidates
+have FPP $<$ 1\%.  
+Two of these we find to be caused by systematics
+in the transit search noise model (details in \S\ref{sec:systematics}), and
+so we identify those as false positives.  
+Four more of these 21 might plausibly be caused by 
+contamination by detected stellar companions within the photometric apertures 
+(see \S\ref{sec:background}), so we keep these as candidates.
 
-We emphasize that the majority of these planets were validated based
-solely on the transit signal, with no need for follow-up imaging.  This
-demonstrates the utility of \texttt{vespa} analysis, which will be
+This leaves 15 candidates that we statistically validate as planets, plus three
+additional planets that \texttt{vespa} does not validate but have been previously
+identified in the literature \citep{Crossfield15, Armstrong15b}.  
+So in total, of the 36 candidates, 18 are secure planets, 
+14 of which we here validate for the first time.
+
+
+We emphasize that the majority of these validations rely
+solely on the transit photometry and SDSS data, with no need for follow-up imaging.  This
+demonstrates the utility of the \texttt{vespa} tool, which will be
 crucial to interpreting future candidates detected by \KT, TESS, and PLATO
 and prioritizing follow-up observing efforts.
-We show these transit signals as Fig. \ref{fig:transits}.
+We show the transit signals in Fig. \ref{fig:transits}.
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{f2}}
@@ -613,14 +627,14 @@ For EPIC~201828749, we also acquired $J$- and $H$-band images.
 Astrometry and photometry is derived separately for each image, and the mean and standard deviation
 of these measurements is adopted for our final values listed in Table~5.
 
-We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
-companion.
-From the transit shape, we can rule out the possibility this system is a background eclipsing
-binary.
-Regardless of which star this object transits, the object is planet-sized.
-In Table 3, we assume the planet is orbiting the larger star. 
-If the planet is truly orbiting the fainter star, then its radius must be larger than is listed to 
-account for the observed transit depth. 
+%We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
+%companion.
+%From the transit shape, we can rule out the possibility this system is a background eclipsing
+%binary.
+%Regardless of which star this object transits, the object is planet-sized.
+%In Table 3, we assume the planet is orbiting the larger star. 
+%If the planet is truly orbiting the fainter star, then its radius must be larger than is listed to 
+%account for the observed transit depth. 
 
 
 Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO},
@@ -656,6 +670,7 @@ an eclipsing binary could reside and mimic a transit signal.}
 
 
 \subsection{Known Background Stars}
+\label{sec:background}
 The PHARO AO system has a field of view of 25 arcseconds.
 Each \KT\ pixel is a square, $3\farcs98$ on a side.
 A background eclipsing binary within a few \KT\ pixels of our target
@@ -664,51 +679,60 @@ by PHARO.
 Such wide eclipsing binaries should appear in seeing-limited ground-based
 surveys.
 
-To investigate the possibility that such wide companions exist,
-we query the ninth data release of the Sloan Digital Sky Survey
-\citep[SDSS DR9,][]{Ahn12}.
-For each target, we return
-all stars within 12\arcsec\ with $\Delta r < 8$ relative to each object
-of interest.
-Of the 31 stars in our sample, four have such a companion.
-Unlike the original \kep\ field, the field for \KT\ \Ci\ is
-well out of the galactic plane, so the rate of giant, distant background
-stars is significantly lower.
-We include all potential contaminants in Table 5.
+To investigate the possibility that such wide companions exist, we
+query the ninth data release of the Sloan Digital Sky Survey
+\citep[SDSS DR9,][]{Ahn12} for all stars within 25\arcsec\ with
+$\Delta r < 8$ relative to each object of interest.  
+Each such companion star has a ``maximum depth'' that it could cause
+as a diluted ``transit'' signal, corresponding to a total eclipse 
+of the hypothetical 
+background binary system, inducing a 50\% flux decrement in the 
+background star's apparent brightness.
+Table 5 lists the 11 such stars (plus one detected in AO imaging),
+whose maximum depth is at least as deep 
+as the observed transit depth, thus making them possible contaminants.
 
+The photometric apertures used to detect these candidates range in radius from
+$10\farcs0$ to $19\farcs9$.  In order to be a plausible contaminant,
+any companion star must
+be either within this aperture or just outside but bright
+enough for signficant flux to leak in.  
+Evaluating each of the systems listed in Table 5, we judge that we cannot yet
+rule out contamination as a potential source of the transit signal for four 
+candidates: 201295312.01, 201403446.01, 201546283.01, 201828749.01.  Despite receiving
+low FPP scores from \texttt{vespa}, we list these systems as candidates in
+Table 4, rather than planets.  Further updates to the \texttt{vespa} code 
+will allow consideration of ``specific'' false positive scenarios; that is, 
+scenarios that correspond to actually detected stars such as these, rather than 
+hypothetical background or bound companions.
 
+The candidates with identified companions that we judge to not be plausible 
+sources of potential contamination are the following:
+\begin{itemize}
 
-In Table 5, the ``maximum depth'' column represents
-the maximum observed ``transit'' depth if the transit were actually caused
-by a total eclipse of the hypothetical background binary system, inducing
-a 50\% flux decrement in the background star's apparent brightness.
+\item 201546283.01--- For this system, the ``maximum depth'' is nearly 
+identical to the observed transit depth, which would require a perfectly
+V-shaped eclipse to explain.  As this is not the case (see Figure 2), 
+this signal cannot
+be caused by contamination from this star.
 
-For EPIC 201465501 and 201779067, the observed transit depth is
-larger than each of these values, so we reject the possibility that
-these events could be the eclipses of the background binaries detected
-here.
+\item 201629650.01--- The companion to this star is $17\farcs3$ from
+the EPIC target.  As this is outside the aperture 
+(radius $15\farcs9$) and the background star is not particularly bright, 
+we rule out contamination for this system.
 
-For EPIC 201546283, the observed transit depth is nearly identical to
-the maximum false positive depth.
-The photometry for this potential contaminant is consistent with that
-of an M3V star; for this object to cause the observed eclipse it must
-be a total eclipse of two M3V stars.
-However, in that case, the observed event would be exactly V-shaped,
-with second and third contact occurring simultaneously.
-Since the transit is not V-shaped, it must be the result of
-a relatively small body passing in front of a relatively large body.
-Therefore, it cannot be caused by this observed background dwarf star.
+\item 201702477.01--- The companion to this star is $12\farcs15$ from the
+EPIC target, and the aperture size is $10\farcs0$.  In addition,
+the maximum depth in this system is almost identical to the transit depth.
+For these two reasons we rule out contamination in this case.
 
-For EPIC 201295312, the transit depth is significantly shallower than
-the maximum false positive depth, so we cannot immediately
-reject the hypothesis that the transit is actually a false positive
-induced by a background eclipsing binary.
-However, from the transit shape alone we can place a FPP of this
-system of $1.1 \times 10^{-4}$.
+\end{itemize}
 
 SDSS is 95\% complete at $r=22.2$ and the telescope has a point
-spread function of $1\farcs4$. In all cases except the four above, we
-treat the SDSS data as providing a contrast curve at wide separations
+spread function of $1\farcs4$. 
+For the purposes of the \texttt{vespa} calculation, we thus
+treat nondetection in SDSS data as providing a contrast curve at 
+wide separations
 down to a limiting magnitude of $r=22.2$.
 
 \subsection{Archival Imaging}
