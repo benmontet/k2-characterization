@@ -129,7 +129,13 @@ for f in folders:
 
 fout.write(r"""
 \enddata
-\tablecomments{blurgh.}
+\tablecomments{Results of the \texttt{vespa} astrophysical 
+false positive probability calculations for all candidates.  
+Likely false positives (FPP $> 0.9$) are marked in red.  
+Candidates are declared to be validated if FPP $< 0.01$.  
+EB, BEB, and HEB refer to the three considered astrophysical 
+false positive scenarios, and the relative probability of 
+each is listed in the appropriate column.}
 \tablenotetext{1}{Maximum depth of potential secondary eclipse signal.}
 \tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
