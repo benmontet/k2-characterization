@@ -79,19 +79,19 @@ for f in folders:
     m = re.search('(\d+)\.(\d)',f)
     epic_id = int(m.group(1))
     i = int(m.group(2))
-    line = '${}$ & ${}$ & '.format(epic_id,i)
-    line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3)
+    line = '${}$ & ${}$ & '.format(epic_id,i)  # EPIC, Cand. Num.
+    line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3) #max(delta_sec)
     ccs = AO_contrast_curves(epic_id)
     if len(ccs)>0:
         line += ' Y & '
-    else:
+    else:                #AO?
         line += ' - & '
 
     for val in [eb,beb,heb]:
         val = float(val)
-        line += '{} & '.format(prob_entry(val))
-    line += '${:.2f}$ & '.format(float(fp))
-    line += '{} & '.format(prob_entry(FPP))
+        line += '{} & '.format(prob_entry(val))  #pEB, pBEB, pHEB
+    line += '${:.2f}$ & '.format(float(fp)) #fp_specific
+    line += '{} & '.format(prob_entry(FPP)) #FPP
     FPP = float(FPP)
     if FPP < 0.01:
         disp = 'Planet'
@@ -99,7 +99,7 @@ for f in folders:
         disp = 'FP'
     else:
         disp = 'Candidate'
-    line += '{} '.format(disp)
+    line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
     line += '\n'

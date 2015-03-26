@@ -223,3 +223,148 @@ Traceback (most recent call last):
   File "/u/tdm/anaconda/lib/python2.7/site-packages/isochrones-0.7.4-py2.7.egg/isochrones/starmodel.py", line 441, in _make_samples
     lnprob_thresh = np.percentile(self.sampler.flatlnprobability, thresh*100)
 NameError: global name 'thresh' is not defined
+2015-03-26 06:33:31,342: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201613023.1/trsig.pkl...
+2015-03-26 06:33:32,024: Fitting StarModel to {'B': (12.99, 0.27), 'g': (12.561, 0.09), 'i': (11.96, 0.24), 'H': (10.712, 0.06), 'K': (10.605, 0.06), 'J': (10.983, 0.06), 'r': (12.049, 0.09), 'W3': (10.589, 0.285), 'W2': (10.631, 0.063), 'W1': (10.582, 0.072), 'V': (12.258, 0.03)}...
+2015-03-26 06:35:26,387: StarModel fit done.
+2015-03-26 06:35:56,836: Fitting TripleStarModel to {'B': (12.99, 0.05), 'g': (12.561, 0.05), 'i': (11.96, 0.05), 'H': (10.712, 0.05), 'K': (10.605, 0.05), 'J': (10.983, 0.05), 'r': (12.049, 0.05), 'W3': (10.589, 0.05), 'W2': (10.631, 0.05), 'W1': (10.582, 0.05), 'V': (12.258, 0.05), 'Kepler': (12.1514, 0.05)}...
+2015-03-26 06:38:25,230: TripleStarModel fit Done.
+2015-03-26 06:38:39,540: 15833 eclipsing HEB systems generated (target 20000)
+2015-03-26 06:38:39,719: 20865 eclipsing HEB systems generated (target 20000)
+2015-03-26 06:38:40,331: Fitting trapezoid models for HEBs...
+2015-03-26 06:40:39,659: No eclipse registered for index 8114
+2015-03-26 06:41:37,900: No eclipse registered for index 12169
+2015-03-26 06:43:33,755: Done.
+2015-03-26 06:43:34,622: Fitting BinaryStarModel to {'B': (12.99, 0.05), 'g': (12.561, 0.05), 'i': (11.96, 0.05), 'H': (10.712, 0.05), 'K': (10.605, 0.05), 'J': (10.983, 0.05), 'r': (12.049, 0.05), 'W3': (10.589, 0.05), 'W2': (10.631, 0.05), 'W1': (10.582, 0.05), 'V': (12.258, 0.05), 'Kepler': (12.1514, 0.05)}...
+2015-03-26 06:47:04,094: BinaryStarModel fit Done.
+2015-03-26 06:47:18,274: 677 binaries are "too close"; gave up trying to fix.
+2015-03-26 06:47:18,587: 12006 Eclipsing EB systems generated (target 20000)
+2015-03-26 06:47:18,677: 610 binaries are "too close"; gave up trying to fix.
+2015-03-26 06:47:18,937: 21517 Eclipsing EB systems generated (target 20000)
+2015-03-26 06:47:19,317: Fitting trapezoid models for EBs...
+2015-03-26 06:48:38,260: No eclipse registered for index 4699
+2015-03-26 06:49:00,305: No eclipse registered for index 5997
+2015-03-26 06:49:22,075: No eclipse registered for index 7333
+2015-03-26 06:51:24,858: No eclipse registered for index 14946
+2015-03-26 06:51:37,158: No eclipse registered for index 15673
+2015-03-26 06:52:48,194: Done.
+2015-03-26 06:52:48,749: Loading TRILEGAL simulation from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201613023.1/starfield.h5
+2015-03-26 06:52:51,046: 184 binaries are "too close"; gave up trying to fix.
+2015-03-26 06:52:51,171: 2391 BEB systems generated (target 20000)
+2015-03-26 06:52:52,288: 1614 binaries are "too close"; gave up trying to fix.
+2015-03-26 06:52:53,037: 23864 BEB systems generated (target 20000)
+2015-03-26 06:52:54,037: Fitting trapezoid models for BEBs...
+2015-03-26 06:54:23,620: No eclipse registered for index 5847
+2015-03-26 06:57:56,411: Done.
+2015-03-26 06:58:00,964: 12677 Transiting planet systems generated (target 20000)
+2015-03-26 06:58:03,230: 20595 Transiting planet systems generated (target 20000)
+2015-03-26 06:58:03,326: Fitting trapezoid models for Planets...
+2015-03-26 06:58:09,348: No eclipse registered for index 231
+2015-03-26 06:58:10,011: No eclipse registered for index 259
+2015-03-26 06:58:23,685: No eclipse registered for index 820
+2015-03-26 06:58:25,957: No eclipse registered for index 918
+2015-03-26 06:58:26,762: No eclipse registered for index 949
+2015-03-26 06:58:31,590: No eclipse registered for index 1139
+2015-03-26 06:58:43,390: No eclipse registered for index 1612
+2015-03-26 06:58:45,227: No eclipse registered for index 1684
+2015-03-26 06:58:51,834: No eclipse registered for index 1949
+2015-03-26 06:58:57,502: No eclipse registered for index 2185
+2015-03-26 06:58:58,401: No eclipse registered for index 2223
+2015-03-26 06:59:02,154: No eclipse registered for index 2370
+2015-03-26 06:59:05,404: No eclipse registered for index 2505
+2015-03-26 06:59:07,230: No eclipse registered for index 2580
+2015-03-26 06:59:08,337: No eclipse registered for index 2630
+2015-03-26 06:59:08,363: No eclipse registered for index 2632
+2015-03-26 06:59:12,018: No eclipse registered for index 2783
+2015-03-26 06:59:18,949: No eclipse registered for index 3074
+2015-03-26 06:59:20,036: No eclipse registered for index 3117
+2015-03-26 06:59:57,730: No eclipse registered for index 4675
+2015-03-26 07:00:00,344: No eclipse registered for index 4788
+2015-03-26 07:00:03,260: No eclipse registered for index 4909
+2015-03-26 07:00:15,904: No eclipse registered for index 5403
+2015-03-26 07:00:18,165: No eclipse registered for index 5487
+2015-03-26 07:00:19,202: No eclipse registered for index 5536
+2015-03-26 07:00:22,588: No eclipse registered for index 5677
+2015-03-26 07:00:24,176: No eclipse registered for index 5746
+2015-03-26 07:00:24,620: No eclipse registered for index 5764
+2015-03-26 07:00:24,622: No eclipse registered for index 5765
+2015-03-26 07:00:26,188: No eclipse registered for index 5830
+2015-03-26 07:00:27,242: No eclipse registered for index 5865
+2015-03-26 07:00:31,491: No eclipse registered for index 6037
+2015-03-26 07:00:38,503: No eclipse registered for index 6329
+2015-03-26 07:00:58,877: No eclipse registered for index 7127
+2015-03-26 07:00:59,037: No eclipse registered for index 7133
+2015-03-26 07:01:11,009: No eclipse registered for index 7630
+2015-03-26 07:01:11,165: No eclipse registered for index 7636
+2015-03-26 07:01:12,890: No eclipse registered for index 7710
+2015-03-26 07:01:18,210: No eclipse registered for index 7927
+2015-03-26 07:01:31,017: No eclipse registered for index 8426
+2015-03-26 07:01:33,815: No eclipse registered for index 8549
+2015-03-26 07:01:36,175: No eclipse registered for index 8643
+2015-03-26 07:01:42,959: No eclipse registered for index 8906
+2015-03-26 07:01:45,990: No eclipse registered for index 9026
+2015-03-26 07:01:58,481: No eclipse registered for index 9494
+2015-03-26 07:02:01,753: No eclipse registered for index 9622
+2015-03-26 07:02:03,139: No eclipse registered for index 9683
+2015-03-26 07:02:04,926: No eclipse registered for index 9749
+2015-03-26 07:02:12,633: No eclipse registered for index 10076
+2015-03-26 07:02:14,090: No eclipse registered for index 10135
+2015-03-26 07:02:14,764: No eclipse registered for index 10165
+2015-03-26 07:02:22,926: No eclipse registered for index 10485
+2015-03-26 07:02:23,835: No eclipse registered for index 10525
+2015-03-26 07:02:25,943: No eclipse registered for index 10616
+2015-03-26 07:02:29,886: No eclipse registered for index 10764
+2015-03-26 07:02:32,490: No eclipse registered for index 10867
+2015-03-26 07:02:33,059: No eclipse registered for index 10893
+2015-03-26 07:02:40,352: No eclipse registered for index 11171
+2015-03-26 07:02:48,367: No eclipse registered for index 11503
+2015-03-26 07:02:49,692: No eclipse registered for index 11556
+2015-03-26 07:02:52,074: No eclipse registered for index 11654
+2015-03-26 07:02:56,336: No eclipse registered for index 11835
+2015-03-26 07:02:57,702: No eclipse registered for index 11891
+2015-03-26 07:03:04,492: No eclipse registered for index 12158
+2015-03-26 07:03:04,576: No eclipse registered for index 12163
+2015-03-26 07:03:07,848: No eclipse registered for index 12287
+2015-03-26 07:03:08,828: No eclipse registered for index 12323
+2015-03-26 07:03:10,623: No eclipse registered for index 12401
+2015-03-26 07:03:17,098: No eclipse registered for index 12660
+2015-03-26 07:03:19,127: No eclipse registered for index 12742
+2015-03-26 07:03:25,096: No eclipse registered for index 12986
+2015-03-26 07:03:32,515: No eclipse registered for index 13282
+2015-03-26 07:03:36,623: No eclipse registered for index 13448
+2015-03-26 07:03:39,678: No eclipse registered for index 13579
+2015-03-26 07:03:53,089: No eclipse registered for index 14140
+2015-03-26 07:03:55,069: No eclipse registered for index 14210
+2015-03-26 07:03:55,651: No eclipse registered for index 14234
+2015-03-26 07:04:05,321: No eclipse registered for index 14589
+2015-03-26 07:04:05,429: No eclipse registered for index 14594
+2015-03-26 07:04:08,263: No eclipse registered for index 14705
+2015-03-26 07:04:09,935: No eclipse registered for index 14774
+2015-03-26 07:04:16,370: No eclipse registered for index 15040
+2015-03-26 07:04:21,441: No eclipse registered for index 15234
+2015-03-26 07:04:23,052: No eclipse registered for index 15309
+2015-03-26 07:04:33,666: No eclipse registered for index 15752
+2015-03-26 07:04:35,297: No eclipse registered for index 15812
+2015-03-26 07:04:37,520: No eclipse registered for index 15902
+2015-03-26 07:04:43,829: No eclipse registered for index 16168
+2015-03-26 07:04:47,279: No eclipse registered for index 16310
+2015-03-26 07:04:50,134: No eclipse registered for index 16437
+2015-03-26 07:04:59,281: No eclipse registered for index 16818
+2015-03-26 07:05:07,200: No eclipse registered for index 17147
+2015-03-26 07:05:11,457: No eclipse registered for index 17317
+2015-03-26 07:05:13,578: No eclipse registered for index 17393
+2015-03-26 07:05:13,661: No eclipse registered for index 17398
+2015-03-26 07:05:20,949: No eclipse registered for index 17701
+2015-03-26 07:05:21,675: No eclipse registered for index 17733
+2015-03-26 07:05:25,519: No eclipse registered for index 17908
+2015-03-26 07:05:36,588: No eclipse registered for index 18356
+2015-03-26 07:05:52,797: No eclipse registered for index 18993
+2015-03-26 07:05:53,244: No eclipse registered for index 19011
+2015-03-26 07:05:57,222: No eclipse registered for index 19175
+2015-03-26 07:06:09,090: No eclipse registered for index 19641
+2015-03-26 07:06:11,454: No eclipse registered for index 19739
+2015-03-26 07:06:17,608: No eclipse registered for index 19982
+2015-03-26 07:06:18,074: Done.
+2015-03-26 07:06:18,453: PHARO K-band cc not applied to Planets model
+2015-03-26 07:06:18,559: SDSS r-band cc not applied to Planets model
+2015-03-26 07:09:00,162: Making StarModel triangle plots...
+2015-03-26 07:09:31,956: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201613023.1.
