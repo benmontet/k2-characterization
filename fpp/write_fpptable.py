@@ -7,12 +7,17 @@ import numpy as np
 from k2fpp.fpp import max_secondary
 from k2fpp.contrast import AO_contrast_curves
 
-notes = {'a': 'Maximum depth [ppt] of potential secondary eclipse signal.',
-         'b': 'Whether adaptive optics imaging has been obtained.',
-         'c': 'Integrated planet occurrence rate assumed between 0.7$\times$'+\
+FP_OVERRIDE = ['201555883.01']
+
+notes = {'1': 'Maximum depth [ppt] of potential secondary eclipse signal.',
+         '2': 'Whether adaptive optics imaging has been obtained.',
+         '3': 'Integrated planet occurrence rate assumed between 0.7$\times$'+\
               'and 1.3$\times$ the candidate\'s radius',
-         'd': 'Declared a false positive because of epoch match' +\
+         '4': 'Declared a false positive because of epoch match' +\
               'to XXXXXXXX'}
+
+def note(key):
+    return '\tablenotemark{{}}'.format(key)
 
 def prob_entry(val):
     val = float(val)
@@ -25,7 +30,7 @@ def prob_entry(val):
     else:
         return '$< 10^{-4}$'
 
-def format_line(line, fpp):
+def format_line(line, fpp, force_fp=False):
     fpp = float(fpp)
     newline = line
     if fpp < 0.01 and False: #not bothering to bold.
@@ -38,7 +43,7 @@ def format_line(line, fpp):
                 m = re.search('\$(.*)\$',v)
                 if m:
                     newline += r' $\mathbf{ ' + m.group(1) + '}$ &'
-    if fpp > 0.9:
+    if fpp > 0.9 or force_fp:
         newline = ''
         for v in line.split('&'):
             m = re.search('(.*)\s+\\\\',v)
@@ -62,12 +67,12 @@ fout.write(r"""
 \label{Table:FPP}
 \tablehead{
 \colhead{Candidate} &
-\colhead{max($\delta_{\rm sec}$)} &
-\colhead{AO?} &
+\colhead{max($\delta_{\rm sec}$) [ppt]\tablenotemark{1}} &
+\colhead{AO?\tablenotemark{2}} &
 \colhead{${\rm Pr}_{\rm EB}$} &
 \colhead{${\rm Pr}_{\rm BEB}$} &
 \colhead{${\rm Pr}_{\rm HEB}$} &
-\colhead{$f_{p}$} &
+\colhead{$f_{p}$\tablenotemark{3}} &
 \colhead{FPP} &
 \colhead{Disposition}
 }
@@ -85,7 +90,9 @@ for f in folders:
     m = re.search('(\d+)\.(\d)',f)
     epic_id = int(m.group(1))
     i = int(m.group(2))
-    line = '{}.{:02.0f} & '.format(epic_id, i)  # EPIC, Cand. Num.
+    cand_name = '{}.{:02.0f}'.format(epic_id, i)
+
+    line = '{} & '.format(cand_name)  # EPIC, Cand. Num.
     line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3) #max(delta_sec)
     ccs = AO_contrast_curves(epic_id)
     if len(ccs)>0:
@@ -99,23 +106,34 @@ for f in folders:
     line += '${:.2f}$ & '.format(float(fp)) #fp_specific
     line += '{} & '.format(prob_entry(FPP)) #FPP
     FPP = float(FPP)
-    if FPP < 0.01:
-        disp = 'Planet'
-    elif FPP > 0.9:
+    if cand_name in FP_OVERRIDE:
         disp = 'FP'
+        if cand_name=='201555883.01':
+            disp = r'FP\tablenotemark{a}'
     else:
-        disp = 'Candidate'
+        if FPP < 0.01:
+            disp = 'Planet'
+        elif FPP > 0.9:
+            disp = 'FP'
+        else:
+            disp = 'Candidate'
     line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
     line += '\n'
     #fout.write(line)
-    fout.write(format_line(line,FPP))
+    force_fp = cand_name in FP_OVERRIDE
+
+    fout.write(format_line(line,FPP,force_fp=force_fp))
 
 
 fout.write(r"""
 \enddata
 \tablecomments{blurgh.}
+\tablenotetext{1}{Maximum depth of potential secondary eclipse signal.}
+\tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
+\tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
+\tablenotetext{a}{Declared a false positive because of epoch match to 201569483.01 (see \S\ref{sec:ephemmatch}).}
 \end{deluxetable*}
 """)
 
