@@ -8,12 +8,14 @@ from k2fpp.fpp import max_secondary
 from k2fpp.contrast import AO_contrast_curves
 
 FP_OVERRIDE = ['201555883.01', '201929294.01']
-CAND_OVERRIDE = [#'201403446.01',
+CAND_OVERRIDE = ['201295312.01',
+                 '201403446.01',
                  '201546283.01',
                  #'201577035.01',
                  #'201629650.01',
                  #'201702477.01',
-                 '201828749.01']
+                 '201828749.01',
+                 '201549860.01']
 
 def note(key):
     return '\tablenotemark{{}}'.format(key)
@@ -155,7 +157,7 @@ below 1\% threshold.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
 \tablenotetext{a}{Despite low FPP, returned to candidate status 
 out of abundance of caution due
-to secondary star detection in or near photometric aperture.}
+to secondary star detection within or near photometric aperture.}
 \tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
 \tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
 \tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
