@@ -8,13 +8,12 @@ from k2fpp.fpp import max_secondary
 from k2fpp.contrast import AO_contrast_curves
 
 FP_OVERRIDE = ['201555883.01']
-
-notes = {'1': 'Maximum depth [ppt] of potential secondary eclipse signal.',
-         '2': 'Whether adaptive optics imaging has been obtained.',
-         '3': 'Integrated planet occurrence rate assumed between 0.7$\times$'+\
-              'and 1.3$\times$ the candidate\'s radius',
-         '4': 'Declared a false positive because of epoch match' +\
-              'to XXXXXXXX'}
+CAND_OVERRIDE = [#'201403446.01',
+                 '201546283.01',
+                 #'201577035.01',
+                 #'201629650.01',
+                 #'201702477.01',
+                 '201828749.01']
 
 def note(key):
     return '\tablenotemark{{}}'.format(key)
@@ -109,10 +108,16 @@ for f in folders:
     if cand_name in FP_OVERRIDE:
         disp = 'FP'
         if cand_name=='201555883.01':
-            disp = r'FP\tablenotemark{a}'
+            disp = r'FP\tablenotemark{b}'
     else:
         if FPP < 0.01:
-            disp = 'Planet'
+            if cand_name in CAND_OVERRIDE:
+                disp = r'Candidate\tablenotemark{a}'
+            else:
+                if cand_name=='201295312.01':
+                    disp = r'Planet\tablenotemark{c}'
+                else:
+                    disp = 'Planet'
         elif FPP > 0.9:
             disp = 'FP'
         else:
@@ -140,7 +145,11 @@ each is listed in the appropriate column.}
 \tablenotetext{1}{Maximum depth of potential secondary eclipse signal.}
 \tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
-\tablenotetext{a}{Declared a false positive because of epoch match to 201569483.01 (see \S\ref{sec:ephemmatch}).}
+\tablenotetext{a}{Despite low FPP, returned to candidate status 
+out of abundance of caution due
+to secondary star detection in or near photometric aperture.  Most of these we do anticipate to be validated once the specific false positive scenarios are considered.}
+\tablenotetext{b}{Declared a false positive because of epoch match to 201569483.01 (see \S\ref{sec:ephemmatch}).}
+\tablenotetext{c}{Identified as planet by \citet{Crossfield15}.}
 \end{deluxetable*}
 """)
 
