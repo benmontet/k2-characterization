@@ -717,12 +717,13 @@ For the stars with AO nondetections, there is still the
 possibility that a background binary could be positioned
 directly behind the target star, evading detection.
 The probability is small, given the $0\farcs1$ diffraction limit
-of the Hale Telescope at $2$ $\mu$m, but nonzero.
-We can rule out the possibility of such chance alignments with
-archival imaging data.
+of the Hale Telescope at $2$ $\mu$m, but nonzero.  
+While the \texttt{vespa} calculations quantify this probability for
+this to occur, we can also rule out the possibility of such
+chance alignments, down to a certain contrast, with archival imaging data.
 
-For all targets with AO, we can confirm the planetary nature of the signal
-without this extra step, but we include it for EPIC 201912552, considering
+
+We include this extra analysis step for EPIC 201912552, considering
 the additional follow-up this target may warrant.
 We download data from the POSS I and II surveys, which imaged
 EPIC 201912552 in 1955 and 1989, respectively.
@@ -753,9 +754,8 @@ star and positioned in their orbits so that their projected separation is
 smaller than the diffraction limit of the Hale Telescope.
 Such an alignment would require the orbital inclination of the binary to be
 nearly $90^\circ$ and the phase $\varpi + \theta \approx \pi/2$ or $3\pi/2$.
-While we cannot fully rule out this possibility, such an alignment is unlikely
-to occur and unable to cause enough dilution to call the planetary
-nature of this signal into question.
+While we cannot fully rule out this possibility, the \texttt{vespa}
+calculations confirm that its probability is negligibly small.
 
 
 
