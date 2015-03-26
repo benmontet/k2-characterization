@@ -207,18 +207,9 @@ field.
 Worse yet, these variations occur on timescales similar to transit signals, potentially
 masking the observational signature of a planet passing between \kep\ and its host star.
 
-There has been considerable effort to recover these planetary signals.
-\citet{Vanderburg14} extract aperture photometry and de-correlate with image centroid
-position to calibrate the photometry as a function of position.
-These data were used to confirm the first planet discovered in \KT\ \citep{Vanderburg15}.
-A similar technique was employed by \citet{Armstrong15a} to identify potential eclipsing
-binary systems and to identify a transiting system near a 3:2 period commensurability
-\citep{Armstrong15b}.
-\citet{Aigrain15} use a Gaussian Process model for the measured
-flux, with pointing measurements as the inputs, and then ``de-trend'' the data with that model.
-\citet{Crossfield15} apply a very similar method, which was used to detect the first
-multi-planet system in \KT\ data.
-
+There has been considerable effort to recover these planetary signals, and to date six
+planets have been confirmed in the \KT\ data
+\citep{Vanderburg15, Crossfield15, Armstrong15b}.
 What is common to all of these methods are that removal of systematics is considered a
 step to be undertaken before the search for planets.
 Under this strategy, it is implicitly assumed that the systematics are removed perfectly,
@@ -253,8 +244,13 @@ The authors intentionally make no effort to separate true transiting planets fro
 astrophysical events that mimic the appearance of transits, such as an eclipsing
 binary with a high mass ratio, similar to the \kep\ team's list of ``objects of interest.''
 
+
 In this paper, we present stellar and planetary parameters for each system.
-Given these parameters and the transit data, as well as archival imaging, ground-based
+We also analyze the false positive probability of each system using \texttt{vespa},
+a new publicly available, general-purpose implementation
+of the \citet{Morton12} procedure
+to calculate false positive probabilities (FPPs) for transiting planets.
+Through this analysis, as well as archival imaging, ground-based
 seeing-limited survey data, and adaptive optics imaging, we are able to confirm
 \Nvalidated\ of these systems as transiting planets at the 99\% confidence
 level.
@@ -547,7 +543,7 @@ and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 Four of the presented candidates have FPP $>$90\%;
 these are considered to be likely false positives.
-On the other hand, 21 candidates
+On the other hand, 20 candidates
 have FPP $<$ 1\%.
 Two of these are found to be caused by systematics
 in the transit search noise model (details in \S\ref{sec:systematics}), and
