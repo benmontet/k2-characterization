@@ -512,13 +512,14 @@ number of candidates.
 
 In this work, we use
 \texttt{vespa}\footnote{\url{http://github.com/timothydmorton/vespa}},
-a new general-purpose implementation of the \citet{Morton12} procedure,
+a new publicly available, general-purpose implementation 
+of the \citet{Morton12} procedure,
 to calculate false positive probabilities (FPPs) for each of these
 \KT\ candidates.  We impose the following constraints on false positive
 scenarios:
 \begin{itemize}
-\item A chance-aligned eclipsing binary system may reside anywhere within
-the photometric aperture of the target star.
+\item A chance-aligned eclipsing binary system may reside anywhere inside
+or within one pixel of the photometric aperture of the target star.
 \item The maximum allowed depth of a potential secondary eclipse event
 is the most significantly detected signal at the same
 period of the planet candidate, once the primary transit is masked out.
@@ -542,18 +543,28 @@ and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 We find that four of the presented candidates have FPP $>$90\%;
 these we consider to be likely false positives.
-On the other hand, we find that \Nvalidated\ candidates
-have FPP $<$ 1\%; we consider these to be statistically validated planets.
-Of these, 18 are validated for the first time.
-The remaining \Nlimbo\ candidates have FPPs neither high enough to discard
-nor low enough to securely validate.
+On the other hand, we find that 21 candidates
+have FPP $<$ 1\%.  
+Two of these we find to be caused by systematics
+in the transit search noise model (details in \S\ref{sec:systematics}), and
+so we identify those as false positives.  
+Four more of these 21 might plausibly be caused by 
+contamination by detected stellar companions within the photometric apertures 
+(see \S\ref{sec:background}), so we keep these as candidates.
 
-We emphasize that the majority of these planets were validated based
-solely on the transit signal, with no need for follow-up imaging.  This
-demonstrates the utility of \texttt{vespa} analysis, which will be
+This leaves 15 candidates that we statistically validate as planets, plus three
+additional planets that \texttt{vespa} does not validate but have been previously
+identified in the literature \citep{Crossfield15, Armstrong15b}.  
+So in total, of the 36 candidates, 18 are secure planets, 
+14 of which we here validate for the first time.
+
+
+We emphasize that the majority of these validations rely
+solely on the transit photometry and SDSS data, with no need for follow-up imaging.  This
+demonstrates the utility of the \texttt{vespa} tool, which will be
 crucial to interpreting future candidates detected by \KT, TESS, and PLATO
 and prioritizing follow-up observing efforts.
-We show these transit signals as Fig. \ref{fig:transits}.
+We show the transit signals in Fig. \ref{fig:transits}.
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{f2}}
@@ -613,14 +624,14 @@ For EPIC~201828749, we also acquired $J$- and $H$-band images.
 Astrometry and photometry is derived separately for each image, and the mean and standard deviation
 of these measurements is adopted for our final values listed in Table~5.
 
-We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
-companion.
-From the transit shape, we can rule out the possibility this system is a background eclipsing
-binary.
-Regardless of which star this object transits, the object is planet-sized.
-In Table 3, we assume the planet is orbiting the larger star. 
-If the planet is truly orbiting the fainter star, then its radius must be larger than is listed to 
-account for the observed transit depth. 
+%We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
+%companion.
+%From the transit shape, we can rule out the possibility this system is a background eclipsing
+%binary.
+%Regardless of which star this object transits, the object is planet-sized.
+%In Table 3, we assume the planet is orbiting the larger star. 
+%If the planet is truly orbiting the fainter star, then its radius must be larger than is listed to 
+%account for the observed transit depth. 
 
 
 Images for all systems AO data was obtained for is shown in Fig. \ref{Fig:AO},
@@ -656,6 +667,7 @@ an eclipsing binary could reside and mimic a transit signal.}
 
 
 \subsection{Known Background Stars}
+\label{sec:background}
 The PHARO AO system has a field of view of 25 arcseconds.
 Each \KT\ pixel is a square, $3\farcs98$ on a side.
 A background eclipsing binary within a few \KT\ pixels of our target
