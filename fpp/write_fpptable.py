@@ -7,7 +7,7 @@ import numpy as np
 from k2fpp.fpp import max_secondary
 from k2fpp.contrast import AO_contrast_curves
 
-FP_OVERRIDE = ['201555883.01']
+FP_OVERRIDE = ['201555883.01', '201929294.01']
 CAND_OVERRIDE = [#'201403446.01',
                  '201546283.01',
                  #'201577035.01',
@@ -66,7 +66,7 @@ fout.write(r"""
 \label{Table:FPP}
 \tablehead{
 \colhead{Candidate} &
-\colhead{max($\delta_{\rm sec}$) [ppt]\tablenotemark{1}} &
+\colhead{$\delta_{\rm sec, max}$ [ppt]\tablenotemark{1}} &
 \colhead{AO?\tablenotemark{2}} &
 \colhead{${\rm Pr}_{\rm EB}$} &
 \colhead{${\rm Pr}_{\rm BEB}$} &
@@ -107,21 +107,23 @@ for f in folders:
     FPP = float(FPP)
     if cand_name in FP_OVERRIDE:
         disp = 'FP'
-        if cand_name=='201555883.01':
+        if cand_name in ['201555883.01', '201929294.01']:
             disp = r'FP\tablenotemark{b}'
     else:
         if FPP < 0.01:
             if cand_name in CAND_OVERRIDE:
                 disp = r'Candidate\tablenotemark{a}'
             else:
-                if cand_name=='201295312.01':
-                    disp = r'Planet\tablenotemark{c}'
-                else:
-                    disp = 'Planet'
+                disp = 'Planet'
         elif FPP > 0.9:
             disp = 'FP'
         else:
-            disp = 'Candidate'
+            disp = 'Candidate' 
+
+        if epic_id==201505350:
+            disp = r'Planet\tablenotemark{d}'
+        if epic_id==201367065:
+            disp = r'Planet\tablenotemark{c}'
     line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
@@ -141,15 +143,18 @@ Likely false positives (FPP $> 0.9$, or otherwise designated)
 Candidates are declared to be validated planets if FPP $< 0.01$.  
 EB, BEB, and HEB refer to the three considered astrophysical 
 false positive scenarios, and the relative probability of 
-each is listed in the appropriate column.}
+each is listed in the appropriate column.  Planets previously 
+identified in the literature are marked as planets even if FPP is not 
+below 1\% threshold.}
 \tablenotetext{1}{Maximum depth of potential secondary eclipse signal.}
 \tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
 \tablenotetext{a}{Despite low FPP, returned to candidate status 
 out of abundance of caution due
 to secondary star detection in or near photometric aperture.  Most of these we do anticipate to be validated once the specific false positive scenarios are considered.}
-\tablenotetext{b}{Declared a false positive because of epoch match to 201569483.01 (see \S\ref{sec:ephemmatch}).}
-\tablenotetext{c}{Identified as planet by \citet{Crossfield15}.}
+\tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
+\tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
+\tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
 \end{deluxetable*}
 """)
 
