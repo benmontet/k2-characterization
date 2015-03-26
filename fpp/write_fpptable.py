@@ -7,6 +7,13 @@ import numpy as np
 from k2fpp.fpp import max_secondary
 from k2fpp.contrast import AO_contrast_curves
 
+notes = {'a': 'Maximum depth [ppt] of potential secondary eclipse signal.',
+         'b': 'Whether adaptive optics imaging has been obtained.',
+         'c': 'Integrated planet occurrence rate assumed between 0.7$\times$'+\
+              'and 1.3$\times$ the candidate\'s radius',
+         'd': 'Declared a false positive because of epoch match' +\
+              'to XXXXXXXX'}
+
 def prob_entry(val):
     val = float(val)
     if val > 1e-4:
@@ -48,14 +55,13 @@ fout = open('../table_fpp.tex','w')
 fout.write(r"""
 \clearpage
 %\LongTables
-\begin{deluxetable*}{lclccccccc}
+\begin{deluxetable*}{ccccccccc}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
 \label{Table:FPP}
 \tablehead{
-\colhead{EPIC} &
-\colhead{Cand. Num.} &
+\colhead{Candidate} &
 \colhead{max($\delta_{\rm sec}$)} &
 \colhead{AO?} &
 \colhead{${\rm Pr}_{\rm EB}$} &
@@ -79,7 +85,7 @@ for f in folders:
     m = re.search('(\d+)\.(\d)',f)
     epic_id = int(m.group(1))
     i = int(m.group(2))
-    line = '${}$ & ${}$ & '.format(epic_id,i)  # EPIC, Cand. Num.
+    line = '{}.{:02.0f} & '.format(epic_id, i)  # EPIC, Cand. Num.
     line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3) #max(delta_sec)
     ccs = AO_contrast_curves(epic_id)
     if len(ccs)>0:
