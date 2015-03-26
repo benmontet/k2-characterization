@@ -518,8 +518,9 @@ In this work, we use
 a new publicly available, general-purpose implementation 
 of the \citet{Morton12} procedure,
 to calculate false positive probabilities (FPPs) for each of these
-\KT\ candidates.  We impose the following constraints on false positive
-scenarios:
+\KT\ candidates.  
+The following constraints on false positive
+scenarios are imposed:
 \begin{itemize}
 \item A chance-aligned eclipsing binary system may reside anywhere inside
 or within one pixel of the photometric aperture of the target star.
@@ -544,11 +545,11 @@ to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
 and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
-We find that four of the presented candidates have FPP $>$90\%;
-these we consider to be likely false positives.
-On the other hand, we find that 21 candidates
+Four of the presented candidates have FPP $>$90\%;
+these are considered to be likely false positives.
+On the other hand, 21 candidates
 have FPP $<$ 1\%.  
-Two of these we find to be caused by systematics
+Two of these are found to be caused by systematics
 in the transit search noise model (details in \S\ref{sec:systematics}), and
 so we identify those as false positives.  
 Four more of these 21 might plausibly be caused by 
@@ -869,32 +870,30 @@ a cool analogue to the highly irradiated planets of a similar size found by
 \kep.
 
 
-\subsection{Two Candidates, One Ephemeris}
-\label{sec:ephemmatch}
+\subsection{Non-Astrophysical False Positives}
+\label{sec:systematics}
 
-EPIC 201569483 was originally listed in \paperit\ as a planet candidate.
-The transit events have a depth of approximately 7\%.
-In this work, we conclude this system is likely a false
-positive, with an FPP of 0.560.
-The most likely scenario is that of an eclipsing binary, which would
-not be surprising given the transit depth.
+The method of \paperit assumes that all variability in the light curves are
+caused by either the motion of \KT, in which case the variability is shared
+by all stars, or transits of planets, in which case the variability is intrinsic 
+to only one star.
+This assumption breaks down for extremely spotted stars where the 
+astrophysical variability is larger than the instrumental
+magnitude.
+In that regime, the starspot modulations can be incorrectly fit by the 
+systematic model, causing spurious transits to appear.
+This appears to be the case with EPIC 201929294, which has 
+coherent starspots that appear to have the same rotation period as the
+transit period reported previously.
+Because the starspots are so periodic and coherent, these spurious 
+transits were falsely identified as a planet candidate; we consider that 
+system a false positive in this work.
 
-It was later realized that EPIC 201555883 has a period, time of transit,
-and transit duration consistent with EPIC 201569483.
+The planet candidate possibly orbiting EPIC 201555883 has a period, 
+time of transit, and transit duration consistent with EPIC 201569483.
 Such effects are not uncommon in \kep\ data.
-\citet{Batalha13} found $\sim 25$ planet candidates to be false positives
-based on matching ephemerides between candidates.
-In that paper, the authors limited their search to candidates within
-$20\arcsec$ of other objects of interest.
-\citet{Coughlin14} expanded on this method, identifying 685 KOIs as false
-positives and outlining four physical reasons why these anomalies may occur.
-As those authors explain, period-matching candidates can be the result of
-direct PRF contamination, antipodal reflection across the Schmidt telescope,
-CCD crosstalk across a \kep\ module, or ``column anomalies'' across one column
-of the CCD.
-Typically, the instrumental false positive event appears considerably
-shallower than the true astrophysical event.
-
+\citet{Coughlin14} identify 685 KOIs as false
+positives and outline four physical reasons why these anomalies may occur.
 EPIC 201555883 is a unique case in that it does not appear to fall under any
 of these cases. It falls on module 23, while EPIC 201569483 is on module 8,
 neither 180 degrees away from nor on the same column as this candidate.
@@ -908,22 +907,7 @@ linear combination of ``eigen light curves'' generated empirically by running
 a principle component analysis on the light curves of every star.
 This means that the training set includes the light curves for variable stars,
 eclipsing binaries, and even transiting planets.
-
-Formally, our false positive validation scheme gives a FPP of $9.5 \times
-10^{-4}$, reaching our threshold for planet validation.
-Since \texttt{vespa} does not account for the possibility of instrumental
-artifacts in the data, this number represents only the \textit{astrophysical}
-false positive probability.
-In this case, given the period matching between the two events, we refrain
-from declaring this system a planet.
-However, since we cannot explain how such a false positive would occur as a
-result of an instrumental systematic in the \kep\ telescope, we also refrain
-from declaring this target a definite false positive.
-Additional follow-up observations of both targets are clearly warranted to
-better understand a possible systematic that has not previously been observed
-in either \kep\ or \KT.
-
-
+In this specific case, the s
 
 
 \subsection{Multiple Planet Systems}
@@ -937,8 +921,7 @@ The remaining three are all representative of the multiple-planet systems observ
 \kep\ \citep{Lissauer11b, Fabrycky14}.
 Two of the systems are near a period commensurability and all three consist of
 mini-Neptune sized planets.
-Like in the \kep\ field, the false positive rate we measure for the multiple planet sample
-here ($0/10$) is lower than for the single systems \citep{Lissauer12, Rowe14}.
+
 
 
 We do not detect any significant transit timing variations (TTVs) in any of these systems from
