@@ -873,7 +873,7 @@ a cool analogue to the highly irradiated planets of a similar size found by
 \subsection{Non-Astrophysical False Positives}
 \label{sec:systematics}
 
-The method of \paperit assumes that all variability in the light curves are
+The method of \paperit\ assumes that all variability in the light curves are
 caused by either the motion of \KT, in which case the variability is shared
 by all stars, or transits of planets, in which case the variability is intrinsic 
 to only one star.
@@ -902,12 +902,24 @@ star to induce both the appearance of a $7\%$ eclipse on one module and an
 additional anomalous transit event on a different module.
 Instead, this candidate could be a false positive caused by a different
 systematic mechanism.
+
 \paperit\ modeled the systematic effects in the \KT\ light curves using a
 linear combination of ``eigen light curves'' generated empirically by running
 a principle component analysis on the light curves of every star.
 This means that the training set includes the light curves for variable stars,
 eclipsing binaries, and even transiting planets.
-In this specific case, the s
+Again, this star has significant variability caused by starspots. 
+In this case, the fitting procedure tries to account for stellar variability using
+the eigen light curves.
+This overfit gives undue weight to eigen light curves that include the transits
+of EPIC 201569483, causing this spurious transit to occur.
+Again, we consider this system to be a false positive.
+
+The problem of over-fitting stellar variability using eigen light curves can be
+solved by adding a stellar activity model to our fitting procedure.
+In this case, the spacecraft motion could be fit simultaneously with a model
+of starspot modulation, astroseismic oscillations, and planet transits.
+Such a model is currently under development (Angus et al. \textit{in prep}).
 
 
 \subsection{Multiple Planet Systems}
