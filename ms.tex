@@ -90,12 +90,8 @@
 \newcommand{\dfmtodo}[1]{\todo{DFM}{ForestGreen}{#1}}
 
 \newcommand{\Nfp}{4}
-<<<<<<< HEAD
 \newcommand{\Nvalidated}{22} %16 without contrast curves
 \newcommand{\Nlimbo}{10} %adds up to 36
-=======
-\newcommand{\Nvalidated}{21}
-\newcommand{\Nlimbo}{11} %adds to 36?  good.
 
 \begin{document}
 
@@ -165,16 +161,15 @@ three months in a search for transiting planets.
 In a recent study, Foreman-Mackey and collaborators presented a list of 36 planet 
 candidates orbiting 31 stars in \KT\ \Ci.
 In this contribution, we present stellar and planetary properties for all systems.
-We combine ground-based seeing limited survey data and
-adaptive optics imaging with a detailed transit analysis scheme to validate
+We combine ground-based seeing-limited survey data and
+adaptive optics imaging with an automated transit analysis scheme to validate
 \Nvalidated\ candidates as planets and identify \Nfp\ candidates as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a $2.24 \pm 0.25 R_\odot$ planet with $T_{eq} = 271 \pm 16$ K and an
 orbital period of 33 days.
 We also present \texttt{vespa}, a new general-purpose implementation
 of the \citet{Morton12} procedure to calculate false positive probabilities
-and statistically validate transiting exoplanets
-for \KT\ candidates.
+and statistically validate transiting exoplanets.
 \end{abstract}
 
 \keywords{catalogs --- planetary systems --- planets and satellites: detection
@@ -345,8 +340,9 @@ an implementation of the affine-invariant ensemble sampler of
 for each host star conditioned on the observed
 photometric properties as presented in Table 1.
 We include a prior on stellar metallicity representative of the observed metallicities
-of stars within 1 kpc of the Sun, following the results of \citet{Hayden15}, and
-only consider stars with masses below $3.7$ $M_\odot$.
+of stars within 1 kpc of the Sun, following the results of \citet{Hayden15}, and a Salpeter-slope
+prior on mass (up to the maximum mass available in the model grids of $3.7$ $M_\odot$).  
+
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
@@ -514,7 +510,7 @@ to calculate false positive probabilities (FPPs) for each of these
 scenarios:
 \begin{itemize}
 \item A chance-aligned eclipsing binary system may reside anywhere within
-an 8 arcsecond radius from the target star.
+the photometric aperture of the target star.
 \item The maximum allowed depth of a potential secondary eclipse event
 is the most significantly detected signal at the same
 period of the planet candidate, once the primary transit is masked out.
@@ -522,12 +518,13 @@ period of the planet candidate, once the primary transit is masked out.
 and archival imaging data (discussed in detail below).
 \end{itemize}
 
-Each of these scenarios are astrophysical, caused by one object passing
-in front of another, blocking some fraction of the total light.
-The calculations here do not include the possibility that each signal
-is caused by an instrumental artifact in the data or some other
-astrophysical event, such as stellar activity, masquerading as planet
-transits.
+Each of these scenarios is an astrophysical eclipse, caused by one
+object passing in front of another, blocking some fraction of the
+total light.  
+The calculations here do not include the possibility
+that each signal is caused by an instrumental artifact in the data or
+some other astrophysical event, such as stellar activity, masquerading
+as planet transits.
 
 Table 4 summarizes the results of these
 calculations, presenting the relative probability for each candidate
