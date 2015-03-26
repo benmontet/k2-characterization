@@ -265,7 +265,8 @@ candidate properties.
 In \textsection4, we combine adaptive optics and radial velocity observations with both
 archival and modern ground-based, seeing limited survey data and an analysis of the
 transit parameters to calculate false positive probabilities.
-In \textsection5, we discuss potentially interesting systems.
+In \textsection5, we discuss potentially interesting systems, including a mini-Neptune
+orbiting an M dwarf which receives a similar insolation to the Earth.
 In \textsection6, we summarize and discuss our results.
 
 
@@ -478,14 +479,13 @@ The planet parameters measured by this analysis are listed in Table 3.
 
 \section{False Positive Analysis}
 
-As has been well known from the early days of transit searches, it is
-possible for an eclipsing binary star to masquerade as a transiting
-planet. 
-There are many scenarios which can cause an astrophysical false positive.
+
+There are many scenarios which can cause an astrophysical false positive,
+where an eclipsing binary star masquerades as a transiting planet.
 The most common scenarios are if (a) it is a highly grazing eclipse, or (b) the binary system
 shares a photometric aperture with a significantly brighter star, 
 resulting in a diluted eclipse depth.
-When possible, such astrophsycial false positive scenarios are traditionally
+When possible, such astrophyscial false positive scenarios are traditionally
 ruled out by detailed follow-up observations, often a combination of
 high-resolution imaging and radial-velocity measurements.
 However, the \kep\ mission, with its thousands of planet candidates
@@ -667,14 +667,28 @@ surveys.
 To investigate the possibility that such wide companions exist,
 we query the ninth data release of the Sloan Digital Sky Survey
 \citep[SDSS DR9,][]{Ahn12}.
-For each target, we return
-all stars within 12\arcsec\ with $\Delta r < 8$ relative to each object
-of interest.
-Of the 31 stars in our sample, four have such a companion.
+For each target, from the depth of the observed transit we determine how
+bright a background object must be to cause the event if the background
+object were an equal mass totally-eclipsing binary.
+We then search for all stars within 25\arcsec\ that are within this brightness
+limit relative to the candidate host star.
+All apertures we use in our \KT\ analysis are smaller than 20\arcsec\ so this
+search should encompass the region where possible background 
+contaminants could reside.
+Of the 31 stars in our sample, eleven have such a companion.
+
 Unlike the original \kep\ field, the field for \KT\ \Ci\ is
 well out of the galactic plane, so the rate of giant, distant background
 stars is significantly lower.
 We include all potential contaminants in Table 5.
+We validate or eliminate each of these as a possibility based on the transit shape.
+For example, the events near EPIC 201546283 could only be caused by a 
+background binary if the background object was a completely-eclipsing system
+(so that the eclipse depth was $50\%$). 
+In this case, the transit would be perfectly V-shaped.
+Since it is not, we can rule out the possibility this background object causes
+the transit event.
+
 
 
 
@@ -706,10 +720,10 @@ induced by a background eclipsing binary.
 However, from the transit shape alone we can place a FPP of this
 system of $1.1 \times 10^{-4}$.
 
-SDSS is 95\% complete at $r=22.2$ and the telescope has a point
+SDSS is 95\% complete at $r=22.2$ mag and the telescope has a point
 spread function of $1\farcs4$. In all cases except the four above, we
 treat the SDSS data as providing a contrast curve at wide separations
-down to a limiting magnitude of $r=22.2$.
+down to a limiting magnitude of $r=22.2$ mag.
 
 \subsection{Archival Imaging}
 
@@ -813,7 +827,8 @@ to become a prime target for atmospheric characterization studies
 and is ideal as a target for future space-based missions such as
 \textit{JWST}.
 
-Unlike GJ\,1214b, EPIC 201912552b is not highly irradiated.
+The planet is slightly smaller than GJ\,1214b, but unlike that planet,
+EPIC 201912552b is not highly irradiated.
 Instead, it is at a reduced semimajor axis \ars$ = 84.3 \pm 9.5$.
 Its equilibrium temperature is then, assuming zero albedo, $T_{eq} = 271 \pm 16$
 K, meaning its bulk insolation is $128 \pm 28$ percent that of the Earth's.
