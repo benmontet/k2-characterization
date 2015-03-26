@@ -49,7 +49,11 @@ def format_line(line, fpp, force_fp=False):
             if m:
                 newline += r' \color{red} ' + m.group(1) + '\\\\\n'
             else:
-                newline += r' \color{red} ' + v + ' &'
+                #hack to fix last line.
+                if re.search('201929294',newline) and re.search('FP',v):
+                    newline += r' \color{red} ' + v 
+                else:
+                    newline += r' \color{red} ' + v + ' &'
         
     return newline
         
@@ -106,24 +110,24 @@ for f in folders:
     line += '{} & '.format(prob_entry(FPP)) #FPP
     FPP = float(FPP)
     if cand_name in FP_OVERRIDE:
-        disp = 'FP'
+        disp = 'FP '
         if cand_name in ['201555883.01', '201929294.01']:
-            disp = r'FP\tablenotemark{b}'
+            disp = r'FP\tablenotemark{b} '
     else:
         if FPP < 0.01:
             if cand_name in CAND_OVERRIDE:
-                disp = r'Candidate\tablenotemark{a}'
+                disp = r'Candidate\tablenotemark{a} '
             else:
-                disp = 'Planet'
+                disp = 'Planet '
         elif FPP > 0.9:
-            disp = 'FP'
+            disp = 'FP '
         else:
-            disp = 'Candidate' 
+            disp = 'Candidate ' 
 
         if epic_id==201505350:
-            disp = r'Planet\tablenotemark{d}'
+            disp = r'Planet\tablenotemark{d} '
         if epic_id==201367065:
-            disp = r'Planet\tablenotemark{c}'
+            disp = r'Planet\tablenotemark{c} '
     line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
