@@ -59,6 +59,9 @@ def write_trsig(epic_id, i=1, redo=False):
     
 if __name__=='__main__':
 
+    from k2fpp.contrast import write_all_ccs
+    write_all_ccs()
+
     for cand in cands:
         m = re.search('(\d+)\.(\d)',cand)
         if m:

@@ -89,6 +89,3 @@ class K2_FPPCalculation(FPPCalculation):
         self.apply_secthresh(max_secondary(epic_id, i))
 
 
-#function version of the above
-def get_trsig(epic_id, i=None, recalc=False, **kwargs):
-    

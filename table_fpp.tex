@@ -1,60 +1,78 @@
 
 \clearpage
 %\LongTables
-\begin{deluxetable*}{lcccccccc}
+\begin{deluxetable*}{ccccccccc}
 \tablewidth{0pt}
 \tabletypesize{\scriptsize}
 \tablecaption{False Positive Probability Calculation Results}
 \label{Table:FPP}
 \tablehead{
 \colhead{Candidate} &
-\colhead{max($\delta_{\rm sec}$)} &
-\colhead{AO?} &
+\colhead{$\delta_{\rm sec, max}$ [ppt]\tablenotemark{1}} &
+\colhead{AO?\tablenotemark{2}} &
 \colhead{${\rm Pr}_{\rm EB}$} &
 \colhead{${\rm Pr}_{\rm BEB}$} &
 \colhead{${\rm Pr}_{\rm HEB}$} &
-\colhead{$f_{p}$} &
+\colhead{$f_{p}$\tablenotemark{3}} &
 \colhead{FPP} &
 \colhead{Disposition}
 }
 \startdata
-$201208431.01$ & $0.51$ &  - & $< 10^{-4}$ & $7.4\times10^{-4}$ & $1.0\times10^{-4}$ & $0.22$ & $8.4\times10^{-4}$ & Planet \\
- \color{red} $201257461.01$ & \color{red}  $0.59$  & \color{red}   -  & \color{red}  $< 10^{-4}$  & \color{red}  $0.011$  & \color{red}  $0.989$  & \color{red}  $0.22$  & \color{red}  $1.000$  & \color{red}  FP\\
-$201295312.01$ & $0.04$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $1.0\times10^{-4}$ & $0.15$ & $1.1\times10^{-4}$ & Planet \\
-$201338508.01$ & $0.63$ &  - & $< 10^{-4}$ & $4.0\times10^{-3}$ & $5.9\times10^{-4}$ & $0.17$ & $4.6\times10^{-3}$ & Planet \\
-$201338508.02$ & $0.33$ &  - & $< 10^{-4}$ & $7.7\times10^{-4}$ & $< 10^{-4}$ & $0.17$ & $7.7\times10^{-4}$ & Planet \\
-$201367065.01$ & $0.15$ &  - & $< 10^{-4}$ & $1.3\times10^{-3}$ & $< 10^{-4}$ & $0.18$ & $1.3\times10^{-3}$ & Planet \\
-$201367065.02$ & $0.67$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.14$ & $< 10^{-4}$ & Planet \\
-$201384232.01$ & $0.44$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $2.1\times10^{-4}$ & $0.21$ & $2.3\times10^{-4}$ & Planet \\
-$201393098.01$ & $0.52$ &  - & $< 10^{-4}$ & $2.6\times10^{-3}$ & $0.022$ & $0.17$ & $0.025$ & Candidate \\
-$201403446.01$ & $0.18$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $9.8\times10^{-4}$ & $0.13$ & $10.0\times10^{-4}$ & Planet \\
-$201445392.01$ & $0.26$ &  - & $< 10^{-4}$ & $1.8\times10^{-3}$ & $0.049$ & $0.22$ & $0.051$ & Candidate \\
-$201445392.02$ & $0.18$ &  - & $< 10^{-4}$ & $0.034$ & $0.055$ & $0.18$ & $0.089$ & Candidate \\
-$201465501.01$ & $0.68$ &  - & $< 10^{-4}$ & $0.021$ & $3.0\times10^{-3}$ & $0.14$ & $0.025$ & Candidate \\
- \color{red} $201505350.01$  & \color{red}  $2.69$  & \color{red}   -  & \color{red}  $< 10^{-4}$  & \color{red}  $0.020$  & \color{red}  $0.966$  & \color{red}  $0.18$  & \color{red}  $0.986$  & \color{red}  FP\\
-$201505350.02$ & $0.70$ &  - & $< 10^{-4}$ & $3.0\times10^{-4}$ & $1.2\times10^{-4}$ & $0.07$ & $4.2\times10^{-4}$ & Planet \\
-$201546283.01$ & $0.15$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.16$ & $< 10^{-4}$ & Planet \\
-$201549860.01$ & $0.18$ &  - & $< 10^{-4}$ & $1.7\times10^{-3}$ & $6.5\times10^{-4}$ & $0.20$ & $2.4\times10^{-3}$ & Planet \\
-$201555883.01$\tablenotemark{1} & $0.94$ &  - & $< 10^{-4}$ & $5.8\times10^{-4}$ & $3.7\times10^{-4}$ & $0.20$ & $9.5\times10^{-4}$ & Candidate \\
- \color{red} $201565013.01$  & \color{red}  $1.69$  & \color{red}   -  & \color{red}  $2.7\times10^{-3}$  & \color{red}  $0.027$  & \color{red}  $0.926$  & \color{red}  $0.07$  & \color{red}  $0.956$  & \color{red}  FP\\
-$201569483.01$ & $2.06$ &  - & $0.468$ & $< 10^{-4}$ & $0.092$ & $0.01$ & $0.560$ & Candidate \\
-$201577035.01$ & $0.14$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $1.0\times10^{-4}$ & $0.20$ & $1.1\times10^{-4}$ & Planet \\
-$201596316.01$ & $0.45$ &  - & $< 10^{-4}$ & $1.3\times10^{-3}$ & $2.1\times10^{-3}$ & $0.17$ & $3.4\times10^{-3}$ & Planet \\
-$201613023.01$ & $0.08$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.15$ & $< 10^{-4}$ & Planet \\
-$201617985.01$ & $0.27$ &  - & $< 10^{-4}$ & $0.016$ & $1.7\times10^{-3}$ & $0.16$ & $0.018$ & Candidate \\
-$201629650.01$ & $0.43$ &  - & $< 10^{-4}$ & $6.3\times10^{-4}$ & $1.1\times10^{-3}$ & $0.17$ & $1.7\times10^{-3}$ & Planet \\
-$201635569.01$ & $0.79$ &  - & $< 10^{-4}$ & $7.5\times10^{-3}$ & $0.069$ & $0.09$ & $0.076$ & Candidate \\
- \color{red} $201649426.01$  & \color{red}  $3.10$  & \color{red}   -  & \color{red}  $0.819$  & \color{red}  $2.2\times10^{-4}$  & \color{red}  $0.119$  & \color{red}  $0.01$  & \color{red}  $0.938$  & \color{red}  FP\\
-$201702477.01$ & $0.70$ &  - & $< 10^{-4}$ & $4.0\times10^{-3}$ & $0.277$ & $0.06$ & $0.281$ & Candidate \\
-$201736247.01$ & $0.42$ &  - & $< 10^{-4}$ & $1.9\times10^{-4}$ & $8.5\times10^{-4}$ & $0.22$ & $1.0\times10^{-3}$ & Planet \\
-$201754305.01$ & $0.65$ &  - & $< 10^{-4}$ & $1.9\times10^{-3}$ & $1.5\times10^{-3}$ & $0.18$ & $3.4\times10^{-3}$ & Planet \\
-$201754305.02$ & $0.38$ &  - & $< 10^{-4}$ & $1.2\times10^{-3}$ & $6.4\times10^{-4}$ & $0.17$ & $1.9\times10^{-3}$ & Planet \\
-$201779067.01$ & $1.97$ &  - & $0.036$ & $5.0\times10^{-3}$ & $0.286$ & $0.03$ & $0.327$ & Candidate \\
-$201828749.01$ & $0.39$ &  Y & $< 10^{-4}$ & $1.7\times10^{-3}$ & $2.2\times10^{-3}$ & $0.17$ & $3.9\times10^{-3}$ & Planet \\
-$201855371.01$ & $0.62$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.20$ & $1.7\times10^{-4}$ & Planet \\
-$201912552.01$ & $0.47$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.22$ & $< 10^{-4}$ & Planet \\
-$201929294.02$ & $3.12$ &  - & $< 10^{-4}$ & $6.8\times10^{-3}$ & $0.052$ & $0.05$ & $0.059$ & Candidate 
+201208431.01 & $0.51$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $7.0\times10^{-4}$ & $0.21$ & $7.0\times10^{-4}$ & Planet  \\
+ \color{red} 201257461.01  & \color{red}  $0.59$  & \color{red}   -  & \color{red}  $8.8\times10^{-3}$  & \color{red}  $0.940$  & \color{red}  $0.051$  & \color{red}  $0.17$  & \color{red}  $1.000$  & \color{red}  FP \\
+201295312.01 & $0.04$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.21$ & $< 10^{-4}$ & Candidate\tablenotemark{a}  \\
+201338508.01 & $0.63$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $3.2\times10^{-3}$ & $0.21$ & $3.2\times10^{-3}$ & Planet  \\
+201338508.02 & $0.33$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $1.8\times10^{-4}$ & $0.22$ & $1.8\times10^{-4}$ & Planet  \\
+201367065.01 & $0.15$ &  - & $0.717$ & $< 10^{-4}$ & $0.044$ & $0.07$ & $0.761$ & Planet\tablenotemark{c}  \\
+201367065.02 & $0.67$ &  - & $3.2\times10^{-3}$ & $< 10^{-4}$ & $4.2\times10^{-3}$ & $0.17$ & $7.4\times10^{-3}$ & Planet\tablenotemark{c}  \\
+201384232.01 & $0.44$ &  - & $1.2\times10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.16$ & $1.4\times10^{-4}$ & Planet  \\
+201393098.01 & $0.52$ &  - & $1.6\times10^{-3}$ & $< 10^{-4}$ & $5.5\times10^{-4}$ & $0.19$ & $2.2\times10^{-3}$ & Planet  \\
+201403446.01 & $0.18$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.22$ & $< 10^{-4}$ & Candidate\tablenotemark{a}  \\
+201445392.01 & $0.26$ &  - & $1.3\times10^{-3}$ & $< 10^{-4}$ & $0.012$ & $0.19$ & $0.013$ & Candidate  \\
+201445392.02 & $0.18$ &  - & $0.023$ & $< 10^{-4}$ & $0.254$ & $0.21$ & $0.277$ & Candidate  \\
+201465501.01 & $0.68$ &  - & $0.491$ & $0.022$ & $9.1\times10^{-3}$ & $0.20$ & $0.522$ & Candidate  \\
+201505350.01 & $2.69$ &  - & $0.583$ & $< 10^{-4}$ & $0.024$ & $0.07$ & $0.607$ & Planet\tablenotemark{d}  \\
+201505350.02 & $0.70$ &  - & $0.034$ & $< 10^{-4}$ & $2.3\times10^{-4}$ & $0.07$ & $0.034$ & Planet\tablenotemark{d}  \\
+201546283.01 & $0.15$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.06$ & $1.1\times10^{-4}$ & Candidate\tablenotemark{a}  \\
+201549860.01 & $0.18$ &  - & $7.5\times10^{-3}$ & $0.014$ & $0.011$ & $0.22$ & $0.032$ & Candidate  \\
+ \color{red} 201555883.01  & \color{red}  $0.94$  & \color{red}   -  & \color{red}  $< 10^{-4}$  & \color{red}  $< 10^{-4}$  & \color{red}  $3.6\times10^{-3}$  & \color{red}  $0.10$  & \color{red}  $3.6\times10^{-3}$  & \color{red}  FP\tablenotemark{b} \\
+201565013.01 & $1.69$ &  - & $0.460$ & $0.391$ & $0.035$ & $0.06$ & $0.887$ & Candidate  \\
+ \color{red} 201569483.01  & \color{red}  $2.06$  & \color{red}   -  & \color{red}  $0.437$  & \color{red}  $0.562$  & \color{red}  $< 10^{-4}$  & \color{red}  $0.00$  & \color{red}  $0.999$  & \color{red}  FP \\
+201577035.01 & $0.14$ &  Y & $3.0\times10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.07$ & $3.6\times10^{-4}$ & Planet  \\
+201596316.01 & $0.45$ &  - & $0.017$ & $< 10^{-4}$ & $3.4\times10^{-4}$ & $0.20$ & $0.017$ & Candidate  \\
+201613023.01 & $0.08$ &  Y & $9.8\times10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.20$ & $9.8\times10^{-4}$ & Planet  \\
+201617985.01 & $0.27$ &  - & $0.166$ & $< 10^{-4}$ & $0.053$ & $0.19$ & $0.219$ & Candidate  \\
+201629650.01 & $0.43$ &  - & $1.5\times10^{-3}$ & $< 10^{-4}$ & $2.6\times10^{-4}$ & $0.18$ & $1.8\times10^{-3}$ & Planet  \\
+201635569.01 & $0.79$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $0.043$ & $0.06$ & $0.043$ & Candidate  \\
+ \color{red} 201649426.01  & \color{red}  $3.10$  & \color{red}   -  & \color{red}  $0.856$  & \color{red}  $0.142$  & \color{red}  $1.6\times10^{-4}$  & \color{red}  $0.00$  & \color{red}  $0.998$  & \color{red}  FP \\
+201702477.01 & $0.70$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $4.0\times10^{-3}$ & $0.06$ & $4.0\times10^{-3}$ & Planet  \\
+201736247.01 & $0.42$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $4.6\times10^{-4}$ & $0.18$ & $4.9\times10^{-4}$ & Planet  \\
+201754305.01 & $0.65$ &  - & $2.5\times10^{-3}$ & $< 10^{-4}$ & $3.2\times10^{-3}$ & $0.21$ & $5.7\times10^{-3}$ & Planet  \\
+201754305.02 & $0.38$ &  - & $1.9\times10^{-3}$ & $< 10^{-4}$ & $1.7\times10^{-3}$ & $0.22$ & $3.6\times10^{-3}$ & Planet  \\
+ \color{red} 201779067.01  & \color{red}  $1.97$  & \color{red}   -  & \color{red}  $0.935$  & \color{red}  $0.063$  & \color{red}  $3.2\times10^{-4}$  & \color{red}  $0.00$  & \color{red}  $0.998$  & \color{red}  FP \\
+201828749.01 & $0.39$ &  Y & $2.6\times10^{-3}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.17$ & $2.6\times10^{-3}$ & Candidate\tablenotemark{a}  \\
+201855371.01 & $0.62$ &  - & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.22$ & $< 10^{-4}$ & Planet  \\
+201912552.01 & $0.47$ &  Y & $< 10^{-4}$ & $< 10^{-4}$ & $< 10^{-4}$ & $0.21$ & $< 10^{-4}$ & Planet  \\
+ \color{red} 201929294.01  & \color{red}  $3.12$  & \color{red}   -  & \color{red}  $< 10^{-4}$  & \color{red}  $< 10^{-4}$  & \color{red}  $2.8\times10^{-4}$  & \color{red}  $0.07$  & \color{red}  $2.9\times10^{-4}$  & \color{red}  FP\tablenotemark{b}  
 
 \enddata
-\tablenotetext{1}{Passes FPP criterion for planet, but kept as candidate due to the ephemeris match with EPIC 201569483}
+\tablecomments{Results of the \texttt{vespa} astrophysical 
+false positive probability calculations for all candidates.  
+Likely false positives (FPP $> 0.9$, or otherwise designated)
+ are marked in red.  
+Candidates are declared to be validated planets if FPP $< 0.01$.  
+EB, BEB, and HEB refer to the three considered astrophysical 
+false positive scenarios, and the relative probability of 
+each is listed in the appropriate column.  Planets previously 
+identified in the literature are marked as planets even if FPP is not 
+below 1\% threshold.}
+\tablenotetext{1}{Maximum depth of potential secondary eclipse signal.}
+\tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
+\tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
+\tablenotetext{a}{Despite low FPP, returned to candidate status 
+out of abundance of caution due
+to secondary star detection within or near photometric aperture.}
+\tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
+\tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
+\tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
 \end{deluxetable*}
