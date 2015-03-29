@@ -1,0 +1,16 @@
+False positive probability (FPP) models corresponding
+to calculations in the K2 Campaign-1 planet characterization
+paper of Montet, Morton, Foreman-Mackey et al. (2015).
+
+These calculations were performed using the ``vespa`` code;
+see the documentation at http://vespa.readthedocs.org.
+
+All the information that was used for the population modeling
+is in the ``fpp.ini`` file in each folder; the calculations were
+made using the ``calcfpp`` script described in the ``vespa`` docs,
+with the folder names as the sole argument to the script.
+
+If you obtain the VESPA code, you should be able to reproduce
+the results presented in the paper (modulo some random fluctuations).
+In addition, you can change the inputs and see what happens (e.g. 
+remove contrast curves, change the photometric uncertainties, etc. etc.).
