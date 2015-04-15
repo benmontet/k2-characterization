@@ -239,3 +239,89 @@ NameError: global name 'thresh' is not defined
 2015-03-26 04:44:16,717: SDSS r-band cc not applied to Planets model
 2015-03-26 04:46:51,734: Making StarModel triangle plots...
 2015-03-26 04:47:22,927: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1.
+2015-04-15 09:52:19,330: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/trsig.pkl...
+2015-04-15 09:52:21,073: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starmodel.h5.
+2015-04-15 09:52:21,915: PopulationSet loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/popset.h5
+2015-04-15 09:52:22,152: SDSS r-band cc not applied to Planets model
+2015-04-15 09:54:21,965: FPP calculation failed for fppmodels/201208431.1.
+Traceback (most recent call last):
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 114, in <module>
+    f.FPPplots()
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 358, in FPPplots
+    self.FPPsummary(folder=folder,saveplot=True,figformat=format,tag=tag)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 606, in FPPsummary
+    constraints += '\n  %s' % self['heb'].constraints[c]
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 676, in __getitem__
+    return self.popset[model]
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/populations.py", line 1877, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: hebs not in modelnames: ['BEBs', 'Planets']
+2015-04-15 10:10:29,129: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/trsig.pkl...
+2015-04-15 10:10:29,842: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starmodel.h5.
+2015-04-15 10:11:08,935: Fitting TripleStarModel to {'B': (16.229, 0.05), 'g': (15.557, 0.05), 'i': (13.89, 0.05), 'H': (11.747, 0.05), 'K': (11.571, 0.05), 'J': (12.367, 0.05), 'r': (14.291, 0.05), 'W3': (11.576, 0.05), 'W2': (11.549, 0.05), 'W1': (11.508, 0.05), 'V': (14.907, 0.05), 'Kepler': (14.4176, 0.05)}...
+2015-04-15 10:14:56,873: TripleStarModel fit Done.
+2015-04-15 10:15:16,127: 259 binaries are "too close"; gave up trying to fix.
+2015-04-15 10:15:24,301: 3656 eclipsing HEB systems generated (target 20000)
+2015-04-15 10:15:24,797: 711 binaries are "too close"; gave up trying to fix.
+2015-04-15 10:15:25,243: 12293 eclipsing HEB systems generated (target 20000)
+2015-04-15 10:15:25,949: 655 binaries are "too close"; gave up trying to fix.
+2015-04-15 10:15:26,813: 21087 eclipsing HEB systems generated (target 20000)
+2015-04-15 10:15:28,841: Fitting trapezoid models for HEBs...
+2015-04-15 10:16:31,755: Error generating HEB population.
+2015-04-15 10:16:54,743: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/trsig.pkl...
+2015-04-15 10:16:55,445: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starmodel.h5.
+2015-04-15 10:17:33,149: Fitting TripleStarModel to {'B': (16.229, 0.05), 'g': (15.557, 0.05), 'i': (13.89, 0.05), 'H': (11.747, 0.05), 'K': (11.571, 0.05), 'J': (12.367, 0.05), 'r': (14.291, 0.05), 'W3': (11.576, 0.05), 'W2': (11.549, 0.05), 'W1': (11.508, 0.05), 'V': (14.907, 0.05), 'Kepler': (14.4176, 0.05)}...
+2015-04-15 10:21:02,628: TripleStarModel fit Done.
+2015-04-15 10:21:13,320: 88 eclipsing HEB systems generated (target 100)
+2015-04-15 10:21:13,437: 177 eclipsing HEB systems generated (target 100)
+2015-04-15 10:21:13,662: Fitting trapezoid models for HEBs...
+2015-04-15 10:21:15,832: Done.
+2015-04-15 10:21:16,247: Fitting BinaryStarModel to {'B': (16.229, 0.05), 'g': (15.557, 0.05), 'i': (13.89, 0.05), 'H': (11.747, 0.05), 'K': (11.571, 0.05), 'J': (12.367, 0.05), 'r': (14.291, 0.05), 'W3': (11.576, 0.05), 'W2': (11.549, 0.05), 'W1': (11.508, 0.05), 'V': (14.907, 0.05), 'Kepler': (14.4176, 0.05)}...
+2015-04-15 10:26:39,260: BinaryStarModel fit Done.
+2015-04-15 10:26:40,622: 1 binaries are "too close"; gave up trying to fix.
+2015-04-15 10:26:40,691: 87 Eclipsing EB systems generated (target 100)
+2015-04-15 10:26:40,749: 183 Eclipsing EB systems generated (target 100)
+2015-04-15 10:26:40,803: Fitting trapezoid models for EBs...
+2015-04-15 10:26:43,060: Done.
+2015-04-15 10:26:43,356: Loading TRILEGAL simulation from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starfield.h5
+2015-04-15 10:26:47,330: 3 binaries are "too close"; gave up trying to fix.
+2015-04-15 10:26:47,377: 65 BEB systems generated (target 100)
+2015-04-15 10:26:47,450: 132 BEB systems generated (target 100)
+2015-04-15 10:26:47,512: Fitting trapezoid models for BEBs...
+2015-04-15 10:26:49,734: Done.
+2015-04-15 10:26:50,076: 95 Transiting planet systems generated (target 100)
+2015-04-15 10:26:50,126: 184 Transiting planet systems generated (target 100)
+2015-04-15 10:26:50,322: Fitting trapezoid models for Planets...
+2015-04-15 10:26:54,251: Done.
+2015-04-15 10:26:54,476: SDSS r-band cc not applied to Planets model
+2015-04-15 10:27:01,030: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1.
+2015-04-15 10:56:58,670: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/trsig.pkl...
+2015-04-15 10:56:59,351: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starmodel.h5.
+2015-04-15 10:57:35,714: Fitting TripleStarModel to {'B': (16.229, 0.05), 'g': (15.557, 0.05), 'i': (13.89, 0.05), 'H': (11.747, 0.05), 'K': (11.571, 0.05), 'J': (12.367, 0.05), 'r': (14.291, 0.05), 'W3': (11.576, 0.05), 'W2': (11.549, 0.05), 'W1': (11.508, 0.05), 'V': (14.907, 0.05), 'Kepler': (14.4176, 0.05)}...
+2015-04-15 11:01:43,167: TripleStarModel fit Done.
+2015-04-15 11:01:54,157: 99 eclipsing HEB systems generated (target 100)
+2015-04-15 11:01:54,232: 195 eclipsing HEB systems generated (target 100)
+2015-04-15 11:01:54,505: Fitting trapezoid models for HEBs...
+2015-04-15 11:01:56,538: Done.
+2015-04-15 11:01:56,858: Fitting BinaryStarModel to {'B': (16.229, 0.05), 'g': (15.557, 0.05), 'i': (13.89, 0.05), 'H': (11.747, 0.05), 'K': (11.571, 0.05), 'J': (12.367, 0.05), 'r': (14.291, 0.05), 'W3': (11.576, 0.05), 'W2': (11.549, 0.05), 'W1': (11.508, 0.05), 'V': (14.907, 0.05), 'Kepler': (14.4176, 0.05)}...
+2015-04-15 11:06:50,096: BinaryStarModel fit Done.
+2015-04-15 11:06:51,336: 1 binaries are "too close"; gave up trying to fix.
+2015-04-15 11:06:51,396: 39 Eclipsing EB systems generated (target 100)
+2015-04-15 11:06:51,404: 8 binaries are "too close"; gave up trying to fix.
+2015-04-15 11:06:51,479: 202 Eclipsing EB systems generated (target 100)
+2015-04-15 11:06:51,535: Fitting trapezoid models for EBs...
+2015-04-15 11:06:53,708: Done.
+2015-04-15 11:06:54,087: Loading TRILEGAL simulation from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1/starfield.h5
+2015-04-15 11:06:58,870: 69 BEB systems generated (target 100)
+2015-04-15 11:06:58,878: 1 binaries are "too close"; gave up trying to fix.
+2015-04-15 11:06:58,947: 114 BEB systems generated (target 100)
+2015-04-15 11:06:59,014: Fitting trapezoid models for BEBs...
+2015-04-15 11:07:01,545: Done.
+2015-04-15 11:07:01,977: 89 Transiting planet systems generated (target 100)
+2015-04-15 11:07:02,105: 181 Transiting planet systems generated (target 100)
+2015-04-15 11:07:02,277: Fitting trapezoid models for Planets...
+2015-04-15 11:07:03,434: No eclipse registered for index 32
+2015-04-15 11:07:04,597: No eclipse registered for index 61
+2015-04-15 11:07:06,386: Done.
+2015-04-15 11:07:06,765: SDSS r-band cc not applied to Planets model
+2015-04-15 11:07:14,693: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201208431.1.

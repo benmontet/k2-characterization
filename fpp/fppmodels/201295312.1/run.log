@@ -328,3 +328,8 @@ NameError: global name 'thresh' is not defined
 2015-03-26 05:55:42,609: SDSS r-band cc not applied to Planets model
 2015-03-26 05:58:21,217: Making StarModel triangle plots...
 2015-03-26 05:58:53,247: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201295312.1.
+2015-04-15 09:56:56,134: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201295312.1/trsig.pkl...
+2015-04-15 09:56:57,242: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201295312.1/starmodel.h5.
+2015-04-15 09:56:58,376: PopulationSet loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201295312.1/popset.h5
+2015-04-15 09:56:58,555: PHARO K-band cc not applied to Planets model
+2015-04-15 09:56:58,622: SDSS r-band cc not applied to Planets model

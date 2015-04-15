@@ -258,3 +258,21 @@ NameError: global name 'thresh' is not defined
 2015-03-26 05:19:46,444: SDSS r-band cc not applied to Planets model
 2015-03-26 05:22:27,681: Making StarModel triangle plots...
 2015-03-26 05:22:59,454: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201257461.1.
+2015-04-15 09:54:35,466: Loading transit signal from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201257461.1/trsig.pkl...
+2015-04-15 09:54:37,142: Starmodel loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201257461.1/starmodel.h5.
+2015-04-15 09:54:37,830: PopulationSet loaded from /u/tdm/repositories/k2-characterization/fpp/fppmodels/201257461.1/popset.h5
+2015-04-15 09:54:37,983: SDSS r-band cc not applied to Planets model
+2015-04-15 09:56:39,389: total adds up to: 1.00 (BEBs)
+2015-04-15 09:56:44,033: FPP calculation failed for fppmodels/201257461.1.
+Traceback (most recent call last):
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 114, in <module>
+    f.FPPplots()
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 358, in FPPplots
+    self.FPPsummary(folder=folder,saveplot=True,figformat=format,tag=tag)
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 606, in FPPsummary
+    constraints += '\n  %s' % self['heb'].constraints[c]
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/fpp.py", line 676, in __getitem__
+    return self.popset[model]
+  File "/u/tdm/anaconda/lib/python2.7/site-packages/VESPA-0.2.1-py2.7-linux-x86_64.egg/vespa/populations.py", line 1877, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: hebs not in modelnames: ['BEBs', 'Planets']
