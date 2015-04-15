@@ -2,6 +2,7 @@
 from __future__ import print_function, division
 
 import numpy as np
+import pandas as pd
 import os, os.path, re, glob
 from configobj import ConfigObj
 
@@ -9,9 +10,27 @@ from k2fpp.tables import PAPER1_TABLE, MAGS, APERTURES
 from k2fpp.photometry import all_mags
 from k2fpp.transitsignal import get_trsig
 
+SECONDARY_FILE = os.path.expanduser('~/repositories/k2-characterization'+
+                                    '/fpp/secondary.csv')
+SECONDARY = pd.read_csv(SECONDARY_FILE, 
+                        names=['epic_id','period',
+                               'primary','t0_1',
+                               'secondary','t0_2'])
+SECONDARY.index = SECONDARY['epic_id']
+
+
 cands = np.loadtxt('allcands.list', dtype=str)
 
 FOLDER = os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')
+
+
+
+def max_secondary(epic_id, i=1):
+    secdepth = SECONDARY.ix[epic_id, 'secondary']
+    if np.size(secdepth) > 1:
+        secdepth = secdepth.iloc[i-1]
+    return secdepth/1e3
+
 
 def write_ini(epic_id, i=1, photerr_inflate=3):
     filename ='{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
@@ -45,6 +64,7 @@ def write_ini(epic_id, i=1, photerr_inflate=3):
 
     config['constraints'] = {}
     config['constraints']['maxrad'] = (APERTURES.ix[epic_id, 'radius'] + 1)*4
+    config['constraints']['secthresh'] = max_secondary(epic_id, i)
     ccfiles = glob.glob('{}/{}/*.cc'.format(FOLDER,config['name']))
     if len(ccfiles) > 0:
         config['constraints']['ccfiles'] = [os.path.basename(f)
