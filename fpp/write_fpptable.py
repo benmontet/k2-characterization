@@ -84,7 +84,7 @@ fout.write(r"""
 \startdata
 """)
 
-folders = glob.glob('fppmodels/*')
+folders = glob.glob('fppmodels/20*')
 folders.sort()
 for f in folders:
     resultsfile = f + '/results.txt'
