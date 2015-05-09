@@ -255,3 +255,235 @@ NameError: global name 'thresh' is not defined
 2015-03-26 05:54:25,275: SDSS r-band cc not applied to Planets model
 2015-03-26 05:57:05,222: Making StarModel triangle plots...
 2015-03-26 05:57:36,307: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201577035.1.
+2015-05-08 14:03:57,758: single starfit successful for 201577035.1 in 3.6 minutes.
+2015-05-08 14:10:50,519: binary starfit successful for 201577035.1 in 6.9 minutes.
+2015-05-08 14:16:51,209: triple starfit successful for 201577035.1 in 6.0 minutes.
+2015-05-08 14:28:52,825: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_single.h5
+2015-05-08 14:28:52,887: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_binary.h5
+2015-05-08 14:28:52,925: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_triple.h5
+2015-05-08 14:28:52,927: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/trsig.pkl...
+2015-05-08 14:28:53,486: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: []
+2015-05-08 14:29:55,385: 12001 eclipsing HEB systems generated (target 20000)
+2015-05-08 14:29:55,797: 21657 eclipsing HEB systems generated (target 20000)
+2015-05-08 14:29:56,599: Fitting trapezoid models for HEBs...
+2015-05-08 14:31:16,647: No eclipse registered for index 4324
+2015-05-08 14:36:07,205: Done.
+2015-05-08 14:36:33,352: 1601 binaries are "too close"; gave up trying to fix.
+2015-05-08 14:36:33,695: 9501 Eclipsing EB systems generated (target 20000)
+2015-05-08 14:36:33,870: 2053 binaries are "too close"; gave up trying to fix.
+2015-05-08 14:36:34,315: 22090 Eclipsing EB systems generated (target 20000)
+2015-05-08 14:36:34,801: Fitting trapezoid models for EBs...
+2015-05-08 14:41:21,272: No eclipse registered for index 16978
+2015-05-08 14:42:12,399: Done.
+2015-05-08 14:42:14,016: Getting TRILEGAL simulation at 172.121957, 1.690636...
+2015-05-08 14:42:14,307: Error accessing NED, url=http://ned.ipac.caltech.edu/cgi-bin/nph-calc?in_csys=Equatorial&in_equinox=J2000.0&obs_epoch=2010&lon=11%3A28%3A29.27&lat=%2B1%3A41%3A26.29&pa=0.0&out_csys=Equatorial&out_equinox=J2000.0
+2015-05-08 14:42:14,308: Error generating BEB population.
+2015-05-08 14:42:14,308: FPP calculation failed for 201577035.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1684, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1757, in generate
+    mags=mags, MAfn=MAfn, n=n, **beb_kws)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1417, in __init__
+    maxrad=maxrad, f_binary=f_binary, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1446, in generate
+    maxrad=maxrad, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 2454, in __init__
+    get_trilegal(basefilename,ra,dec,**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/trilegal.py", line 91, in get_trilegal
+    filterset,maglim,outfile)
+TypeError: float argument required, not NoneType
+2015-05-08 16:58:49,384: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_single.h5
+2015-05-08 16:58:49,435: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_binary.h5
+2015-05-08 16:58:49,477: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_triple.h5
+2015-05-08 16:58:49,478: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/trsig.pkl...
+2015-05-08 16:58:52,651: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: ['EBs', 'HEBs']
+2015-05-08 16:59:55,933: 12071 eclipsing HEB systems generated (target 20000)
+2015-05-08 16:59:56,320: 21394 eclipsing HEB systems generated (target 20000)
+2015-05-08 16:59:57,080: Fitting trapezoid models for HEBs...
+2015-05-08 17:01:31,015: No eclipse registered for index 5088
+2015-05-08 17:05:31,710: No eclipse registered for index 18084
+2015-05-08 17:06:07,110: Done.
+2015-05-08 17:06:35,074: 1574 binaries are "too close"; gave up trying to fix.
+2015-05-08 17:06:35,428: 9680 Eclipsing EB systems generated (target 20000)
+2015-05-08 17:06:35,606: 1969 binaries are "too close"; gave up trying to fix.
+2015-05-08 17:06:36,023: 21896 Eclipsing EB systems generated (target 20000)
+2015-05-08 17:06:36,521: Fitting trapezoid models for EBs...
+2015-05-08 17:08:39,314: No eclipse registered for index 7343
+2015-05-08 17:08:51,583: No eclipse registered for index 8088
+2015-05-08 17:12:09,397: Done.
+2015-05-08 17:12:10,906: Getting TRILEGAL simulation at 172.121957, 1.690636...
+2015-05-08 17:12:11,150: Error accessing NED, url=http://ned.ipac.caltech.edu/cgi-bin/nph-calc?in_csys=Equatorial&in_equinox=J2000.0&obs_epoch=2010&lon=11%3A28%3A29.27&lat=%2B1%3A41%3A26.29&pa=0.0&out_csys=Equatorial&out_equinox=J2000.0
+2015-05-08 17:12:11,150: Error generating BEB population.
+2015-05-08 17:12:11,150: FPP calculation failed for 201577035.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1684, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1757, in generate
+    mags=mags, MAfn=MAfn, n=n, **beb_kws)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1417, in __init__
+    maxrad=maxrad, f_binary=f_binary, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1446, in generate
+    maxrad=maxrad, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 2454, in __init__
+    get_trilegal(basefilename,ra,dec,**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/trilegal.py", line 91, in get_trilegal
+    filterset,maglim,outfile)
+TypeError: float argument required, not NoneType
+2015-05-08 22:28:03,185: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_single.h5
+2015-05-08 22:28:03,263: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_binary.h5
+2015-05-08 22:28:03,298: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/dartmouth_starmodel_triple.h5
+2015-05-08 22:28:03,298: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/trsig.pkl...
+2015-05-08 22:28:06,843: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: ['EBs', 'HEBs']
+2015-05-08 22:29:24,716: 12046 eclipsing HEB systems generated (target 20000)
+2015-05-08 22:29:25,207: 21613 eclipsing HEB systems generated (target 20000)
+2015-05-08 22:29:26,177: Fitting trapezoid models for HEBs...
+2015-05-08 22:29:32,907: No eclipse registered for index 351
+2015-05-08 22:35:48,119: Done.
+2015-05-08 22:36:28,548: 1539 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:36:28,927: 9552 Eclipsing EB systems generated (target 20000)
+2015-05-08 22:36:29,105: 2002 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:36:29,585: 22007 Eclipsing EB systems generated (target 20000)
+2015-05-08 22:36:30,270: Fitting trapezoid models for EBs...
+2015-05-08 22:36:56,464: No eclipse registered for index 1532
+2015-05-08 22:37:54,069: No eclipse registered for index 4841
+2015-05-08 22:38:31,986: No eclipse registered for index 7035
+2015-05-08 22:40:46,079: No eclipse registered for index 14775
+2015-05-08 22:41:13,113: No eclipse registered for index 16321
+2015-05-08 22:42:16,197: Done.
+2015-05-08 22:42:18,001: Loading TRILEGAL simulation from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1/starfield.h5
+2015-05-08 22:42:20,507: 166 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:42:20,661: 1942 BEB systems generated (target 20000)
+2015-05-08 22:42:22,188: 1750 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:42:23,222: 24650 BEB systems generated (target 20000)
+2015-05-08 22:42:23,329: Fitting trapezoid models for BEBs...
+2015-05-08 22:49:48,266: No eclipse registered for index 18640
+2015-05-08 22:50:20,530: Done.
+2015-05-08 22:50:20,801: 4549 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:50:22,030: 7934 Transiting planet systems generated (target 20000)
+2015-05-08 22:50:22,167: 7133 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:50:24,051: 20659 Transiting planet systems generated (target 20000)
+2015-05-08 22:50:24,149: Fitting trapezoid models for Planets...
+2015-05-08 22:50:24,194: No eclipse registered for index 1
+2015-05-08 22:50:56,809: No eclipse registered for index 1372
+2015-05-08 22:51:04,752: No eclipse registered for index 1708
+2015-05-08 22:51:12,140: No eclipse registered for index 2022
+2015-05-08 22:51:16,706: No eclipse registered for index 2216
+2015-05-08 22:51:24,247: No eclipse registered for index 2534
+2015-05-08 22:51:26,213: No eclipse registered for index 2618
+2015-05-08 22:51:26,544: No eclipse registered for index 2633
+2015-05-08 22:51:26,883: No eclipse registered for index 2648
+2015-05-08 22:51:33,953: No eclipse registered for index 2949
+2015-05-08 22:51:42,586: No eclipse registered for index 3316
+2015-05-08 22:51:49,268: No eclipse registered for index 3598
+2015-05-08 22:51:57,152: No eclipse registered for index 3932
+2015-05-08 22:52:26,036: No eclipse registered for index 5162
+2015-05-08 22:52:26,470: No eclipse registered for index 5181
+2015-05-08 22:52:30,724: No eclipse registered for index 5361
+2015-05-08 22:52:36,110: No eclipse registered for index 5587
+2015-05-08 22:52:45,125: No eclipse registered for index 5966
+2015-05-08 22:52:46,033: No eclipse registered for index 6005
+2015-05-08 22:52:51,815: No eclipse registered for index 6251
+2015-05-08 22:52:53,275: No eclipse registered for index 6312
+2015-05-08 22:52:56,839: No eclipse registered for index 6463
+2015-05-08 22:53:00,582: No eclipse registered for index 6621
+2015-05-08 22:53:07,388: No eclipse registered for index 6907
+2015-05-08 22:53:07,993: No eclipse registered for index 6933
+2015-05-08 22:53:09,521: No eclipse registered for index 6998
+2015-05-08 22:53:10,501: No eclipse registered for index 7041
+2015-05-08 22:53:14,186: No eclipse registered for index 7198
+2015-05-08 22:53:15,293: No eclipse registered for index 7247
+2015-05-08 22:53:16,033: No eclipse registered for index 7280
+2015-05-08 22:53:16,330: No eclipse registered for index 7293
+2015-05-08 22:53:30,083: No eclipse registered for index 7878
+2015-05-08 22:53:30,719: No eclipse registered for index 7906
+2015-05-08 22:53:32,337: No eclipse registered for index 7975
+2015-05-08 22:53:32,635: No eclipse registered for index 7989
+2015-05-08 22:53:37,051: No eclipse registered for index 8177
+2015-05-08 22:53:39,795: No eclipse registered for index 8294
+2015-05-08 22:53:43,002: No eclipse registered for index 8427
+2015-05-08 22:53:54,573: No eclipse registered for index 8914
+2015-05-08 22:53:56,325: No eclipse registered for index 8988
+2015-05-08 22:53:58,975: No eclipse registered for index 9100
+2015-05-08 22:54:08,792: No eclipse registered for index 9515
+2015-05-08 22:54:14,120: No eclipse registered for index 9741
+2015-05-08 22:54:23,596: No eclipse registered for index 10143
+2015-05-08 22:54:24,134: No eclipse registered for index 10167
+2015-05-08 22:54:30,840: No eclipse registered for index 10453
+2015-05-08 22:54:34,395: No eclipse registered for index 10602
+2015-05-08 22:54:34,568: No eclipse registered for index 10610
+2015-05-08 22:54:39,948: No eclipse registered for index 10837
+2015-05-08 22:54:45,837: No eclipse registered for index 11087
+2015-05-08 22:54:52,213: No eclipse registered for index 11357
+2015-05-08 22:54:54,738: No eclipse registered for index 11466
+2015-05-08 22:55:05,445: No eclipse registered for index 11919
+2015-05-08 22:55:09,893: No eclipse registered for index 12107
+2015-05-08 22:55:13,066: No eclipse registered for index 12241
+2015-05-08 22:55:13,547: No eclipse registered for index 12262
+2015-05-08 22:55:40,816: No eclipse registered for index 13409
+2015-05-08 22:55:41,788: No eclipse registered for index 13451
+2015-05-08 22:55:55,890: No eclipse registered for index 14049
+2015-05-08 22:55:58,291: No eclipse registered for index 14150
+2015-05-08 22:56:19,430: No eclipse registered for index 15040
+2015-05-08 22:56:21,493: No eclipse registered for index 15127
+2015-05-08 22:56:21,880: No eclipse registered for index 15144
+2015-05-08 22:56:26,157: No eclipse registered for index 15325
+2015-05-08 22:56:30,973: No eclipse registered for index 15528
+2015-05-08 22:56:32,247: No eclipse registered for index 15584
+2015-05-08 22:56:43,158: No eclipse registered for index 16048
+2015-05-08 22:56:43,827: No eclipse registered for index 16077
+2015-05-08 22:56:54,019: No eclipse registered for index 16512
+2015-05-08 22:57:00,429: No eclipse registered for index 16785
+2015-05-08 22:57:01,618: No eclipse registered for index 16836
+2015-05-08 22:57:03,773: No eclipse registered for index 16930
+2015-05-08 22:57:10,908: No eclipse registered for index 17233
+2015-05-08 22:57:15,198: No eclipse registered for index 17416
+2015-05-08 22:57:19,256: No eclipse registered for index 17591
+2015-05-08 22:57:23,215: No eclipse registered for index 17761
+2015-05-08 22:57:26,384: No eclipse registered for index 17897
+2015-05-08 22:57:31,038: No eclipse registered for index 18095
+2015-05-08 22:57:34,467: No eclipse registered for index 18241
+2015-05-08 22:57:40,861: No eclipse registered for index 18512
+2015-05-08 22:57:44,800: No eclipse registered for index 18679
+2015-05-08 22:57:50,880: No eclipse registered for index 18938
+2015-05-08 22:57:53,842: No eclipse registered for index 19065
+2015-05-08 22:57:55,750: No eclipse registered for index 19148
+2015-05-08 22:58:02,654: No eclipse registered for index 19445
+2015-05-08 22:58:06,394: No eclipse registered for index 19604
+2015-05-08 22:58:06,422: No eclipse registered for index 19606
+2015-05-08 22:58:07,116: No eclipse registered for index 19636
+2015-05-08 22:58:07,399: No eclipse registered for index 19649
+2015-05-08 22:58:12,454: No eclipse registered for index 19863
+2015-05-08 22:58:15,680: Done.
+2015-05-08 22:58:15,945: PHARO K-band cc not applied to Planets model
+2015-05-08 22:58:16,017: SDSS r-band cc not applied to Planets model
+2015-05-08 22:59:58,624: Making StarModel triangle plots...
+2015-05-08 23:00:33,014: Making StarModel triangle plots...
+2015-05-08 23:01:08,289: Making StarModel triangle plots...
+2015-05-08 23:01:47,369: FPP calculation successful. Results/plots written to /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201577035.1.

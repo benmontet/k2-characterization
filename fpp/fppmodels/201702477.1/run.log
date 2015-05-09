@@ -228,3 +228,162 @@ NameError: global name 'thresh' is not defined
 2015-03-26 06:29:58,101: SDSS r-band cc not applied to Planets model
 2015-03-26 06:32:42,925: Making StarModel triangle plots...
 2015-03-26 06:33:14,188: FPP calculation successful. Results/plots written to /u/tdm/repositories/k2-characterization/fpp/fppmodels/201702477.1.
+2015-05-08 14:02:49,070: single starfit successful for 201702477.1 in 2.6 minutes.
+2015-05-08 14:08:11,653: binary starfit successful for 201702477.1 in 5.4 minutes.
+2015-05-08 14:12:40,087: triple starfit successful for 201702477.1 in 4.5 minutes.
+2015-05-08 14:28:51,596: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_single.h5
+2015-05-08 14:28:51,633: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_binary.h5
+2015-05-08 14:28:51,643: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_triple.h5
+2015-05-08 14:28:51,645: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/trsig.pkl...
+2015-05-08 14:28:52,267: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: []
+2015-05-08 14:30:03,751: 14436 eclipsing HEB systems generated (target 20000)
+2015-05-08 14:30:04,091: 21194 eclipsing HEB systems generated (target 20000)
+2015-05-08 14:30:05,000: Fitting trapezoid models for HEBs...
+2015-05-08 14:37:46,929: Done.
+2015-05-08 14:38:22,890: 15238 Eclipsing EB systems generated (target 20000)
+2015-05-08 14:38:23,189: 20990 Eclipsing EB systems generated (target 20000)
+2015-05-08 14:38:23,833: Fitting trapezoid models for EBs...
+2015-05-08 14:39:27,561: No eclipse registered for index 3176
+2015-05-08 14:41:50,521: No eclipse registered for index 10293
+2015-05-08 14:42:06,973: No eclipse registered for index 11107
+2015-05-08 14:42:58,226: No eclipse registered for index 13664
+2015-05-08 14:45:04,394: Done.
+2015-05-08 14:45:06,184: Getting TRILEGAL simulation at 175.240794, 3.681584...
+2015-05-08 14:45:06,421: Error accessing NED, url=http://ned.ipac.caltech.edu/cgi-bin/nph-calc?in_csys=Equatorial&in_equinox=J2000.0&obs_epoch=2010&lon=11%3A40%3A57.79&lat=%2B3%3A40%3A53.70&pa=0.0&out_csys=Equatorial&out_equinox=J2000.0
+2015-05-08 14:45:06,422: Error generating BEB population.
+2015-05-08 14:45:06,422: FPP calculation failed for 201702477.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1684, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1757, in generate
+    mags=mags, MAfn=MAfn, n=n, **beb_kws)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1417, in __init__
+    maxrad=maxrad, f_binary=f_binary, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1446, in generate
+    maxrad=maxrad, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 2454, in __init__
+    get_trilegal(basefilename,ra,dec,**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/trilegal.py", line 91, in get_trilegal
+    filterset,maglim,outfile)
+TypeError: float argument required, not NoneType
+2015-05-08 16:58:49,375: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_single.h5
+2015-05-08 16:58:49,432: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_binary.h5
+2015-05-08 16:58:49,476: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_triple.h5
+2015-05-08 16:58:49,477: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/trsig.pkl...
+2015-05-08 16:58:53,457: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: ['EBs', 'HEBs']
+2015-05-08 17:00:08,959: 14510 eclipsing HEB systems generated (target 20000)
+2015-05-08 17:00:09,332: 21045 eclipsing HEB systems generated (target 20000)
+2015-05-08 17:00:10,419: Fitting trapezoid models for HEBs...
+2015-05-08 17:08:05,073: Done.
+2015-05-08 17:08:45,095: 15202 Eclipsing EB systems generated (target 20000)
+2015-05-08 17:08:45,410: 21049 Eclipsing EB systems generated (target 20000)
+2015-05-08 17:08:46,278: Fitting trapezoid models for EBs...
+2015-05-08 17:13:15,498: No eclipse registered for index 13069
+2015-05-08 17:14:21,109: No eclipse registered for index 16291
+2015-05-08 17:15:34,834: Done.
+2015-05-08 17:15:36,504: Getting TRILEGAL simulation at 175.240794, 3.681584...
+2015-05-08 17:15:36,724: Error accessing NED, url=http://ned.ipac.caltech.edu/cgi-bin/nph-calc?in_csys=Equatorial&in_equinox=J2000.0&obs_epoch=2010&lon=11%3A40%3A57.79&lat=%2B3%3A40%3A53.70&pa=0.0&out_csys=Equatorial&out_equinox=J2000.0
+2015-05-08 17:15:36,724: Error generating BEB population.
+2015-05-08 17:15:36,725: FPP calculation failed for 201702477.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1684, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1757, in generate
+    mags=mags, MAfn=MAfn, n=n, **beb_kws)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1417, in __init__
+    maxrad=maxrad, f_binary=f_binary, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1446, in generate
+    maxrad=maxrad, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/populations.py", line 2454, in __init__
+    get_trilegal(basefilename,ra,dec,**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/stars/trilegal.py", line 91, in get_trilegal
+    filterset,maglim,outfile)
+TypeError: float argument required, not NoneType
+2015-05-08 22:28:04,465: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_single.h5
+2015-05-08 22:28:04,528: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_binary.h5
+2015-05-08 22:28:04,576: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/dartmouth_starmodel_triple.h5
+2015-05-08 22:28:04,577: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/trsig.pkl...
+2015-05-08 22:28:08,418: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 283, in from_ini
+    popset['pl'] #should there be a better way to check this? (yes)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1889, in __getitem__
+    raise ValueError('%s not in modelnames: %s' % (name,self.modelnames))
+ValueError: planets not in modelnames: ['EBs', 'HEBs']
+2015-05-08 22:29:13,128: 14522 eclipsing HEB systems generated (target 20000)
+2015-05-08 22:29:13,461: 21077 eclipsing HEB systems generated (target 20000)
+2015-05-08 22:29:14,349: Fitting trapezoid models for HEBs...
+2015-05-08 22:32:44,315: No eclipse registered for index 9203
+2015-05-08 22:36:49,967: Done.
+2015-05-08 22:37:22,340: 15307 Eclipsing EB systems generated (target 20000)
+2015-05-08 22:37:22,623: 20880 Eclipsing EB systems generated (target 20000)
+2015-05-08 22:37:23,267: Fitting trapezoid models for EBs...
+2015-05-08 22:38:50,081: No eclipse registered for index 4362
+2015-05-08 22:42:49,433: No eclipse registered for index 16429
+2015-05-08 22:43:59,989: Done.
+2015-05-08 22:44:01,655: Loading TRILEGAL simulation from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201702477.1/starfield.h5
+2015-05-08 22:44:03,949: 146 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:44:04,082: 1922 BEB systems generated (target 20000)
+2015-05-08 22:44:06,223: 1961 binaries are "too close"; gave up trying to fix.
+2015-05-08 22:44:07,244: 23988 BEB systems generated (target 20000)
+2015-05-08 22:44:07,353: Fitting trapezoid models for BEBs...
+2015-05-08 22:44:19,457: No eclipse registered for index 383
+2015-05-08 22:45:48,285: No eclipse registered for index 3270
+2015-05-08 22:46:55,075: No eclipse registered for index 5415
+2015-05-08 22:47:49,072: No eclipse registered for index 7142
+2015-05-08 22:51:12,680: No eclipse registered for index 13657
+2015-05-08 22:51:14,993: No eclipse registered for index 13733
+2015-05-08 22:54:30,985: Done.
+2015-05-08 22:54:31,764: 12595 Transiting planet systems generated (target 20000)
+2015-05-08 22:54:32,143: 19987 Transiting planet systems generated (target 20000)
+2015-05-08 22:54:32,193: 20059 Transiting planet systems generated (target 20000)
+2015-05-08 22:54:32,281: Fitting trapezoid models for Planets...
+2015-05-08 22:54:32,912: No eclipse registered for index 25
+2015-05-08 22:54:41,885: No eclipse registered for index 396
+2015-05-08 22:54:52,932: No eclipse registered for index 850
+2015-05-08 22:55:12,143: No eclipse registered for index 1630
+2015-05-08 22:55:13,450: unknown error for index 1682
+2015-05-08 22:55:13,450: Error generating Planet population.
+2015-05-08 22:55:13,451: FPP calculation failed for 201702477.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1684, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1775, in generate
+    plpop.fit_trapezoids(MAfn=MAfn)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 201, in fit_trapezoids
+    **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fitebs.py", line 104, in fitebs
+    sec=sec,u1=u1,u2=u2)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/transit_basic.py", line 669, in eclipse_tt
+    dur,dep,slope,epoch = fit_traptransit(ts,fs,pars0)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/transit_basic.py", line 961, in fit_traptransit
+    pfit,success = leastsq(traptransit_resid,p0,args=(ts,fs))
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/scipy/optimize/minpack.py", line 381, in leastsq
+    gtol, maxfev, epsfcn, factor, diag)
+  File "vespa_transitutils.pyx", line 127, in vespa_transitutils.traptransit_resid (vespa/vespa_transitutils.c:3512)
+  File "vespa_transitutils.pyx", line 106, in vespa_transitutils.traptransit (vespa/vespa_transitutils.c:2968)
+ZeroDivisionError: float division

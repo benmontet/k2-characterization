@@ -6,7 +6,7 @@ import re
 
 from scipy.io.idl import readsav
 
-from starutils.contrastcurve import ContrastCurve
+from vespa.stars.contrastcurve import ContrastCurve
 
 from .photometry import all_mags
 from .tables import MAGS
