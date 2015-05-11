@@ -577,3 +577,4 @@ Traceback (most recent call last):
     raise ValueError("No JSON object could be decoded")
 ValueError: No JSON object could be decoded
 2015-05-11 15:21:58,718: triple starfit successful for 201736247.1 in 4.5 minutes.
+2015-05-11 15:51:49,684: single starfit successful for 201736247.1 in 3.3 minutes.
