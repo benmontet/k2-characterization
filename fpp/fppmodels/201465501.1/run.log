@@ -436,3 +436,5 @@ ValueError: Properties not same as saved chains (basename 201465501.1/chains/tri
 2015-05-11 13:13:04,294: single starfit successful for 201465501.1 in 3.5 minutes.
 2015-05-11 13:18:48,635: binary starfit successful for 201465501.1 in 5.7 minutes.
 2015-05-11 13:23:43,450: triple starfit successful for 201465501.1 in 4.9 minutes.
+2015-05-11 14:42:44,162: single starfit successful for 201465501.1 in 3.2 minutes.
+2015-05-11 14:48:02,831: binary starfit successful for 201465501.1 in 5.3 minutes.

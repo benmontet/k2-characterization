@@ -65,7 +65,7 @@ def write_ini(epic_id, i=1, photerr_inflate=3):
         star_config[b] = [mag,err*photerr_inflate]
     star_config['Kepler'] = mags['Kepler']
     star_config['maxAV'] = 0.2
-    star_config['logg'] = (4, 1.)
+    star_config['min_logg'] = 2.3
 
     config['constraints'] = {}
     config['constraints']['maxrad'] = (APERTURES.ix[epic_id, 'radius'] + 1)*4

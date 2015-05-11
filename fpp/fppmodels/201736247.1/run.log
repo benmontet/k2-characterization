@@ -555,3 +555,4 @@ Traceback (most recent call last):
 ValueError: Properties not same as saved chains (basename 201736247.1/chains/triple-*). Use overwrite=True to fit.
 2015-05-11 13:12:28,763: single starfit successful for 201736247.1 in 2.9 minutes.
 2015-05-11 13:17:28,354: binary starfit successful for 201736247.1 in 5.0 minutes.
+2015-05-11 14:43:10,185: single starfit successful for 201736247.1 in 3.6 minutes.
