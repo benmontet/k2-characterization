@@ -513,3 +513,71 @@ ValueError: planets not in modelnames: ['EBs', 'HEBs']
 2015-05-08 22:57:02,378: Making StarModel triangle plots...
 2015-05-08 22:57:38,259: Making StarModel triangle plots...
 2015-05-08 22:58:17,464: FPP calculation successful. Results/plots written to /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201635569.1.
+2015-05-09 00:12:18,440: single starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 442, in fit_multinest
+    if len(v)==2:
+TypeError: object of type 'float' has no len()
+2015-05-09 00:12:18,480: binary starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 1161, in fit_multinest
+    super(BinaryStarModel, self).fit_multinest(basename=basename, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 442, in fit_multinest
+    if len(v)==2:
+TypeError: object of type 'float' has no len()
+2015-05-09 00:12:18,496: triple starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 1526, in fit_multinest
+    super(TripleStarModel, self).fit_multinest(basename=basename, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 442, in fit_multinest
+    if len(v)==2:
+TypeError: object of type 'float' has no len()
+2015-05-09 00:29:01,244: single starfit successful for 201635569.1 in 0.6 minutes.
+2015-05-09 00:29:35,962: binary starfit successful for 201635569.1 in 0.6 minutes.
+2015-05-09 00:30:14,422: triple starfit successful for 201635569.1 in 0.6 minutes.
+2015-05-11 13:04:32,155: single starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 453, in fit_multinest
+    'Use overwrite=True to fit.')
+ValueError: Properties not same as saved chains (basename 201635569.1/chains/single-*). Use overwrite=True to fit.
+2015-05-11 13:04:32,210: binary starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 1161, in fit_multinest
+    super(BinaryStarModel, self).fit_multinest(basename=basename, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 453, in fit_multinest
+    'Use overwrite=True to fit.')
+ValueError: Properties not same as saved chains (basename 201635569.1/chains/binary-*). Use overwrite=True to fit.
+2015-05-11 13:04:32,228: triple starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 114, in <module>
+    verbose=args.verbose)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 422, in fit
+    self.fit_multinest(**kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 1526, in fit_multinest
+    super(TripleStarModel, self).fit_multinest(basename=basename, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 453, in fit_multinest
+    'Use overwrite=True to fit.')
+ValueError: Properties not same as saved chains (basename 201635569.1/chains/triple-*). Use overwrite=True to fit.
+2015-05-11 13:12:56,833: single starfit successful for 201635569.1 in 3.4 minutes.
+2015-05-11 13:19:22,931: binary starfit successful for 201635569.1 in 6.4 minutes.
+2015-05-11 13:25:19,281: triple starfit successful for 201635569.1 in 5.9 minutes.
