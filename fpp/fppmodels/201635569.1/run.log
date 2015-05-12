@@ -605,3 +605,78 @@ Traceback (most recent call last):
 ValueError: No JSON object could be decoded
 2015-05-11 15:23:34,727: triple starfit successful for 201635569.1 in 5.5 minutes.
 2015-05-11 15:52:13,988: single starfit successful for 201635569.1 in 3.7 minutes.
+2015-05-11 15:59:24,243: binary starfit calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/EGG-INFO/scripts/starfit", line 124, in <module>
+    mod.save_hdf(os.path.join(folder, model_filename))
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 921, in save_hdf
+    store = pd.HDFStore(filename)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/pandas/io/pytables.py", line 396, in __init__
+    self.open(mode=mode, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/pandas/io/pytables.py", line 532, in open
+    self._handle = tables.open_file(self._path, self._mode, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/tables/file.py", line 318, in open_file
+    return File(filename, mode, title, root_uep, filters, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/tables/file.py", line 791, in __init__
+    self._g_new(filename, mode, **params)
+  File "hdf5extension.pyx", line 477, in tables.hdf5extension.File._g_new (tables/hdf5extension.c:4774)
+HDF5ExtError: HDF5 error back trace
+
+  File "H5F.c", line 604, in H5Fopen
+    unable to open file
+  File "H5Fint.c", line 1085, in H5F_open
+    unable to read superblock
+  File "H5Fsuper.c", line 294, in H5F_super_read
+    unable to load superblock
+  File "H5AC.c", line 1320, in H5AC_protect
+    H5C_protect() failed.
+  File "H5C.c", line 3574, in H5C_protect
+    can't load entry
+  File "H5C.c", line 7954, in H5C_load_entry
+    unable to load entry
+  File "H5Fsuper_cache.c", line 476, in H5F_sblock_load
+    truncated file: eof = 2759808, sblock->base_addr = 0, stored_eoa = 2866792
+
+End of HDF5 error back trace
+
+Unable to open/create file '201635569.1/dartmouth_starmodel_binary.h5'
+2015-05-11 16:05:38,220: triple starfit successful for 201635569.1 in 6.2 minutes.
+2015-05-12 14:46:44,390: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201635569.1/dartmouth_starmodel_single.h5
+2015-05-12 14:46:44,458: Fitting BinaryStarModel to {'B': (17.736, 0.48), 'g': (17.022, 0.03), 'i': (14.871, 0.03), 'H': (12.772, 0.06), 'K': (12.611, 0.09), 'J': (13.416, 0.09), 'r': (15.623, 0.03), 'W3': (12.057, 3e+50), 'W2': (12.552, 0.081), 'W1': (12.521, 0.075), 'V': (16.31, 0.03), 'Kepler': 15.7629}...
+2015-05-12 14:52:12,094: FPP calculation failed for 201635569.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 210, in from_ini
+    binary_starmodel.save_hdf(binary_starmodel_file)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/isochrones-0.8.4-py2.7.egg/isochrones/starmodel.py", line 921, in save_hdf
+    store = pd.HDFStore(filename)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/pandas/io/pytables.py", line 396, in __init__
+    self.open(mode=mode, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/pandas/io/pytables.py", line 532, in open
+    self._handle = tables.open_file(self._path, self._mode, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/tables/file.py", line 318, in open_file
+    return File(filename, mode, title, root_uep, filters, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/tables/file.py", line 791, in __init__
+    self._g_new(filename, mode, **params)
+  File "hdf5extension.pyx", line 477, in tables.hdf5extension.File._g_new (tables/hdf5extension.c:4774)
+HDF5ExtError: HDF5 error back trace
+
+  File "H5F.c", line 604, in H5Fopen
+    unable to open file
+  File "H5Fint.c", line 1085, in H5F_open
+    unable to read superblock
+  File "H5Fsuper.c", line 294, in H5F_super_read
+    unable to load superblock
+  File "H5AC.c", line 1320, in H5AC_protect
+    H5C_protect() failed.
+  File "H5C.c", line 3574, in H5C_protect
+    can't load entry
+  File "H5C.c", line 7954, in H5C_load_entry
+    unable to load entry
+  File "H5Fsuper_cache.c", line 476, in H5F_sblock_load
+    truncated file: eof = 2759808, sblock->base_addr = 0, stored_eoa = 2866792
+
+End of HDF5 error back trace
+
+Unable to open/create file '/tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201635569.1/dartmouth_starmodel_binary.h5'
