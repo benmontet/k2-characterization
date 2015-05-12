@@ -140,8 +140,7 @@ for f in folders:
     fout.write(format_line(line,FPP,force_fp=force_fp))
 
 
-fout.write(r"""
-\enddata
+fout.write(r"""\enddata
 \tablecomments{Results of the \texttt{vespa} astrophysical 
 false positive probability calculations for all candidates.  
 Likely false positives (FPP $> 0.9$, or otherwise designated)
@@ -156,8 +155,7 @@ below 1\% threshold.}
 \tablenotetext{2}{Whether adaptive optics observation is presented in this paper.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
 \tablenotetext{a}{Despite low FPP, returned to candidate status 
-out of abundance of caution due
-to secondary star detection within or near photometric aperture.}
+out of abundance of caution due to secondary star detection within or near photometric aperture.}
 \tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
 \tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
 \tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
