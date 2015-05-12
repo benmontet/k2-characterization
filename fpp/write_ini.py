@@ -10,8 +10,10 @@ from k2fpp.tables import PAPER1_TABLE, MAGS, APERTURES
 from k2fpp.photometry import all_mags
 from k2fpp.transitsignal import get_trsig
 
-SECONDARY_FILE = os.path.expanduser('~/repositories/k2-characterization'+
-                                    '/fpp/secondary.csv')
+#SECONDARY_FILE = os.path.expanduser('~/repositories/k2-characterization'+
+#                                    '/fpp/secondary.csv')
+SECONDARY_FILE = 'secondary.csv'
+
 SECONDARY = pd.read_csv(SECONDARY_FILE, 
                         names=['epic_id','period',
                                'primary','t0_1',
@@ -21,8 +23,8 @@ SECONDARY.index = SECONDARY['epic_id']
 
 cands = np.loadtxt('allcands.list', dtype=str)
 
-FOLDER = os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')
-
+#FOLDER = os.path.expanduser('~/repositories/k2-characterization/fpp/fppmodels')
+FOLDER = 'fppmodels'
 
 
 def max_secondary(epic_id, i=1):
@@ -34,6 +36,7 @@ def max_secondary(epic_id, i=1):
 
 def write_ini(epic_id, i=1, photerr_inflate=3):
     filename = '{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
+
     star_filename = '{}/{}.{}/star.ini'.format(FOLDER, epic_id, i)
     config = ConfigObj(filename)
     star_config = ConfigObj(star_filename)
@@ -61,6 +64,8 @@ def write_ini(epic_id, i=1, photerr_inflate=3):
         mag, err = (mags[b], mags['{}err'.format(b)])
         star_config[b] = [mag,err*photerr_inflate]
     star_config['Kepler'] = mags['Kepler']
+    star_config['maxAV'] = 0.2
+    star_config['min_logg'] = 2.3
 
     config['constraints'] = {}
     config['constraints']['maxrad'] = (APERTURES.ix[epic_id, 'radius'] + 1)*4
@@ -71,7 +76,7 @@ def write_ini(epic_id, i=1, photerr_inflate=3):
                                             for f in ccfiles]
     config.write()
     star_config.write()
-    
+
 def write_trsig(epic_id, i=1, redo=False):
     trsig_file = '{}/{}.{}/trsig.pkl'.format(FOLDER, epic_id, i)
     if not os.path.exists(trsig_file) and not redo:
