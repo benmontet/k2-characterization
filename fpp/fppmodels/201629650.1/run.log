@@ -667,3 +667,54 @@ RuntimeError
 2015-05-12 15:17:56,338: SDSS r-band cc not applied to Planets model
 2015-05-12 15:19:37,027: total adds up to: 1.00 (BEBs)
 2015-05-12 15:19:44,578: FPP calculation successful. Results/plots written to /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1.
+2015-05-12 16:26:49,540: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/dartmouth_starmodel_single.h5
+2015-05-12 16:26:49,589: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/dartmouth_starmodel_binary.h5
+2015-05-12 16:26:49,640: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/dartmouth_starmodel_triple.h5
+2015-05-12 16:26:49,641: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/trsig.pkl...
+2015-05-12 16:26:50,169: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 281, in from_ini
+    raise RuntimeError #just to get to except block
+RuntimeError
+2015-05-12 16:27:38,891: 12304 eclipsing HEB systems generated (target 20000)
+2015-05-12 16:27:39,295: 21564 eclipsing HEB systems generated (target 20000)
+2015-05-12 16:27:40,203: Fitting trapezoid models for HEBs...
+2015-05-12 16:28:39,760: No eclipse registered for index 2486
+2015-05-12 16:33:30,126: No eclipse registered for index 14770
+2015-05-12 16:35:34,320: Done.
+2015-05-12 16:35:48,844: 8562 Eclipsing EB systems generated (target 20000)
+2015-05-12 16:35:49,508: 22645 Eclipsing EB systems generated (target 20000)
+2015-05-12 16:35:50,114: Fitting trapezoid models for EBs...
+2015-05-12 16:39:50,588: No eclipse registered for index 11511
+2015-05-12 16:42:47,915: Done.
+2015-05-12 16:42:49,602: Loading TRILEGAL simulation from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201629650.1/starfield.h5
+2015-05-12 16:42:51,821: 213 binaries are "too close"; gave up trying to fix.
+2015-05-12 16:42:51,926: 1326 BEB systems generated (target 20000)
+2015-05-12 16:42:54,881: 3435 binaries are "too close"; gave up trying to fix.
+2015-05-12 16:42:56,211: 23305 BEB systems generated (target 20000)
+2015-05-12 16:42:56,315: Fitting trapezoid models for BEBs...
+2015-05-12 16:46:36,189: unknown error for index 7201
+2015-05-12 16:46:36,189: Error generating BEB population.
+2015-05-12 16:46:36,189: FPP calculation failed for 201629650.1.
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/EGG-INFO/scripts/calcfpp", line 119, in <module>
+    n=args.n)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 297, in from_ini
+    savefile=popset_file, **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1688, in __init__
+    do_only=do_only)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 1763, in generate
+    bebpop.fit_trapezoids(MAfn=MAfn)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/populations.py", line 201, in fit_trapezoids
+    **kwargs)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fitebs.py", line 104, in fitebs
+    sec=sec,u1=u1,u2=u2)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/transit_basic.py", line 669, in eclipse_tt
+    dur,dep,slope,epoch = fit_traptransit(ts,fs,pars0)
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/transit_basic.py", line 961, in fit_traptransit
+    pfit,success = leastsq(traptransit_resid,p0,args=(ts,fs))
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/scipy/optimize/minpack.py", line 381, in leastsq
+    gtol, maxfev, epsfcn, factor, diag)
+  File "vespa_transitutils.pyx", line 127, in vespa_transitutils.traptransit_resid (vespa/vespa_transitutils.c:3512)
+  File "vespa_transitutils.pyx", line 106, in vespa_transitutils.traptransit (vespa/vespa_transitutils.c:2968)
+ZeroDivisionError: float division

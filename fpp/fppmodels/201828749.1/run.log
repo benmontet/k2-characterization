@@ -579,3 +579,111 @@ RuntimeError
 2015-05-12 15:17:13,434: PHARO H-band cc not applied to Planets model
 2015-05-12 15:17:13,503: SDSS r-band cc not applied to Planets model
 2015-05-12 15:18:45,244: FPP calculation successful. Results/plots written to /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1.
+2015-05-12 16:29:11,699: Single StarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/dartmouth_starmodel_single.h5
+2015-05-12 16:29:11,756: BinaryStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/dartmouth_starmodel_binary.h5
+2015-05-12 16:29:11,795: TripleStarModel loaded from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/dartmouth_starmodel_triple.h5
+2015-05-12 16:29:11,796: Loading transit signal from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/trsig.pkl...
+2015-05-12 16:29:12,361: /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/popset.h5 exists, but regenerating Population Set...
+Traceback (most recent call last):
+  File "/home/tmorton/anaconda/lib/python2.7/site-packages/VESPA-0.2.4-py2.7-linux-x86_64.egg/vespa/fpp.py", line 281, in from_ini
+    raise RuntimeError #just to get to except block
+RuntimeError
+2015-05-12 16:29:58,892: 14854 eclipsing HEB systems generated (target 20000)
+2015-05-12 16:29:59,169: 21053 eclipsing HEB systems generated (target 20000)
+2015-05-12 16:29:59,995: Fitting trapezoid models for HEBs...
+2015-05-12 16:37:36,637: Done.
+2015-05-12 16:37:53,076: 6479 Eclipsing EB systems generated (target 20000)
+2015-05-12 16:37:53,842: 22668 Eclipsing EB systems generated (target 20000)
+2015-05-12 16:37:54,380: Fitting trapezoid models for EBs...
+2015-05-12 16:38:09,283: No eclipse registered for index 744
+2015-05-12 16:39:06,537: No eclipse registered for index 3598
+2015-05-12 16:39:12,187: No eclipse registered for index 3877
+2015-05-12 16:44:35,473: Done.
+2015-05-12 16:44:37,105: Loading TRILEGAL simulation from /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1/starfield.h5
+2015-05-12 16:44:38,928: 186 binaries are "too close"; gave up trying to fix.
+2015-05-12 16:44:39,024: 1592 BEB systems generated (target 20000)
+2015-05-12 16:44:41,644: 2396 binaries are "too close"; gave up trying to fix.
+2015-05-12 16:44:42,766: 23564 BEB systems generated (target 20000)
+2015-05-12 16:44:42,863: Fitting trapezoid models for BEBs...
+2015-05-12 16:49:08,210: No eclipse registered for index 9308
+2015-05-12 16:54:09,914: Done.
+2015-05-12 16:54:12,056: 9352 Transiting planet systems generated (target 20000)
+2015-05-12 16:54:14,257: 20136 Transiting planet systems generated (target 20000)
+2015-05-12 16:54:14,350: Fitting trapezoid models for Planets...
+2015-05-12 16:54:16,987: No eclipse registered for index 114
+2015-05-12 16:54:20,309: No eclipse registered for index 257
+2015-05-12 16:54:27,473: No eclipse registered for index 567
+2015-05-12 16:54:42,598: No eclipse registered for index 1218
+2015-05-12 16:54:48,388: No eclipse registered for index 1466
+2015-05-12 16:54:55,204: No eclipse registered for index 1759
+2015-05-12 16:54:56,528: No eclipse registered for index 1817
+2015-05-12 16:55:01,382: No eclipse registered for index 2025
+2015-05-12 16:55:31,879: No eclipse registered for index 3340
+2015-05-12 16:55:33,736: No eclipse registered for index 3421
+2015-05-12 16:55:35,100: No eclipse registered for index 3480
+2015-05-12 16:55:59,870: No eclipse registered for index 4548
+2015-05-12 16:56:00,633: No eclipse registered for index 4582
+2015-05-12 16:56:03,725: No eclipse registered for index 4714
+2015-05-12 16:56:06,066: No eclipse registered for index 4814
+2015-05-12 16:56:20,823: No eclipse registered for index 5453
+2015-05-12 16:56:21,474: No eclipse registered for index 5483
+2015-05-12 16:56:27,046: No eclipse registered for index 5724
+2015-05-12 16:56:27,598: No eclipse registered for index 5749
+2015-05-12 16:56:28,052: No eclipse registered for index 5769
+2015-05-12 16:56:41,625: No eclipse registered for index 6353
+2015-05-12 16:56:43,547: No eclipse registered for index 6438
+2015-05-12 16:56:46,367: No eclipse registered for index 6562
+2015-05-12 16:57:01,163: No eclipse registered for index 7199
+2015-05-12 16:57:08,089: No eclipse registered for index 7498
+2015-05-12 16:57:09,221: No eclipse registered for index 7548
+2015-05-12 16:57:11,665: No eclipse registered for index 7654
+2015-05-12 16:57:12,337: No eclipse registered for index 7682
+2015-05-12 16:57:22,303: No eclipse registered for index 8114
+2015-05-12 16:57:31,542: No eclipse registered for index 8514
+2015-05-12 16:57:36,704: No eclipse registered for index 8736
+2015-05-12 16:57:38,701: No eclipse registered for index 8822
+2015-05-12 16:57:50,001: No eclipse registered for index 9306
+2015-05-12 16:57:51,600: No eclipse registered for index 9375
+2015-05-12 16:58:01,886: No eclipse registered for index 9817
+2015-05-12 16:58:15,012: No eclipse registered for index 10385
+2015-05-12 16:58:29,267: No eclipse registered for index 11000
+2015-05-12 16:58:33,115: No eclipse registered for index 11167
+2015-05-12 16:58:42,712: No eclipse registered for index 11581
+2015-05-12 16:58:44,859: No eclipse registered for index 11674
+2015-05-12 16:58:59,164: No eclipse registered for index 12292
+2015-05-12 16:59:02,033: No eclipse registered for index 12417
+2015-05-12 16:59:06,504: No eclipse registered for index 12610
+2015-05-12 16:59:52,958: No eclipse registered for index 14615
+2015-05-12 17:00:02,541: No eclipse registered for index 15027
+2015-05-12 17:00:03,878: No eclipse registered for index 15084
+2015-05-12 17:00:07,456: No eclipse registered for index 15239
+2015-05-12 17:00:11,817: No eclipse registered for index 15428
+2015-05-12 17:00:13,973: No eclipse registered for index 15520
+2015-05-12 17:00:15,296: No eclipse registered for index 15579
+2015-05-12 17:00:19,888: No eclipse registered for index 15777
+2015-05-12 17:00:30,592: No eclipse registered for index 16234
+2015-05-12 17:00:33,265: No eclipse registered for index 16349
+2015-05-12 17:00:34,962: No eclipse registered for index 16423
+2015-05-12 17:00:35,339: No eclipse registered for index 16441
+2015-05-12 17:00:35,577: No eclipse registered for index 16452
+2015-05-12 17:00:37,061: No eclipse registered for index 16518
+2015-05-12 17:00:40,813: No eclipse registered for index 16680
+2015-05-12 17:00:41,853: No eclipse registered for index 16727
+2015-05-12 17:00:42,355: No eclipse registered for index 16749
+2015-05-12 17:00:42,358: No eclipse registered for index 16750
+2015-05-12 17:00:46,202: No eclipse registered for index 16917
+2015-05-12 17:00:46,516: No eclipse registered for index 16931
+2015-05-12 17:01:09,262: No eclipse registered for index 17913
+2015-05-12 17:01:18,255: No eclipse registered for index 18300
+2015-05-12 17:01:32,107: No eclipse registered for index 18895
+2015-05-12 17:01:32,252: No eclipse registered for index 18902
+2015-05-12 17:01:32,671: No eclipse registered for index 18921
+2015-05-12 17:01:53,413: No eclipse registered for index 19814
+2015-05-12 17:01:55,291: No eclipse registered for index 19897
+2015-05-12 17:01:57,642: Done.
+2015-05-12 17:01:57,911: PHARO K-band cc not applied to Planets model
+2015-05-12 17:01:57,998: PHARO J-band cc not applied to Planets model
+2015-05-12 17:01:58,078: PHARO H-band cc not applied to Planets model
+2015-05-12 17:01:58,153: SDSS r-band cc not applied to Planets model
+2015-05-12 17:03:42,912: total adds up to: 1.00 (BEBs)
+2015-05-12 17:03:50,429: FPP calculation successful. Results/plots written to /tigress/tmorton/repositories/k2-characterization/fpp/fppmodels/201828749.1.
