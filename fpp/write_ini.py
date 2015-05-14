@@ -36,9 +36,9 @@ def max_secondary(epic_id, i=1):
 
 def write_ini(epic_id, i=1, photerr_inflate=3):
     filename = '{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
-    config = ConfigObj(filename)
 
     star_filename = '{}/{}.{}/star.ini'.format(FOLDER, epic_id, i)
+    config = ConfigObj(filename)
     star_config = ConfigObj(star_filename)
 
     config['name'] = '{}.{}'.format(epic_id, i)
