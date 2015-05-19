@@ -34,7 +34,7 @@ def max_secondary(epic_id, i=1):
     return secdepth/1e3
 
 
-def write_ini(epic_id, i=1, photerr_inflate=1):
+def write_ini(epic_id, i=1, photerr_inflate=3):
     filename = '{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
 
     star_filename = '{}/{}.{}/star.ini'.format(FOLDER, epic_id, i)
