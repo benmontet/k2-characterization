@@ -93,6 +93,8 @@
 \newcommand{\Nvalidated}{18}
 \newcommand{\Nlimbo}{12} %adds up to 36
 
+\newcommand{\change}[1]{\textbf{#1}}
+
 \begin{document}
 
 
@@ -166,7 +168,7 @@ adaptive optics imaging with an automated transit analysis scheme to validate
 \Nvalidated\ candidates as planets
 and identify \Nfp\ candidates as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
-hosting a $2.24 \pm 0.25 R_\odot$ planet with $T_{eq} = 271 \pm 16$ K and an
+hosting a \change{$2.24 \pm 0.25$ $R_\oplus$} planet with $T_{eq} = 271 \pm 16$ K and an
 orbital period of 33 days.
 We also present two new open-source software packages that enabled this analysis:
 \texttt{isochrones}, a flexible tool for fitting theoretical stellar
@@ -335,9 +337,8 @@ In this work, we use grids from the Dartmouth Stellar
 Evolution Database \citep{Dotter08} at solar values of \afe=$0.0$ and
 helium abundance $Y=0.2741$, which come packaged with the \texttt{isochrones}
 module.
-We then run an MCMC chain using \texttt{emcee} \citep{Foreman-Mackey12},
-an implementation of the affine-invariant ensemble sampler of
-\citet{Goodman10}
+\change{We then run an MCMC chain using \texttt{MULTINEST} \citep{Feroz09},
+an implementation of a multimodal nested sampling algorithm,}
 for each host star conditioned on the observed
 photometric properties as presented in Table 1.
 We include a prior on stellar metallicity representative of the observed metallicities
@@ -356,15 +357,17 @@ atmospheres, which are based on incomplete molecular line lists and
 have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
 
-In order to account for the effects of model uncertainties, we also run
-MCMC chains with photometric errors inflated artificially by a factor of three.
-The observed photometric parameters are then consistent with spectroscopically-derived
-parameters for stars with published spectra, and consistent with typical uncertainties
+As our stellar results are model-dependent, we caution users who intend to use these 
+parameters for other works, such as exoplanet population studies. When available, 
+stellar parameters inferred through other techniques such as asteroseismology or 
+spectroscopy should supersede these values. 
+The observed photometric parameters  then consistent with spectroscopically-derived
+parameters for stars with published spectra, and consistent with typical
+model-dependent uncertainties
 from photometric data \citep[e.g.][]{Huber14}.
-We provide full chains using both inflated and un-inflated
-uncertainties,\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}
-though in the rest of this work (and in Table 2) we adopt
-the results obtained using the inflated values.
+We provide full samples of our posteriors on the physical parameters for each 
+star\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}.
+
 
 
 
@@ -438,7 +441,9 @@ results into fundamental parameters of each planet candidate.
 For each candidate, we fit the light curve using a physical transit model
 \citep{Mandel02, Kipping10b} simultaneously with the systematics model
 described by \paperit.
-We use \texttt{emcee} to sample from the posterior probability distribution
+We use \texttt{emcee} \citep{Foreman-Mackey12}, an implementation of the
+affine-invariant ensemble sampler of \citep{Goodman10}
+ to sample from the posterior probability distribution
 for the stellar---limb darkening coefficients, mass, radius, and effective
 temperature---and planetary---radius, period, phase, impact parameter,
 eccentricity, and argument of periapsis---parameters, conditioned on the
@@ -1039,7 +1044,9 @@ less massive than the Sun.
 We thank Roberto Sanchis-Ojeda (Berkeley), Dan Huber (Sydney) and
 Jeff Coughlin (SETI) for
 conversations and suggestions which improved the quality of this manuscript.
-
+\change{We also thank Keivan Stassun (Vanderbilt) for his insights into 
+extinction and stellar parameters in both \kep\ and \KT.
+We thank the anonymous referee for their insightful comments as well.}
 
 We are grateful to the entire Kepler team, past and present.
 Their tireless efforts were all essential to the tremendous success of the mission and the
