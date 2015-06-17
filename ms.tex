@@ -338,7 +338,7 @@ In this work, we use grids from the Dartmouth Stellar
 Evolution Database \citep{Dotter08} at solar values of \afe=$0.0$ and
 helium abundance $Y=0.2741$, which come packaged with the \texttt{isochrones}
 module.
-\change{We then run an MCMC \btmtodo{still a chain?} using \texttt{MULTINEST} \citep{Feroz09},
+\change{We then infer the stellar parameters using \texttt{MULTINEST} \citep{Feroz09},
 an implementation of a multimodal nested sampling algorithm,}
 for each host star conditioned on the observed
 photometric properties as presented in Table 1.
@@ -349,7 +349,7 @@ prior on mass up to the maximum mass available in the model grids of $3.7$ $M_\o
 \change{During the sampling process, we fit for galactic
 extinction as one of our physical parameters.
 For each star's position on the sky, we retrieve the calculated extinction at an infinite distance
-along that line of sight from the NED \btmtodo{acronym}, which reports the 
+along that line of sight from the NASA/IPAC Extragalactic Database (NED), which reports the 
 \citet{Schlafly11} recalibration of the \citet{Schlegel98} extinction map as measured by
 COBE/DIRBE and IRAS/ISSA. 
 The NED database returns the extinction in all relevant bandpasses except those used by
@@ -497,17 +497,6 @@ diagram.
 
 The planet parameters measured by this analysis are listed in Table 3.
 
-%%%
-%%%  I haven't actually done this... perhaps I can do it in response to
-%%%  referee if they ask for it...
-%%%
-% One system, EPIC 201828749, is known to be a binary through AO imaging
-% as discussed in \textsection\ref{sec:AO}.
-% In this case, we do account for the dilution induced by the companion.
-% From our relative $JHK$ photometry of the two stars, we infer an expected flux
-% ratio between the two stars in the \kep\ bandpass, inflating the transit depth
-% by this factor to account for the dilution.
-% We marginalize  \dfmtodo{More text...}
 
 
 \section{False Positive Analysis}
@@ -839,23 +828,30 @@ While the \texttt{vespa} calculations quantify this probability for
 this to occur, we can also rule out the possibility of such
 chance alignments, down to a certain contrast, with archival imaging data.
 
+\change{Five of the stars in our sample have proper motions larger than 50 mas
+yr${-1}$, so they have moved across the sky by $\gtrsim 2\farcs5$ since
+they were imaged during the first Palomar Observatory Sky Survey (POSS) in the
+1950s. 
+To rule out background companions, we download data from the POSS I
+and II surveys, which imaged these targets in 1952-1955 and 1989-1998,
+respectively.
+We also download data from the Sloan Digital Sky Survey, which imaged
+these fields between 2000 and 2009.
+As shown in Figure~\ref{fig:archival}, we do not detect any background
+targets at the present-day location of any of these stars in any of these
+images.
+}
 
-We include this extra analysis step for EPIC 201912552, considering
-the additional follow-up this target may warrant.
-We download data from the POSS I and II surveys, which imaged
-EPIC 201912552 in 1955 and 1989, respectively.
-This star has a proper motion of $-74 \pm 2$ mas yr$^{-1}$ in right ascension
- and $-122 \pm 4$ mas yr$^{-1}$ in declination, so it has moved by $8\farcs35$
-since the POSS I data were collected.
-As shown in Figure~\ref{fig:archival}, we do not detect any targets at the
-present-day location of EPIC 201912552 in either of the POSS surveys.
 
 \begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth, trim=0 6.30cm 0 6.30cm, clip=true]{f5}}
-\caption{Imaging for EPIC 201912552 from 1955 to 2002. There is no background
-object directly behind the present day location of the target (red circle) that could be missed
-by the AO observations, while modern SDSS imaging can rule out wide companions
-that may have been missed at wide separations, beyond the AO field of view.
+\centerline{\includegraphics[width=0.65\textwidth]{f5}}
+\caption{Archival maging for the five highest proper motion targets in our sample. 
+In all cases, there are no background
+objects directly behind the present day location of the target (red circle) that could be missed
+by the AO observations. Modern SDSS imaging can also rule out wide companions
+that may have been missed at wide separations, beyond the AO field of view, such as the
+companion which can be seen in the images of EPIC 201577035.
+All figures are aligned such that north is up and east to the left.
 All subplots are on the same scale.}
 \label{fig:archival}
 \end{figure*}
@@ -1155,7 +1151,9 @@ University, the Spanish Participation Group, University of Tokyo,
 University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
-\btmtodo{NED?}
+This research has made use of the NASA/IPAC Extragalactic Database (NED) 
+which is operated by the Jet Propulsion Laboratory, California Institute of Technology, 
+under contract with the National Aeronautics and Space Administration.
 
 B.T.M. is supported by the National Science Foundation Graduate Research
 Fellowship under Grant No. DGE-Äê1144469.
