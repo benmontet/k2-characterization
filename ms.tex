@@ -89,9 +89,10 @@
 \newcommand{\anytodo}[1]{\todo{ANYONE}{NavyBlue}{#1}}
 \newcommand{\dfmtodo}[1]{\todo{DFM}{ForestGreen}{#1}}
 
-\newcommand{\Nfp}{6}
-\newcommand{\Nvalidated}{18}
-\newcommand{\Nlimbo}{12} %adds up to 36
+\newcommand{\Nfp}{7}
+\newcommand{\Nvalidated}{20}
+\newcommand{\Nlimbo}{9} %adds up to 36
+\newcommand{\Nvalnew}{16} % 4 previously validated
 
 \newcommand{\change}[1]{\textbf{#1}}
 
@@ -165,7 +166,7 @@ candidates orbiting 31 stars in \KT\ \Ci.
 In this contribution, we present stellar and planetary properties for all systems.
 We combine ground-based seeing-limited survey data and
 adaptive optics imaging with an automated transit analysis scheme to validate
-\Nvalidated\ candidates as planets
+\Nvalidated\ candidates as planets, \Nvalnew\ for the first time,
 and identify \Nfp\ candidates as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a \change{$2.24 \pm 0.25$ $R_\oplus$} planet with $T_{eq} = 271 \pm 16$ K and an
@@ -280,7 +281,7 @@ Instead, we rely on photometry.
 For each system, we query the VizieR database of astronomical catalogues
 \citep{Ochseinbein00}.
 We record the $B$, $V$, $g'$, $r'$, and $i'$ magnitudes and their
-uncertainties from the AAVSO Photometric all-sky survey (APASS) DR6
+uncertainties from the AAVSO Photometric All-Sky Survey (APASS) DR6
 \citep{Henden14}, as reported in the UCAC4 Catalogue \citep{Zacharias12}.
 We also record the $J$, $H$, and $K$ magnitudes and their uncertainties
 as found in the 2MASS All-Sky Catalog of Point Sources \citep{Cutri03}
@@ -337,14 +338,29 @@ In this work, we use grids from the Dartmouth Stellar
 Evolution Database \citep{Dotter08} at solar values of \afe=$0.0$ and
 helium abundance $Y=0.2741$, which come packaged with the \texttt{isochrones}
 module.
-\change{We then run an MCMC chain using \texttt{MULTINEST} \citep{Feroz09},
+\change{We then run an MCMC \btmtodo{still a chain?} using \texttt{MULTINEST} \citep{Feroz09},
 an implementation of a multimodal nested sampling algorithm,}
 for each host star conditioned on the observed
 photometric properties as presented in Table 1.
 We include a prior on stellar metallicity representative of the observed metallicities
 of stars within 1 kpc of the Sun, following the results of \citet{Hayden15}, and a Salpeter-slope
-prior on mass (up to the maximum mass available in the model grids of $3.7$ $M_\odot$).
+prior on mass up to the maximum mass available in the model grids of $3.7$ $M_\odot$.
 
+\change{During the sampling process, we fit for galactic
+extinction as one of our physical parameters.
+For each star's position on the sky, we retrieve the calculated extinction at an infinite distance
+along that line of sight from the NED \btmtodo{acronym}, which reports the 
+\citet{Schlafly11} recalibration of the \citet{Schlegel98} extinction map as measured by
+COBE/DIRBE and IRAS/ISSA. 
+The NED database returns the extinction in all relevant bandpasses except those used by
+WISE, assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}.
+We include the WISE bandpasses by applying the relative extinction values between 
+SDSS, 2MASS, and WISE calculated by \citep{Davenport14}.
+In each step of our fitting process, we draw an $A_V$, calculate the expected extinction
+in all bandpasses $A_X$, and then measure the likelihood of our model stellar fit to the 
+observed apparent magnitudes.
+We apply a uniform prior ranging from zero to the obtained maximum extinction value and
+marginalize over extinction in our final determination of stellar parameters. }
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
@@ -368,7 +384,21 @@ from photometric data \citep[e.g.][]{Huber14}.
 We provide full samples of our posteriors on the physical parameters for each 
 star\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}.}
 
-
+\change{\citet{Bastien14} use observations of stellar ``flicker'' to suggest that 
+approximately 50 percent of planet host stars have evolved off the
+main sequence onto the subgiant branch, so that both the host stars and their 
+planets are larger than previously reported. 
+Similarly, in \KT\ \Ci\ we may expect to find evolved stars in a sample of planet
+candidates. 
+Indeed, we find this to be the case.
+Two stars, EPIC 201257461 and 201649426 are definitively evolved stars,
+with derived radii in excess of 8 \rsun. For approximately one third of the others,
+we find the stellar radius posterior distribution to be bimodal, with both main 
+sequence and subgiant models of the stars being consistent with the photometric
+data.
+Future observations to measure the parallaxes of these stars, such as with Gaia,
+will be helpful in differentiating between these two models to determine 
+more precisely the stellar, and thus the planetary, radii.}
 
 
 
@@ -523,12 +553,26 @@ The following constraints on false positive
 scenarios are imposed:
 \begin{itemize}
 \item A chance-aligned eclipsing binary system may reside anywhere inside
-or within one pixel of the photometric aperture of the target star.
+or within one pixel of the photometric aperture of the target star. 
+\change{In creating a light curve for each star, we define photometric apertures ranging
+from 10 to 20 arcseconds for each star, as defined in Table 4.
+Given the 6-arcsecond PSF of the \kep\ telescope, we allow for the possibility
+that companions falling just outside of our aperture (within one pixel) may
+contribute to the light curve, possibly causing a false positive event.
+The search for such companions is discussed in 
+\textsection \ref{sec:background}.}
 \item The maximum allowed depth of a potential secondary eclipse event
 is the most significantly detected signal at the same
-period of the planet candidate, once the primary transit is masked out.
+period of the planet candidate, once the primary transit is masked out 
+(discussed in \textsection\ref{sec:sec}).
+\change{\texttt{vespa} does not allow for the possibility of secondary eclipses 
+larger than those observed in the \KT\ light curve for each star.}
 \item Blended stars must be allowed by the available adaptive optics
-and archival imaging data (discussed in detail below).
+and archival imaging data (discussed in detail in \textsection 
+\ref{sec:AO} and \ref{sec:background}).
+\change{\texttt{vespa} only considers stars below the detection threshold for
+the AO imaging, which is a position-dependent value following a calculated
+contrast curve for each star.}
 \end{itemize}
 
 Each of these scenarios is an astrophysical eclipse, caused by one
@@ -539,7 +583,7 @@ that each signal is caused by an instrumental artifact in the data or
 some other astrophysical event, such as stellar activity, masquerading
 as planet transits.
 
-Table 4 summarizes the results of these
+Table 5 summarizes the results of these
 calculations, presenting the relative probability for each candidate
 to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
@@ -547,20 +591,20 @@ and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 Four of the presented candidates have FPP $>$90\%;
 these are considered to be likely false positives.
-On the other hand, 21 candidates
+On the other hand, 23 candidates
 have FPP $<$ 1\%.
 Two of these are found to be caused by systematics
 in the transit search noise model (details in \S\ref{sec:systematics}), and
 so we identify those as false positives.
-Four more of these 21 might plausibly be caused by
+Four more of these 23 might plausibly be caused by
 contamination by detected stellar companions within the photometric apertures
 (see \S\ref{sec:background}), so we keep these as candidates.
 
-This leaves 15 candidates that we statistically validate as planets, plus three
+This leaves 19 candidates that we statistically validate as planets, plus one
 additional planets that \texttt{vespa} does not validate but have been previously
 identified in the literature \citep{Crossfield15, Armstrong15b}.
-So in total, of the 36 candidates, 18 are secure planets,
-14 of which we here validate for the first time.
+So in total, of the 36 candidates, 20 are secure planets,
+16 of which we here validate for the first time.
 
 
 We emphasize that the majority of these validations rely
@@ -585,6 +629,32 @@ Red curves outline the median transit model for each candidate system.
 }
 \label{fig:transits}
 \end{figure*}
+
+\subsection{Secondary Eclipse Observations}
+\label{sec:sec}
+\change{One of the definitive signatures of a false positive binary star system masquerading
+as a transiting planet is the presence of a secondary eclipse. While a nondetection of a secondary
+does not exclude the possibility of a binary system (the orbit may be eccentric, 
+or the companion too faint for a secondary eclipse to be detectable in the noise),
+such a nondectection reduces the probability of each of the eclipsing binary false
+positive scenarios.}
+
+\change{To attempt to eliminate each eclipsing binary scenario, we first search each \KT\
+light curve to determine which secondary eclipse signals are not allowed by the data.
+We mask the transit signal of the planet in question and search for the most significant
+signal at the same period. 
+Such a scheme does not assume circular orbits: we return the most significant signal
+at any phase, not only at the midpoint between consecutive transits.}
+
+\change{We report these maximum allowable secondary eclipse depths in Table 5.
+These values are used by \texttt{vespa} as limits on the allowable secondary eclipse.
+Any models that cause a larger event, such as a background eclipsing binary 
+consisting of two equal-mass stars in a circular orbit, can be excluded by the data.
+We note that with the exception of EPIC 201505350.01, all systems with a maximum
+eclipse depth of at least one part per thousand have FPPs of 0.866 or larger.
+EPIC 201505350 is a two-planet system with the two planets near a 3:2 period
+commensurability, so in this case the ``secondary'' is actually the transits of the 
+other planet.}
 
 
 \subsection{Adaptive Optics Imaging}
@@ -626,7 +696,7 @@ Relative photometry of nearby stars is carried out using aperture photometry wit
 an aperture radius of 12~pix (0$\farcs$3).
 For EPIC~201828749, we also acquired $J$- and $H$-band images.
 Astrometry and photometry is derived separately for each image, and the mean and standard deviation
-of these measurements is adopted for our final values listed in Table~5.
+of these measurements is adopted for our final values listed in Table~4.
 
 %We note that we validate 201828749 as a true transiting planet, despite the presence of this binary
 %companion.
@@ -699,7 +769,7 @@ detected in AO imaging.
 Unlike the original \kep\ field, the field for \KT\ \Ci\ is
 well out of the galactic plane, so the rate of giant, distant background
 stars is significantly lower.
-We include all potential contaminants in Table 5.
+We include all potential contaminants in Table 4.
 We validate or eliminate each of these as a possibility based on the transit shape.
 For example, the events near EPIC 201546283 could only be caused by a
 background binary if the background object was a completely-eclipsing system
@@ -709,7 +779,7 @@ Since it is not, we can rule out the possibility this background object causes
 the transit event.
 
 
-In Table 5, the ``maximum depth'' column represents
+In Table 4, the ``maximum depth'' column represents
 the maximum observed ``transit'' depth if the transit were actually caused
 by a total eclipse of the hypothetical background binary system, inducing
 a 50\% flux decrement in the background star's apparent brightness.
@@ -719,12 +789,12 @@ $10\farcs0$ to $19\farcs9$.  In order to be a plausible contaminant,
 any companion star must
 be either within this aperture or just outside but bright
 enough for signficant flux to leak in.
-Evaluating each of the systems listed in Table 5, we judge that we cannot yet
+Evaluating each of the systems listed in Table 4, we judge that we cannot yet
 rule out contamination as a potential source of the transit signal for four
 candidates: 201295312.01, 201403446.01, 201546283.01, and 201828749.01.
 Despite receiving
 low FPP scores from \texttt{vespa}, we list these systems as candidates in
-Table 4, rather than planets.  Further updates to the \texttt{vespa} code
+Table 5, rather than planets.  Further updates to the \texttt{vespa} code
 will allow consideration of ``specific'' false positive scenarios; that is,
 scenarios that correspond to actually detected stars such as these, rather than
 hypothetical background or bound companions.
@@ -871,7 +941,7 @@ a cool analogue to the highly irradiated planets of a similar size found by
 \kep.
 
 
-\subsection{Non-Astrophysical False Positives}
+\subsection{Other Sources of False Positives}
 \label{sec:systematics}
 
 The method of \paperit\ assumes that all variability in the light curves are
@@ -1045,7 +1115,8 @@ We thank Roberto Sanchis-Ojeda (Berkeley), Dan Huber (Sydney) and
 Jeff Coughlin (SETI) for
 conversations and suggestions which improved the quality of this manuscript.
 \change{We also thank Keivan Stassun (Vanderbilt) for his insights into 
-extinction and stellar parameters in both \kep\ and \KT.
+ stellar parameters for both \kep\ and \KT, which significantly improved
+ this work.
 We thank the anonymous referee for their insightful comments as well.}
 
 We are grateful to the entire Kepler team, past and present.
@@ -1084,11 +1155,12 @@ University, the Spanish Participation Group, University of Tokyo,
 University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
+\btmtodo{NED?}
+
 B.T.M. is supported by the National Science Foundation Graduate Research
 Fellowship under Grant No. DGE-€1144469.
 J.A.J. is supported by generous grants from the David and Lucile Packard
 Foundation and the Alfred P. Sloan Foundation.
-
 
 D.F.M. and D.W.H. were partially supported by the National Science Foundation
 (grant IIS-1124794), the National Aeronautics and Space Administration (grant
@@ -1110,9 +1182,10 @@ NNX14AE11G).
 \begin{turnpage}
 \include{table_planets}
 \end{turnpage}
-\include{table_fpp}
 
 \include{table_bg}
+
+\include{table_fpp}
 
 \end{document}
 
