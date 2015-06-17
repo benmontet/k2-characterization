@@ -90,7 +90,7 @@
 \newcommand{\dfmtodo}[1]{\todo{DFM}{ForestGreen}{#1}}
 
 \newcommand{\Nfp}{7}
-\newcommand{\Nvalidated}{20}
+\newcommand{\Nvalidated}{19}
 \newcommand{\Nlimbo}{9} %adds up to 36
 \newcommand{\Nvalnew}{16} % 4 previously validated
 
@@ -101,7 +101,7 @@
 
 
 \title{Stellar and Planetary Properties of \KT\ Campaign 1
-Candidates and Validation of \Nvalidated\ Systems, Including a Planet Receiving
+Candidates and Validation of \Nvalnew\ Systems, Including a Planet Receiving
 Earth-like Insolation}
 
 \newcommand{\caltech}{1}
@@ -580,20 +580,21 @@ and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
 Four of the presented candidates have FPP $>$90\%;
 these are considered to be likely false positives.
-On the other hand, 23 candidates
+On the other hand, 24 candidates
 have FPP $<$ 1\%.
-Two of these are found to be caused by systematics
+Two systems, one of which is a planet candidate by the above definition,
+ are found to be caused by systematics
 in the transit search noise model (details in \S\ref{sec:systematics}), and
 so we identify those as false positives.
-Four more of these 23 might plausibly be caused by
+Four of the transit signals might plausibly be caused by
 contamination by detected stellar companions within the photometric apertures
 (see \S\ref{sec:background}), so we keep these as candidates.
 
 This leaves 19 candidates that we statistically validate as planets, plus one
-additional planets that \texttt{vespa} does not validate but have been previously
+additional planet that \texttt{vespa} does not validate but has been previously
 identified in the literature \citep{Crossfield15, Armstrong15b}.
 So in total, of the 36 candidates, 20 are secure planets,
-16 of which we here validate for the first time.
+16 of which we validate here for the first time.
 
 
 We emphasize that the majority of these validations rely
@@ -1033,7 +1034,7 @@ We have presented stellar parameters for all planet candidates systems identifie
 \paperit.
 We statistically validate \Nvalidated\ of the 36 candidates as bona fide planets, and we
 identify \Nfp\ as false positives.
-Of these planets, 4 have been previously validated in other works, while 14 are
+Of these planets, 3 have been previously validated in other works, while \Nvalnew\ are
 validated here for the first time.
 The systems not validated as planets or false positives remain as planet candidates.
 
@@ -1052,21 +1053,6 @@ photometric observations to the Dartmouth stellar evolution models.
 As a result, both the stellar and planet parameters are subject to systematic biases induced
 by discrepancies between the models and reality.
 
-As stated in \textsection\ref{sec:stellarparams}, we infer stellar parameters using the
-Dartmouth models, with a mass upper limit of $3.7 M_\odot$.
-Given the location of the \Ci\ field with respect to the galactic plane, we expect a low
-contamination rate by halo giants.
-However, there are a few stars that are possibly miscategorized giants.
-EPIC 201257461 is identified in the RAdial Velocity Experiment (RAVE) Fourth Data Release
-as a target with $\logg = 3.18$, consistent with that of a giant star.
-It is therefore perhaps not surprising that this system is flagged as a false positive based on
-the transit shape.
-EPIC 201929294, with a proper motion of $0.010\arcsec$ yr$^{-1}$ \citep{Zacharias12}  has
-a reduced proper motion consistent with that of a giant star.
-While suggestive, this observation does not definitively provide information about the
-nature of this target.
-Likewise, our false positive analysis is neither able to confirm nor exclude the planetary
-nature of the observed transit signal around this target.
 
 The planets we confirm in this paper, like the planets found in the original \kep\ mission,
 span a wide range of parameter space.
