@@ -122,13 +122,13 @@ Timothy~D.~Morton\altaffilmark{\princeton},
 Daniel~Foreman-Mackey\altaffilmark{\nyu,\cds},
 % The Benefactors
 John~Asher~Johnson\altaffilmark{\cfa},
-David~W.~Hogg\altaffilmark{\nyu,\mpia,\cds},
+David~W.~Hogg\altaffilmark{\nyu,\cds,\mpia},
 % The Observers
 % (ranked by integration time x collecting area)
-Brendan~P.~Bowler\altaffilmark{\caltech, \jcpa},
+Brendan~P.~Bowler\altaffilmark{\caltech,\jcpa},
 David~W.~Latham\altaffilmark{\cfa},
 Allyson~Bieryla\altaffilmark{\cfa},
-Andrew~W.~Mann\altaffilmark{\texas, \hjs},
+Andrew~W.~Mann\altaffilmark{\texas,\hjs},
 }
 
 
@@ -171,7 +171,7 @@ and identify \Nfp\ candidates as likely false positives.
 Of particular interest is EPIC 201912552, a bright (K=8.9) M2 dwarf
 hosting a \change{$2.24 \pm 0.25$ $R_\oplus$} planet with $T_{eq} = 271 \pm 16$ K and an
 orbital period of 33 days.
-We also present two new open-source software packages that enabled this analysis:
+We also present two new open-source software packages which enable this analysis:
 \texttt{isochrones}, a flexible tool for fitting theoretical stellar
 models to observational data to determine stellar properties, and
 \texttt{vespa}, a new general-purpose procedure to calculate false positive probabilities
@@ -187,7 +187,7 @@ and statistically validate transiting exoplanets.
 The \kep\ telescope \citep{Borucki10} has led to a revolution in stellar and planetary
 astrophysics, with 7305 ``objects of interest'' and 4173 ``planet candidates''
 discovered to date \citep{Borucki11a, Borucki11b, Batalha13, Burke14, Rowe15, Mullaly15}.
-The fidelity of this sample is high: most of these planet candidates are truly planets
+The fidelity of this sample is high: most of these candidates are truly planets
 \citep{Morton11b, Fressin13, Desert15}.
 The mechanical failure of two reaction wheels on the spacecraft led to a repurposing
 of the spacecraft into the \KT\ mission, in which the telescope points at
@@ -199,7 +199,7 @@ thruster firing.
 As a result, the detector drifts relative to the sky
 at the rate of $\sim 1\arcsec$ hr$^{-1}$, with rapid corrections due to thruster fires
 approximately once every six hours.
-Over the full duration of each campaign, the targets appear to remain near the
+Over the full duration of each campaign, the targets remain near the
 same location on the detector but both the slow drift and the corrections are
 observable by eye \citep{Barentsen15}.
 
@@ -355,8 +355,8 @@ COBE/DIRBE and IRAS/ISSA.
 The NED database returns the extinction in all relevant bandpasses except those used by
 WISE, assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}.
 We include the WISE bandpasses by applying the relative extinction values between 
-SDSS, 2MASS, and WISE calculated by \citep{Davenport14}.
-In each step of our fitting process, we draw an $A_V$, calculate the expected extinction
+SDSS, 2MASS, and WISE calculated by \citet{Davenport14}.
+In each step of our fitting process, we draw a value for $A_V$, calculate the expected extinction
 in all bandpasses $A_X$, and then measure the likelihood of our model stellar fit to the 
 observed apparent magnitudes.
 We apply a uniform prior ranging from zero to the obtained maximum extinction value and
@@ -377,7 +377,7 @@ have been shown to predict near-IR colors that are too blue
 parameters for other works, such as exoplanet population studies. When available, 
 stellar parameters inferred through other techniques such as asteroseismology or 
 spectroscopy should supersede these values. 
-The observed photometric parameters  then consistent with spectroscopically-derived
+We note the observed photometric parameters are consistent with spectroscopically-derived
 parameters for stars with published spectra, and consistent with typical
 model-dependent uncertainties
 from photometric data \citep[e.g.][]{Huber14}.
@@ -389,13 +389,17 @@ approximately 50 percent of planet host stars have evolved off the
 main sequence onto the subgiant branch, so that both the host stars and their 
 planets are larger than previously reported. 
 Similarly, in \KT\ \Ci\ we may expect to find evolved stars in a sample of planet
-candidates. 
+candidates, although we may expect the effect to be lessened due to the 
+high galactic latitude of \Ci.
 Indeed, we find this to be the case.
 Two stars, EPIC 201257461 and 201649426 are definitively evolved stars,
-with derived radii in excess of 8 \rsun. For approximately one third of the others,
+with inferred masses less than 2 \msun but radii above 8 \rsun. 
+For approximately one third of the others,
 we find the stellar radius posterior distribution to be bimodal, with both main 
 sequence and subgiant models of the stars being consistent with the photometric
 data.
+This number is consistent with our expectations of the number of subgiant 
+contaminants in the \Ci\ field (K. Stassun, private communication).
 Future observations to measure the parallaxes of these stars, such as with Gaia,
 will be helpful in differentiating between these two models to determine 
 more precisely the stellar, and thus the planetary, radii.}
@@ -428,7 +432,7 @@ An optical spectrum was obtained using the SuperNova Integral Field Spectrograph
 \citep[SNIFS,][]{Aldering02,Lantz04} on the University of Hawai'i
 2.2m telescope on the night of January 30 2015.
 SNIFS provides simultaneous coverage from 3200\AA--9700\AA\ at a resolution
-of $\simeq1000$. Final S/N of the spectrum was $>100$ pre resolving element
+of $\simeq1000$. Final S/N of the spectrum was $>100$ per resolving element
 in the red ($\sim6000$\AA).
 Details of the SNIFS reduction, including dark, bias, and flat-field corrections,
 cleaning the data of bad pixels and cosmic rays, and extraction of the
@@ -455,7 +459,8 @@ We combined the derived \teff\ and [Fe/H] values with the empirical
 \teff-[Fe/H]-$R_*$ relation from \citet{Mann15} to compute a radius.
 Accounting for measurement and calibration errors in [Fe/H] and \teff\ we calculated
 a radius 0.394$\pm0.038R_\odot$.
-We use these parameters instead of the derived photometric properties for this target.
+We use these parameters instead of the derived photometric properties for this target,
+although we note the two are consistent at the $1\sigma$ level.
 
 The full list of stellar parameters adopted in this paper is included in
 Table 2.
@@ -472,7 +477,7 @@ For each candidate, we fit the light curve using a physical transit model
 \citep{Mandel02, Kipping10b} simultaneously with the systematics model
 described by \paperit.
 We use \texttt{emcee} \citep{Foreman-Mackey12}, an implementation of the
-affine-invariant ensemble sampler of \citep{Goodman10}
+affine-invariant ensemble sampler of \citet{Goodman10}
  to sample from the posterior probability distribution
 for the stellar---limb darkening coefficients, mass, radius, and effective
 temperature---and planetary---radius, period, phase, impact parameter,
@@ -480,8 +485,6 @@ eccentricity, and argument of periapsis---parameters, conditioned on the
 light curve and the measured stellar properties.
 Following \paperit, the likelihood function that we use is marginalized over
 the parameters of the systematics model.
-To incorporate the stellar measurements, we approximate the constraints using
-a three-dimensional Gaussian in mass, radius, and effective temperature.
 
 In this analysis, we assume the dilution caused by additional stars
 contributing flux into the aperture is negligible for nearly all systems.
@@ -492,9 +495,7 @@ Any contamination unaccounted for, as may happen if any of these stars are
 actually unresolved binaries, would cause us to underestimate the radii of any
 planets we detect.
 Therefore, high-contrast adaptive optics imaging of any systems should be
-obtained before any of these planets are placed on a planet mass-radius
-diagram.
-
+obtained before these planets are used in population inference studies.
 The planet parameters measured by this analysis are listed in Table 3.
 
 
@@ -578,7 +579,7 @@ to be caused by any of three false positive scenarios: an undiluted
 eclipsing binary (EB), a hierarchical triple eclipsing binary (HEB),
 and a chance-aligned background(/foreground) eclipsing binary (BEB).
 
-Four of the presented candidates have FPP $>$90\%;
+Six of the presented candidates have FPP $>$90\%;
 these are considered to be likely false positives.
 On the other hand, 24 candidates
 have FPP $<$ 1\%.
@@ -642,7 +643,7 @@ Any models that cause a larger event, such as a background eclipsing binary
 consisting of two equal-mass stars in a circular orbit, can be excluded by the data.
 We note that with the exception of EPIC 201505350.01, all systems with a maximum
 eclipse depth of at least one part per thousand have FPPs of 0.866 or larger.
-EPIC 201505350 is a two-planet system with the two planets near a 3:2 period
+The exception, EPIC 201505350, is a two-planet system with the two planets near a 3:2 period
 commensurability, so in this case the ``secondary'' is actually the transits of the 
 other planet.}
 
@@ -1137,9 +1138,9 @@ University, the Spanish Participation Group, University of Tokyo,
 University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
-This research has made use of the NASA/IPAC Extragalactic Database (NED) 
+\change{This research has made use of the NASA/IPAC Extragalactic Database (NED) 
 which is operated by the Jet Propulsion Laboratory, California Institute of Technology, 
-under contract with the National Aeronautics and Space Administration.
+under contract with the National Aeronautics and Space Administration.}
 
 B.T.M. is supported by the National Science Foundation Graduate Research
 Fellowship under Grant No. DGE-€1144469.
