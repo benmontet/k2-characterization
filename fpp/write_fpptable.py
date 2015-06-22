@@ -132,9 +132,9 @@ for f in folders:
             disp = 'Candidate ' 
 
         if epic_id==201505350:
-            disp = r'Planet\tablenotemark{d} '
-        if epic_id==201367065:
             disp = r'Planet\tablenotemark{c} '
+        if epic_id==201367065:
+            disp = r'Planet\tablenotemark{b} '
     line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
@@ -161,9 +161,8 @@ below 1\% threshold.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
 \tablenotetext{a}{Despite low FPP, returned to candidate status 
 out of abundance of caution due to secondary star detection within or near photometric aperture.}
-\tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
-\tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
-\tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
+\tablenotetext{b}{Identified as planets by \citet{Crossfield15}.}
+\tablenotetext{c}{Identified as planets by \citet{Armstrong15b}.}
 \end{deluxetable*}
 """)
 
