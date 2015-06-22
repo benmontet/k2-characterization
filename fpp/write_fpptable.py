@@ -16,8 +16,8 @@ CAND_OVERRIDE = ['201295312.01',
                  #'201702477.01',
                  '201828749.01',
                  '201549860.01']
-#SKIP = []
-SKIP = ['201929294.01','201555883.01']
+SKIP = []
+#SKIP = ['201929294.01','201555883.01']
 
 def note(key):
     return '\tablenotemark{{}}'.format(key)
@@ -111,11 +111,17 @@ for f in folders:
         line += ' - & '
 
     for val in [eb,beb,heb]:
-        val = float(val)
-        line += '{} & '.format(prob_entry(val))  #pEB, pBEB, pHEB
-    line += '${:.2f}$ & '.format(float(fp)) #fp_specific
-    line += '{} & '.format(prob_entry(FPP)) #FPP
-    FPP = float(FPP)
+        if cand_name in FP_OVERRIDE:
+            line += ' -- & '
+        else:
+            val = float(val)
+            line += '{} & '.format(prob_entry(val))  #pEB, pBEB, pHEB
+    if cand_name in FP_OVERRIDE:
+        line += ' -- & -- & '
+    else:
+        line += '${:.2f}$ & '.format(float(fp)) #fp_specific
+        line += '{} & '.format(prob_entry(FPP)) #FPP
+        FPP = float(FPP)
     if cand_name in FP_OVERRIDE:
         disp = 'FP '
         if cand_name in ['201555883.01', '201929294.01']:
@@ -132,9 +138,9 @@ for f in folders:
             disp = 'Candidate ' 
 
         if epic_id==201505350:
-            disp = r'Planet\tablenotemark{c} '
+            disp = r'Planet\tablenotemark{d} '
         if epic_id==201367065:
-            disp = r'Planet\tablenotemark{b} '
+            disp = r'Planet\tablenotemark{c} '
     line += '{} '.format(disp)  #Disposition
     if f != folders[-1]:
         line += '\\\\'
@@ -160,8 +166,9 @@ identified in the literature are marked.}
 \tablenotetext{3}{Integrated planet occurrence rate assumed between 0.7$\times$ and 1.3$\times$ the candidate radius}
 \tablenotetext{a}{Despite low FPP, returned to candidate status 
 out of abundance of caution due to secondary star detection within or near photometric aperture.}
-\tablenotetext{b}{Identified as planets by \citet{Crossfield15}.}
-\tablenotetext{c}{Identified as planets by \citet{Armstrong15b}.}
+\tablenotetext{b}{Declared a false positive due to noise modeling systematics (see \S\ref{sec:systematics}).}
+\tablenotetext{c}{Identified as planets by \citet{Crossfield15}.}
+\tablenotetext{d}{Identified as planets by \citet{Armstrong15b}.}
 \end{deluxetable*}
 """)
 
