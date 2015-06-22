@@ -349,15 +349,15 @@ prior on mass up to the maximum mass available in the model grids of $3.7$ $M_\o
 \change{During the sampling process, we fit for galactic
 extinction as one of our physical parameters.
 For each star's position on the sky, we retrieve the calculated extinction at an infinite distance
-along that line of sight from the NASA/IPAC Extragalactic Database (NED), which reports the 
+along that line of sight from the NASA/IPAC Extragalactic Database (NED), which reports the
 \citet{Schlafly11} recalibration of the \citet{Schlegel98} extinction map as measured by
-COBE/DIRBE and IRAS/ISSA. 
+COBE/DIRBE and IRAS/ISSA.
 The NED database returns the extinction in all relevant bandpasses except those used by
 WISE, assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}.
-We include the WISE bandpasses by applying the relative extinction values between 
+We include the WISE bandpasses by applying the relative extinction values between
 SDSS, 2MASS, and WISE calculated by \citet{Davenport14}.
 In each step of our fitting process, we draw a value for $A_V$, calculate the expected extinction
-in all bandpasses $A_X$, and then measure the likelihood of our model stellar fit to the 
+in all bandpasses $A_X$, and then measure the likelihood of our model stellar fit to the
 observed apparent magnitudes.
 We apply a uniform prior ranging from zero to the obtained maximum extinction value and
 marginalize over extinction in our final determination of stellar parameters. }
@@ -373,35 +373,35 @@ atmospheres, which are based on incomplete molecular line lists and
 have been shown to predict near-IR colors that are too blue
 \citep{Thompson14}.
 
-\change{As our stellar results are model-dependent, we caution users who intend to use these 
-parameters for other works, such as exoplanet population studies. When available, 
-stellar parameters inferred through other techniques such as asteroseismology or 
-spectroscopy should supersede these values. 
+\change{As our stellar results are model-dependent, we caution users who intend to use these
+parameters for other works, such as exoplanet population studies. When available,
+stellar parameters inferred through other techniques such as asteroseismology or
+spectroscopy should supersede these values.
 We note the observed photometric parameters are consistent with spectroscopically-derived
 parameters for stars with published spectra, and consistent with typical
 model-dependent uncertainties
 from photometric data \citep[e.g.][]{Huber14}.
-We provide full samples of our posteriors on the physical parameters for each 
+We provide full samples of our posteriors on the physical parameters for each
 star\footnote{\url{http://www.astro.princeton.edu/~tdm/k2/}}.}
 
-\change{\citet{Bastien14} use observations of stellar ``flicker'' to suggest that 
+\change{\citet{Bastien14} use observations of stellar ``flicker'' to suggest that
 approximately 50 percent of planet host stars have evolved off the
-main sequence onto the subgiant branch, so that both the host stars and their 
-planets are larger than previously reported. 
+main sequence onto the subgiant branch, so that both the host stars and their
+planets are larger than previously reported.
 Similarly, in \KT\ \Ci\ we may expect to find evolved stars in a sample of planet
-candidates, although we may expect the effect to be lessened due to the 
+candidates, although we may expect the effect to be lessened due to the
 high galactic latitude of \Ci.
 Indeed, we find this to be the case.
 Two stars, EPIC 201257461 and 201649426 are definitively evolved stars,
-with inferred masses less than 2 \msun but radii above 8 \rsun. 
+with inferred masses less than 2 \msun but radii above 8 \rsun.
 For approximately one third of the others,
-we find the stellar radius posterior distribution to be bimodal, with both main 
+we find the stellar radius posterior distribution to be bimodal, with both main
 sequence and subgiant models of the stars being consistent with the photometric
 data.
-This number is consistent with our expectations of the number of subgiant 
+This number is consistent with our expectations of the number of subgiant
 contaminants in the \Ci\ field (K. Stassun, private communication).
 Future observations to measure the parallaxes of these stars, such as with Gaia,
-will be helpful in differentiating between these two models to determine 
+will be helpful in differentiating between these two models to determine
 more precisely the stellar, and thus the planetary, radii.}
 
 
@@ -474,8 +474,8 @@ itself were reported: the period, time of transit center, and transit depth.
 With stellar properties now in hand, we can convert these observational
 results into fundamental parameters of each planet candidate.
 For each candidate, we fit the light curve using a physical transit model
-\citep{Mandel02, Kipping10b} simultaneously with the systematics model
-described by \paperit.
+\citep{Mandel02, Kipping10b} simultaneously with a systematics model similar
+to the one described by \paperit.
 We use \texttt{emcee} \citep{Foreman-Mackey12}, an implementation of the
 affine-invariant ensemble sampler of \citet{Goodman10}
  to sample from the posterior probability distribution
@@ -483,8 +483,18 @@ for the stellar---limb darkening coefficients, mass, radius, and effective
 temperature---and planetary---radius, period, phase, impact parameter,
 eccentricity, and argument of periapsis---parameters, conditioned on the
 light curve and the measured stellar properties.
+
+\change{%
 Following \paperit, the likelihood function that we use is marginalized over
-the parameters of the systematics model.
+the weights of the ``eigen light curves'' in the linear systematics model.
+Unlike \paperit, we include an empirical Gaussian prior on the weights
+determined by robustly computing the distribution of weights across the full
+set of Campaign~1 light curves.
+This prior mitigates the incorrect detection of false signals induced by
+stellar variability---as discussed below in Section~\ref{sec:systematics}---so
+we exclude these candidates (EPIC 201929294 and EPIC 201555883) from the Table
+of results.
+}
 
 In this analysis, we assume the dilution caused by additional stars
 contributing flux into the aperture is negligible for nearly all systems.
@@ -543,22 +553,22 @@ The following constraints on false positive
 scenarios are imposed:
 \begin{itemize}
 \item A chance-aligned eclipsing binary system may reside anywhere inside
-or within one pixel of the photometric aperture of the target star. 
+or within one pixel of the photometric aperture of the target star.
 \change{In creating a light curve for each star, we define photometric apertures ranging
 from 10 to 20 arcseconds for each star, as defined in Table 4.
 Given the 6-arcsecond PSF of the \kep\ telescope, we allow for the possibility
 that companions falling just outside of our aperture (within one pixel) may
 contribute to the light curve, possibly causing a false positive event.
-The search for such companions is discussed in 
+The search for such companions is discussed in
 \textsection \ref{sec:background}.}
 \item The maximum allowed depth of a potential secondary eclipse event
 is the most significantly detected signal at the same
-period of the planet candidate, once the primary transit is masked out 
+period of the planet candidate, once the primary transit is masked out
 (discussed in \textsection\ref{sec:sec}).
-\change{\texttt{vespa} does not allow for the possibility of secondary eclipses 
+\change{\texttt{vespa} does not allow for the possibility of secondary eclipses
 larger than those observed in the \KT\ light curve for each star.}
 \item Blended stars must be allowed by the available adaptive optics
-and archival imaging data (discussed in detail in \textsection 
+and archival imaging data (discussed in detail in \textsection
 \ref{sec:AO} and \ref{sec:background}).
 \change{\texttt{vespa} only considers stars below the detection threshold for
 the AO imaging, which is a position-dependent value following a calculated
@@ -625,7 +635,7 @@ Red curves outline the median transit model for each candidate system.
 \label{sec:sec}
 \change{One of the definitive signatures of a false positive binary star system masquerading
 as a transiting planet is the presence of a secondary eclipse. While a nondetection of a secondary
-does not exclude the possibility of a binary system (the orbit may be eccentric, 
+does not exclude the possibility of a binary system (the orbit may be eccentric,
 or the companion too faint for a secondary eclipse to be detectable in the noise),
 such a nondectection reduces the probability of each of the eclipsing binary false
 positive scenarios.}
@@ -633,18 +643,18 @@ positive scenarios.}
 \change{To attempt to eliminate each eclipsing binary scenario, we first search each \KT\
 light curve to determine which secondary eclipse signals are not allowed by the data.
 We mask the transit signal of the planet in question and search for the most significant
-signal at the same period. 
+signal at the same period.
 Such a scheme does not assume circular orbits: we return the most significant signal
 at any phase, not only at the midpoint between consecutive transits.}
 
 \change{We report these maximum allowable secondary eclipse depths in Table 5.
 These values are used by \texttt{vespa} as limits on the allowable secondary eclipse.
-Any models that cause a larger event, such as a background eclipsing binary 
+Any models that cause a larger event, such as a background eclipsing binary
 consisting of two equal-mass stars in a circular orbit, can be excluded by the data.
 We note that with the exception of EPIC 201505350.01, all systems with a maximum
 eclipse depth of at least one part per thousand have FPPs of 0.866 or larger.
 The exception, EPIC 201505350, is a two-planet system with the two planets near a 3:2 period
-commensurability, so in this case the ``secondary'' is actually the transits of the 
+commensurability, so in this case the ``secondary'' is actually the transits of the
 other planet.}
 
 
@@ -833,7 +843,7 @@ chance alignments, down to a certain contrast, with archival imaging data.
 \change{Five of the stars in our sample have proper motions larger than 50 mas
 yr${-1}$, so they have moved across the sky by $\gtrsim 2\farcs5$ since
 they were imaged during the first Palomar Observatory Sky Survey (POSS) in the
-1950s. 
+1950s.
 To rule out background companions, we download data from the POSS I
 and II surveys, which imaged these targets in 1952-1955 and 1989-1998,
 respectively.
@@ -847,7 +857,7 @@ images.
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=0.65\textwidth]{f5}}
-\caption{Archival maging for the five highest proper motion targets in our sample. 
+\caption{Archival maging for the five highest proper motion targets in our sample.
 In all cases, there are no background
 objects directly behind the present day location of the target (red circle) that could be missed
 by the AO observations. Modern SDSS imaging can also rule out wide companions
@@ -1097,7 +1107,7 @@ less massive than the Sun.
 We thank Roberto Sanchis-Ojeda (Berkeley), Dan Huber (Sydney) and
 Jeff Coughlin (SETI) for
 conversations and suggestions which improved the quality of this manuscript.
-\change{We also thank Keivan Stassun (Vanderbilt) for his insights into 
+\change{We also thank Keivan Stassun (Vanderbilt) for his insights into
  stellar parameters for both \kep\ and \KT, which significantly improved
  this work.
 We thank the anonymous referee for their comments and suggestions.}
@@ -1138,8 +1148,8 @@ University, the Spanish Participation Group, University of Tokyo,
 University of Utah, Vanderbilt University, University of Virginia,
 University of Washington, and Yale University.
 
-\change{This research has made use of the NASA/IPAC Extragalactic Database (NED) 
-which is operated by the Jet Propulsion Laboratory, California Institute of Technology, 
+\change{This research has made use of the NASA/IPAC Extragalactic Database (NED)
+which is operated by the Jet Propulsion Laboratory, California Institute of Technology,
 under contract with the National Aeronautics and Space Administration.}
 
 B.T.M. is supported by the National Science Foundation Graduate Research
