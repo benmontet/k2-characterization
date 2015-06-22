@@ -16,6 +16,8 @@ CAND_OVERRIDE = ['201295312.01',
                  #'201702477.01',
                  '201828749.01',
                  '201549860.01']
+#SKIP = []
+SKIP = ['201929294.01','201555883.01']
 
 def note(key):
     return '\tablenotemark{{}}'.format(key)
@@ -96,6 +98,9 @@ for f in folders:
     epic_id = int(m.group(1))
     i = int(m.group(2))
     cand_name = '{}.{:02.0f}'.format(epic_id, i)
+
+    if cand_name in SKIP:
+        continue
 
     line = '{} & '.format(cand_name)  # EPIC, Cand. Num.
     line += '${:.2f}$ & '.format(max_secondary(epic_id,i)*1e3) #max(delta_sec)
