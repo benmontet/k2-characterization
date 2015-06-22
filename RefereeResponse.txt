@@ -1,0 +1,37 @@
+We thank the referee for their careful reading of this manuscript and for their insightful comments, which we think have substantially improved the manuscript. We have addressed their comments below, and also note a few other changes we have made to the text. Below is the referee report, with our comments interspersed. 
+
+——
+
+
+For the substance of the analysis, I have two issues:
+
+1. It's not clear what the authors have done to use possible secondary eclipse information. Table 4 reports a maximum secondary eclipse amplitude, but the paper doesn't describe what that means. Is it an estimate of the maximum depth that would be produced by a blended eclipsing binary? Or the maximum allowed by the data to some (unspecified) degree of confidence? It's not clear who has actually looked at the phased photometry for each system at phase 0.5 to see whether there's a secondary eclipse or not. Perhaps eclipse upper limits were derived by Foreman-Mackey et al., but if so they need to be identified more explicitly in this paper. A limit on the secondary eclipse amplitudes from the data should be factored into the FP vs. planet decision in some way that is clearly described. Does vespa use limits on the secondary eclipse? I think a separate sub-section of this paper is needed to describe the secondary eclipse portion of the analysis with maximum clarity.
+
+We have added section 4.1 to explain how we calculate the maximum secondary eclipse depth allowed by the data and how vespa uses these values as upper limits in allowable secondary eclipses in the false positive analysis (so that any event that would create a larger secondary eclipse is disallowed).
+
+2. The authors use archival imaging, and exploit the proper motion of EPIC 201912552, in order to eliminate closely-blended background stars. I suggest doing (or at least attempting) that for all of the new planets that they identify. The SDSS and POSS images exist, they just have to do the work. All of the planets are important, and deserve the most thorough analysis.
+
+We agree with this point as well, in principle. In practice, this technique is not useful for all systems, as some have proper motions that are too small to gain any reasonable information. The typical proper motion of a star in our sample is ~20 mas/yr, meaning the star will move by 1” over 50 years. The POSS1 data have a PSF of ~3", so if the star has not moved by approximately that amount over the past 50 years we do not gain any appreciable power in our ability to reject chance alignment binaries. Therefore, we repeat and include these data for the stars in our sample with proper motions larger than 50 mas/yr, of which there are 5 (4 in addition to the one where we had done this previously). These are included in Fig. 5 and section 4.4.
+
+As concerns the clarity of the paper, there are several (minor) issues:
+
+1. In the last paragraph of Sec. 2.2, the factor of 3 seems arbitrary. It needs some discussion of why they picked that value.
+
+We agree. The factor of three was chosen as an ad-hoc value because our previous sampling (using emcee) was not sampling the true (multimodal) posterior for each star. We have since changed to a scheme using MULTINEST, which is designed for multimodal posteriors, and we find we are able to reproduce the expected results (comparing against other stars for which photometric parameters have been derived) using the photometry directly. Therefore, we remove the factor of three and fit to the photometric data using the published uncertainties directly. 
+
+2. The three bulleted constraints on the false-positive scenarios listed in the vespa description are not very clear. For example, "Blended stars must be allowed by the available adaptive optics..." Probably that means that vespa only considers stars below the detection limits of the AO imaging? And the comment about "anywhere inside or within one pixel of the photometric aperture" - does that mean within one pixel radius of the center of the star, or one pixel from the edge of the aperture? And please remind the reader what is the radius of the aperture. These constraints are very important, and they should be re-written to be more clear and specific.
+
+We have expanded each of these bullet points for clarity and to explain exactly how vespa uses each of these constraints.
+
+3. Sec. 5.2 is entitled "Non-astrophysical False Positives" but it begins with the purely astrophysical case of star spots..! Perhaps Sec. 5.2 should be re-titled as "Other sources of false-positives”.
+
+Yes, this is correct! We have changed the subsection title to “Other Sources of False Positives"
+
+4. Some columns of Table 1 are mysterious without hunting in the text. A better caption is needed. For Table 5, the caption should refer to the Section of the text where the Max Depth column is defined.
+
+We have enhanced captions in both of these tables for clarity. We have also added a reference to the section in which the Max Depth column is defined, as requested.
+
+Other changes:
+We have revised our stellar parameter calculations, now using MULTINEST instead of emcee. This has caused our stellar parameters to change slightly, which has caused our planet parameters to change slightly.
+
+We have added a discussion of how we calculate and marginalize over galactic extinction into section 2.2.

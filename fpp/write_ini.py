@@ -34,7 +34,7 @@ def max_secondary(epic_id, i=1):
     return secdepth/1e3
 
 
-def write_ini(epic_id, i=1, photerr_inflate=3):
+def write_ini(epic_id, i=1, photerr_inflate=1):
     filename = '{}/{}.{}/fpp.ini'.format(FOLDER, epic_id, i)
 
     star_filename = '{}/{}.{}/star.ini'.format(FOLDER, epic_id, i)
@@ -62,7 +62,8 @@ def write_ini(epic_id, i=1, photerr_inflate=3):
     for b in ['B','V','g','r','i','J','H','K',
               'W1','W2','W3']:
         mag, err = (mags[b], mags['{}err'.format(b)])
-        star_config[b] = [mag,err*photerr_inflate]
+        if err > 0 and err < 10:
+            star_config[b] = [mag,err*photerr_inflate]
     star_config['Kepler'] = mags['Kepler']
     star_config['maxAV'] = 0.2
     star_config['min_logg'] = 2.3
