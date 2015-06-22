@@ -321,8 +321,7 @@ mass, age, and \feh\ within the boundaries of the grid.
 
 This enables a set of observed properties ($\left\{ x_i, \sigma_i \right\}$),
 either spectroscopic, photometric,
-or both, to define a likelihood function that may be sampled in
-an MCMC chain:
+or both, to define a likelihood function to be sampled:
 \begin{equation}
 \label{eq:ischochronelhood}
 \ln \mathcal L(\boldsymbol{\theta}) \propto -\frac{1}{2} \displaystyle \sum_i \frac{\left(x_i -
@@ -348,19 +347,20 @@ prior on mass up to the maximum mass available in the model grids of $3.7$ $M_\o
 
 \change{During the sampling process, we fit for galactic
 extinction as one of our physical parameters.
-For each star's position on the sky, we retrieve the calculated extinction at an infinite distance
-along that line of sight from the NASA/IPAC Extragalactic Database (NED), which reports the
-\citet{Schlafly11} recalibration of the \citet{Schlegel98} extinction map as measured by
-COBE/DIRBE and IRAS/ISSA.
-The NED database returns the extinction in all relevant bandpasses except those used by
-WISE, assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}.
+%For each star's position on the sky, we retrieve the calculated extinction at an infinite distance
+%along that line of sight from the NASA/IPAC Extragalactic Database (NED), which reports the
+%\citet{Schlafly11} recalibration of the \citet{Schlegel98} extinction map as measured by
+%COBE/DIRBE and IRAS/ISSA.
+%The NED database returns the extinction in all relevant bandpasses except those used by
+%WISE, assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}.
 We include the WISE bandpasses by applying the relative extinction values between
 SDSS, 2MASS, and WISE calculated by \citet{Davenport14}.
 In each step of our fitting process, we draw a value for $A_V$, calculate the expected extinction
-in all bandpasses $A_X$, and then measure the likelihood of our model stellar fit to the
-observed apparent magnitudes.
-We apply a uniform prior ranging from zero to the obtained maximum extinction value and
-marginalize over extinction in our final determination of stellar parameters. }
+in all bandpasses $A_X$ assuming the $R_V = 3.1$ reddening law of \citep{Fitzpatrick99}, 
+and then measure the likelihood of our model stellar fit to the observed apparent magnitudes.
+We apply a uniform prior ranging from zero to a maximum extinction value of 0.2 
+(a conservative upper limit for a field at such high Galactic latitude), and
+marginalize over extinction in our final determination of stellar parameters.}
 
 Such a scheme enables us to infer the statistical uncertainties on the
 mass, radius, and effective temperature.
